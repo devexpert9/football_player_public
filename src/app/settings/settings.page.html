@@ -1,0 +1,104 @@
+<app-header [title]="title">
+</app-header>
+
+<ion-content bg-dark padding>
+  
+  <ion-item detail="false" lines="none" class="bg-list-nd" routerLink="/tabs/my-profile">
+		<span class="icon-stra"> <ion-icon name="person"></ion-icon> </span>
+		<ion-label>
+			<h2>Profile</h2>	 
+		</ion-label>
+		<ion-buttons slot="end">
+			<ion-icon name="ios-arrow-forward"></ion-icon>
+		</ion-buttons>
+   </ion-item>
+   <ion-item no-padding detail="false" class="bg-list-nd" lines="none" routerLink="/transactions">
+    <span class="icon-stra"> <ion-icon name="logo-usd"></ion-icon> </span>
+	 <ion-label>
+     <h2>Transactions</h2>	 
+     </ion-label>
+   <ion-buttons slot="end">
+       <ion-icon name="ios-arrow-forward"></ion-icon>
+   </ion-buttons>
+   </ion-item>
+
+   <ion-item detail="false" lines="none" class="bg-list-nd" routerLink="/notifications">
+    <span class="icon-stra"> <ion-icon name="notifications"></ion-icon> </span>
+	<ion-label>
+     <h2>Notifications</h2>	 
+     </ion-label>
+   <ion-buttons slot="end">
+       <ion-icon name="ios-arrow-forward"></ion-icon>
+   </ion-buttons>
+   </ion-item>
+
+   <ion-item detail="false" lines="none" class="bg-list-nd">
+     <span class="icon-stra"> <ion-icon name="star"></ion-icon> </span>
+	<ion-label>
+     <h2>Rate Us</h2>	 
+     </ion-label>
+   <ion-buttons slot="end">
+       <ion-icon name="ios-arrow-forward"></ion-icon>
+   </ion-buttons>
+   </ion-item>
+
+  </ion-content>
+
+<!--ion-content class="bg-dark padding" >
+  <ion-item lines="none" routerLink="/tabs/tabs/notifications">
+   <ion-avatar>
+      <ion-icon name="notifications"></ion-icon>
+   </ion-avatar>
+    <ion-label>
+	  <h2>Notifications</h2>	 
+    </ion-label>
+	<ion-buttons slot="end">
+	    <ion-icon name="ios-arrow-forward"></ion-icon>
+	</ion-buttons>
+  </ion-item>
+    <ion-item lines="none">
+   <ion-avatar>
+      <ion-icon name="star"></ion-icon>
+   </ion-avatar>
+    <ion-label>
+	  <h2>Rate Us</h2>	 
+    </ion-label>
+	<ion-buttons slot="end">
+	    <ion-icon name="ios-arrow-forward"></ion-icon>
+	</ion-buttons>
+  </ion-item>
+   <ion-item lines="none" routerLink="/tabs/tabs/blocklists">
+   <ion-avatar>
+      <img src="assets/img/block.png">
+   </ion-avatar>
+    <ion-label>
+	  <h2>Block Lists</h2>	 
+    </ion-label>
+	<ion-buttons slot="end">
+	    <ion-icon name="ios-arrow-forward"></ion-icon>
+	</ion-buttons>
+  </ion-item>
+   <ion-item lines="none" routerLink="/tabs/tabs/invite">
+   <ion-avatar>
+      <ion-icon name="ios-people"></ion-icon>
+   </ion-avatar>
+    <ion-label>
+	  <h2>Invite Friends</h2>	 
+    </ion-label>
+	<ion-buttons slot="end">
+	    <ion-icon name="ios-arrow-forward"></ion-icon>
+	</ion-buttons>
+  </ion-item>
+   <ion-item lines="none">
+   <ion-avatar>
+      <ion-icon name="share"></ion-icon>
+   </ion-avatar>
+    <ion-label>
+	  <h2>Share</h2>	 
+    </ion-label>
+	<ion-buttons slot="end">
+	    <ion-icon name="ios-arrow-forward"></ion-icon>
+	</ion-buttons>
+  </ion-item>
+  
+</-ion-content-->

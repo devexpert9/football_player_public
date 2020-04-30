@@ -1,0 +1,24 @@
+[profile_img]{
+    border-bottom:1px solid #6b6b6b;
+    padding-bottom:5px;
+    img{
+        height: 60px;
+    margin-left: 15px;
+    border-radius: 50px;
+    margin-top: 5px;
+    }
+    [usr-name]{
+        top: 25px;
+        position: relative;
+    }
+    [pro-img]{
+        float: left;
+    }
+}
+[menu_links]{
+	i{
+		font-size: 18px;
+		position: relative;
+		top: 4px;
+	}
+}

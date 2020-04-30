@@ -1,0 +1,64 @@
+<app-header [title]="title">
+</app-header>
+
+<ion-content bg-dark padding>
+	<ion-row>
+		<ion-col size="12">
+			<div class="search-bxs">
+				<ion-input placeholder="Search..." (keyup)="searchmatch($event)"></ion-input>
+				<ion-icon name="search" routerLink="/search-results"></ion-icon>
+			</div>
+		</ion-col>
+	</ion-row>
+
+
+	
+	<ion-row>
+		<ion-col size="12">
+			<h4 class="main-ttls mrgn-cstm" *ngIf="!searching"> Favorite Matches </h4>
+			<h4 class="main-ttls mrgn-cstm" *ngIf="searching">Results for search...</h4>
+		</ion-col>
+	</ion-row>
+
+	<span *ngIf="response_came">
+	<ion-row>
+			<p class="main-ttls" *ngIf="noresults"  class="searcherror"> No results found for {{keyword}} </p>
+			<p class="main-ttls" *ngIf="norecords" class="notfound">No match found</p>
+
+		<ion-col size="6" *ngFor="let fav of favlist; let i=index">
+			<div class="box-imgs-sa small-2-box">
+					<img src="{{url}}{{fav.cover}}" class="main-img">				
+					<ion-icon name="heart" fav_prprty red (click)="addfav(fav._id,i)"></ion-icon>
+				<span class="bagd-joins"> {{fav.players}} Joined </span>
+				<div class="cont-sts">
+					<h4 class="name-h" routerLink="/match-details/{{fav._id}}">{{fav.name}}  </h4>
+					<ul class="list-dts">
+						<li> <ion-icon name="pin"></ion-icon>  {{fav.location}}  </li>
+						<li> <ion-icon name="calendar"></ion-icon>  {{fav.date | date : 'd MMM, y' }} <ion-icon name="time"></ion-icon>{{fav.stime}} To {{fav.etime}}</li>
+						
+					</ul>
+				</div>
+			</div>
+		</ion-col>
+		
+	</ion-row>
+</span>
+
+	<!-- ===========skeleton========= -->
+
+	<span *ngIf="!response_came">
+	
+			<ion-row >
+				   <ion-col size="6" *ngFor="let upcomingmatch of skeleton">
+								 <div >  				
+								   <ion-thumbnail slot="start" class="skeleton">
+									 <ion-skeleton-text animated></ion-skeleton-text>
+								   </ion-thumbnail>		
+								 </div>
+					</ion-col>
+		   </ion-row>
+   
+   
+   
+   </span>
+</ion-content>

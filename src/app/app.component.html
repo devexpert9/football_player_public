@@ -1,0 +1,42 @@
+<ion-app>
+  <!--ion-split-pane contentId="main-content"-->
+    <ion-menu contentId="main-content" type="overlay" *ngIf="logged_in">
+      <ion-header lines="none">
+          <ion-toolbar lines="none" profile_img >
+              <img pro-img src="assets/images/default-avatar.jpg" *ngIf="errors.indexOf(propic)>=0"/>
+              <img pro-img src="{{url}}{{propic}}" *ngIf="errors.indexOf(propic)==-1"  style="width:57px;"/>
+              <ion-title lines="none" class="ion-text-left" usr-name>
+                {{fname[0].toUpperCase()+fname.slice(1)}} {{lname[0].toUpperCase()+lname.slice(1)}}
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content bg-dark>
+        <ion-list class="nav-menu" lines="none">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item menu_links lines="none" [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+			  <i class="icon"  [ngClass]='p.iconss'></i>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item lines="none" (click)="logout()">
+                  <ion-icon name="log-out"></ion-icon>
+                <ion-label>
+                Logout
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+          
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+
+    
+
+  <!--/ion-split-pane-->
+</ion-app>

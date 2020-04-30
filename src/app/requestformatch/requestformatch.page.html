@@ -1,0 +1,67 @@
+<app-header [title]="title">
+</app-header>
+<ion-content bg-dark padding>
+    <form [formGroup]="updatedata" (ngSubmit)="checkForm()">
+   <div class="cnl_booking">
+   
+     <h3>Request For <span>Field</span></h3>
+     <div class="msg_box check_box" >
+      <ion-item no-padding lines="none">
+        <ion-checkbox color="primary" (click)="isActive = !isActive" formControlName="fullday"  ></ion-checkbox> <span>Full Day</span>
+        </ion-item>
+     </div>
+<div class="msg_6">
+     <div class="msg_box">
+      <ion-item no-padding lines="none">
+          <ion-datetime no-border field_clr  displayFormat="MM DD YY" placeholder="Select Date" formControlName="date"[min]="date"></ion-datetime>
+        </ion-item>
+     </div>
+</div>
+<div *ngIf="!updatedata.controls.date.valid && is_submit" class="valid">
+  Please select date
+</div>
+
+    <div class="msg_6" [ngClass]="{'block_page': isActive}">
+
+        <div class="msg_box">
+         <ion-item no-padding lines="none">
+             <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Select Time" formControlName="stime"></ion-datetime>
+           </ion-item>
+        </div>         
+       </div>
+
+
+     <div class="msg_6" [ngClass]="{'block_page': isActive}">
+
+        <div class="msg_box">
+         <ion-item no-padding lines="none">
+             <ion-datetime  display-format="HH-mm" picker-format="HH-mm"  no-border field_clr  placeholder="Select Time" formControlName="etime"></ion-datetime>
+           </ion-item>
+        </div>         
+       </div>
+       <div *ngIf="timerequired && is_submit" class="valid">
+        Please select start and end time
+    </div>
+
+
+
+	 <div class="msg_box">
+      <ion-item no-padding>
+          <ion-textarea rows="4" cols="20" placeholder="Comments" formControlName="comment"></ion-textarea>
+        </ion-item>
+
+        <div *ngIf="!updatedata.controls.comment.valid && is_submit" class="valid">
+            Please write a comment
+        </div>
+
+	  
+     </div>
+     <div class="modal_btn">
+        <ion-buttons>
+           <ion-button type="submit" style="color:white">
+           Submit
+          </ion-button></ion-buttons>
+     </div>
+   </div>
+   </form>
+</ion-content>

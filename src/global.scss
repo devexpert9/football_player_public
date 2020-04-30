@@ -1,0 +1,113 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+[ion_page_header]{
+	ion-title{
+        padding: inherit;
+        text-align: center;
+	}
+	ion-buttons{
+		ion-menu-button{
+			position:relative;
+			[alert]{
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				background:#ff5722;
+				border-radius: 50px; 
+				top: 10px;
+				right: 10px;
+			}
+			ion-icon{
+				color:#fff;
+			}
+		}
+	}
+}
+
+.ion-slider .swiper-pagination{
+	position: relative;
+    bottom: 0;
+    margin-top: 10px;
+}
+
+.ion-slider  .swiper-pagination-bullet{
+	background:#fff !important;
+	opacity:1;
+}
+
+.ion-slider span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+	background:#00afff !important;
+}
+
+.loading-wrapper.sc-ion-loading-md{
+	background:none !important;
+	box-shadow:none !important;
+}
+
+.spinner-bubbles.sc-ion-loading-md, .spinner-circles.sc-ion-loading-md, .spinner-crescent.sc-ion-loading-md, .spinner-dots.sc-ion-loading-md, .spinner-lines.sc-ion-loading-md, .spinner-lines-small.sc-ion-loading-md {
+    color:#3314bb !important;
+}
+
+.notfound{
+color:grey;
+margin-left: 96px;
+}
+
+.searcherror{
+	
+	margin-top: 10px;
+	color:grey;
+	margin-left: 8px;
+}
+
+ng4geo-autocomplete input#search_places {
+    border-radius: 0;
+    height: 42px;
+    font-size: 14px;
+    padding: 0px 60px 0px 12px;
+    border-top: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: none;
+    margin-bottom: 15px;
+  /*  max-width:250px;*/
+    max-width: 100%;
+        color: #fff;
+
+}
+ng4geo-autocomplete button {
+  display: none;
+}
+ng4geo-autocomplete button.search-icon i.search-default-icon {
+    height: 16px!important;
+	width: 16px!important;
+	color: #fff;
+}
+input:focus , textarea:focus , select:focus , ion-datetime:focus , button:focus, ion-item:focus {
+	outline: none;
+	color: #fff;
+}

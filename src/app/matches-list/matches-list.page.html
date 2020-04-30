@@ -1,0 +1,116 @@
+<app-header [title]="title"></app-header>
+
+<!-- <ion-content bg-dark content-padding *ngIf="response1_came && response2_came"> -->
+		<ion-content bg-dark content-padding>
+	<ion-row>
+		<ion-col size="12">
+      <h4  class="main-ttls mrgn-cstm"> Matches </h4>
+      
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col size="12">
+			<!-- Default Segment -->
+			<ion-segment match_tab scrollable [(ngModel)]="matches">
+			  <ion-segment-button value="all">
+			    <ion-label>Upcoming</ion-label>
+			  </ion-segment-button>
+			  <ion-segment-button value="previous">
+			    <ion-label>Previous</ion-label>
+			  </ion-segment-button>
+			  
+			</ion-segment>
+
+			<div segment-content [(ngSwitch)]="matches" *ngIf="response1_came && response2_came">
+				
+				<div *ngSwitchDefault ngSelected="selected" >
+					<ion-row mr-m-5>
+						<p *ngIf="upcominglist.length==0" class="notfound">No match found</p>
+
+						<ion-col size="6" *ngFor="let upcoming of upcominglist">
+							<div class="box-imgs-sa small-2-box">
+								<img src="{{url}}{{upcoming.cover}}" class="main-img" routerLink="/match-details/{{upcoming._id}}">
+								<span class="bagd-joins">{{upcoming.players}} Joined </span>
+								<div class="cont-sts">
+									<h4 class="name-h" routerLink="/match-details/{{upcoming._id}}">{{upcoming.name}}  </h4>
+									<ul class="list-dts">
+										<li> <ion-icon name="pin"></ion-icon> {{upcoming.location}} </li>
+										<li> <ion-icon name="calendar"></ion-icon> {{upcoming.date | date : 'd MMM, y' }} <ion-icon name="time"></ion-icon>{{upcoming.stime}}</li>
+									</ul>
+									<!--a class="cancel" (click)="presentModal()">Cancel</a-->
+								</div>
+							</div>
+						</ion-col>
+					
+						
+					</ion-row>
+				
+				</div>
+
+				<div *ngSwitchCase="'previous'">
+					<ion-row mr-m-5>
+							<p *ngIf="previouslist.length==0" class="notfound">No match found</p>
+							<ion-col size="6" *ngFor="let previousmatch of previouslist">
+									<div class="box-imgs-sa small-2-box">
+										<img src="{{url}}{{previousmatch.cover}}" class="main-img" routerLink="/previousmatch-matchdetails">
+										<span class="bagd-joins"> 4 Joined </span>
+										<div class="cont-sts">
+											<h4 class="name-h" routerLink="/previous-matchdetails">{{previousmatch.name}}  </h4>
+											<ul class="list-dts">
+												<li> <ion-icon name="pin"></ion-icon> {{previousmatch.location}} </li>
+												<li> <ion-icon name="calendar"></ion-icon> {{previousmatch.date | date : 'd MMM, y' }} <ion-icon name="time"></ion-icon>{{previousmatch.stime}}</li>
+											</ul>
+											<!--a class="cancel" (click)="presentModal()">Cancel</a-->
+										</div>
+									</div>
+					         </ion-col>						
+					</ion-row>				
+				</div>		
+			</div>
+
+
+			<!-- //skeleton -->
+
+
+			<div segment-content [(ngSwitch)]="matches" *ngIf="!response1_came && !response2_came">
+					
+					<div *ngSwitchDefault ngSelected="selected" >
+												
+							 <ion-row >
+									<ion-col size="6" *ngFor="let upcomingmatch of skeleton">
+												  <div >  				
+													<ion-thumbnail slot="start" class="skeleton">
+													  <ion-skeleton-text animated></ion-skeleton-text>
+													</ion-thumbnail>		
+												  </div>
+									 </ion-col>
+							</ion-row>
+					
+					</div>
+	
+					<div *ngSwitchCase="'previous'">
+						<ion-row mr-m-5>
+							
+								<ion-row >
+										<ion-col size="6" *ngFor="let upcomingmatch of skeleton">
+													  <div >  				
+														<ion-thumbnail slot="start" class="skeleton">
+														  <ion-skeleton-text animated></ion-skeleton-text>
+														</ion-thumbnail>		
+													  </div>
+										 </ion-col>
+								</ion-row>					
+						</ion-row>				
+					</div>		
+				</div>
+
+				
+		</ion-col>
+	</ion-row>
+</ion-content>
+
+
+<!-- //skeleton-------------------- -->
+<!-- 
+<ion-content bg-light content-padding *ngIf="!response1_came && !response2_came"> -->
+			

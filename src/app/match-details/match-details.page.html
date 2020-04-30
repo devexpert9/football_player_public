@@ -1,0 +1,113 @@
+<app-header [title]="title">
+</app-header>
+
+<ion-content bg-dark padding>
+		<span *ngIf="response1_came && response2_came">
+<ion-row>
+	<ion-col size-md="12">
+		<div class="owner_info">
+			<img *ngIf="errors.indexOf(matchlist?.owner.pic)>=0" src="assets/images/default-avatar.jpg">
+			<img  *ngIf="errors.indexOf(matchlist?.owner.pic)==-1" src="{{url+matchlist?.owner.pic}}">
+
+			<div class="inn_info">
+				<h5  routerLink="/owner-profile/{{matchlist?.owner._id}}" *ngIf="errors.indexOf(matchlist)==-1">{{matchlist?.owner.fname[0].toUpperCase()+matchlist?.owner.fname.slice(1)}} {{matchlist?.owner.lname[0].toUpperCase()+matchlist?.owner.lname.slice(1)}}<span class="owner-lsr">Owner</span></h5>
+				<span *ngIf="matchlist?.match.request_match==0">
+								<a (click)="presentModal()" *ngIf="getjoinresult?.indexOf(_id)==-1 && noOfPlayers<matchlist?.match.players">Join now</a>
+				<a (click)="leaveMatch()" *ngIf="getjoinresult?.indexOf(_id)>=0">Leave</a>
+
+				</span>
+	
+			</div>
+		</div>
+	</ion-col>
+</ion-row>
+<ion-row match_loc>
+	<ion-col size-md="6">
+		<div class="info_col">
+			<i class="icon icon-calendar-2"></i>
+			<div class="m_info">
+				<strong>Date <span>{{matchlist?.match.date | date : 'd MMM, y' }}</span></strong>
+			</div>
+		</div>
+	</ion-col>
+	<ion-col size-md="6">
+		<div class="info_col">
+			<i class="icon icon-clock-1"></i>
+			<div class="m_info">
+				<strong>Time <span>{{matchlist?.match.stime}} - {{matchlist?.match.etime}}</span></strong>
+			</div>
+		</div>
+	</ion-col>
+	</ion-row>
+	<ion-row match_loc mb-15>
+	<ion-col size-md="12">
+		<div class="info_col">
+			<i class="icon icon-stadium-1"></i>
+			<div class="m_info">
+				<strong>{{matchlist?.location.name}} <span>{{matchlist?.match.location }}</span></strong>
+			</div>
+		</div>
+	</ion-col>
+</ion-row>
+
+<ion-row plr_prt>
+	<ion-col size-md="12">
+		<h4>Participating Players <span>{{noOfPlayers}}/{{matchlist?.match.players}}</span></h4>
+	</ion-col>
+</ion-row>
+<ion-row plr_prt_m plr_hdr>
+	<ion-col size="2">Player</ion-col>
+	<ion-col size="5">Name</ion-col>
+	<ion-col size="3">Position</ion-col>
+	<ion-col size="2">Goals</ion-col>
+</ion-row>
+
+		<ion-row plr_prt_m *ngFor="let player of onlyplayers">
+		
+					<ion-col size="2">
+							<img *ngIf="errors.indexOf(player?.pic)>=0" src="assets/images/default-avatar.jpg">
+							<img  *ngIf="errors.indexOf(player?.pic)==-1" src="{{purl+player?.pic}}">
+					</ion-col>
+					<ion-col size="5">{{player?.fname[0].toUpperCase()+player?.fname.slice(1)}} {{player?.lname[0].toUpperCase()+player?.lname.slice(1)}}</ion-col>
+					<ion-col size="3">{{player?.position}}</ion-col>
+					<ion-col size="2">{{player?.goals}}</ion-col>
+		
+			
+			</ion-row>
+
+		</span>
+			<span *ngIf="!response1_came && !response2_came">	
+	
+					<ion-row >
+						   <ion-col size="12">
+										 <div >  				
+										   <ion-thumbnail slot="start" class="skeleton">
+											 <ion-skeleton-text animated></ion-skeleton-text>
+										   </ion-thumbnail>		
+										 </div>
+							</ion-col>
+				   </ion-row>
+
+				   <div class="ion-padding custom-skeleton">
+						<ion-item style="--background: #252c46;background: #252c46;" *ngFor="let item of skeleton" >
+								<ion-avatar slot="start">
+								  <ion-skeleton-text animated></ion-skeleton-text>
+								</ion-avatar>
+								<ion-label>
+								  <h3>
+									<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+								  </h3>
+								  <p>
+									<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+								  </p>
+								  <p>
+									<ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+								  </p>
+								</ion-label>
+							  </ion-item>
+				</div>
+		   
+		   
+		   
+		   </span>
+</ion-content>

@@ -1,0 +1,68 @@
+
+<ion-header>
+  <ion-toolbar heading_ttl>
+    <ion-title>Request Field</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content bg-dark padding>
+    <form [formGroup]="updatedata" (ngSubmit)="sendrequest()">
+   <div class="cnl_booking">
+    <ion-buttons  (click)="myDismiss()" close_mdl><ion-icon icon_close ios="ios-close" md="md-close"></ion-icon></ion-buttons>
+     <h3>Request For <span>Field</span></h3>
+     <div class="msg_box check_box" >
+      <ion-item no-padding lines="none">
+        <ion-checkbox color="primary" (click)="isActive = !isActive" formControlName="fullday"  ></ion-checkbox> <span>Full Day</span>
+        </ion-item>
+     </div>
+<div class="msg_6">
+     <div class="msg_box">
+      <ion-item no-padding lines="none">
+          <ion-datetime no-border field_clr  placeholder="Select Date" formControlName="date" [min]="date"></ion-datetime>
+        </ion-item>
+     </div>
+
+
+     <div *ngIf="!updatedata.controls.date.valid && is_submit" class="valid">
+        Please select date
+    </div>
+
+
+
+
+    </div>
+
+    <div class="msg_6" [ngClass]="{'block_page': isActive}">
+
+        <div class="msg_box">
+         <ion-item no-padding lines="none">
+             <ion-datetime  displayFormat="h:mm A" no-border field_clr  placeholder="Select Time" formControlName="time"></ion-datetime>
+           </ion-item>
+        </div>
+
+        <div *ngIf="timerequired && is_submit" class="valid">
+            Please select time
+        </div>
+
+        
+       </div>
+	 <div class="msg_box">
+      <ion-item no-padding>
+          <ion-textarea rows="4" cols="20" placeholder="Comments" formControlName="comment"></ion-textarea>
+        </ion-item>
+
+        <div *ngIf="!updatedata.controls.comment.valid && is_submit" class="valid">
+            Please write a comment
+        </div>
+
+	  
+     </div>
+     <div class="modal_btn">
+        <ion-buttons>
+           <ion-button type="submit">
+           Submit
+          </ion-button></ion-buttons>
+     </div>
+   </div>
+   </form>
+</ion-content>

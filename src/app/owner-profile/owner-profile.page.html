@@ -1,0 +1,146 @@
+<app-header [title]="title"></app-header>
+
+<ion-content bg-dark>
+    <!-- <span *ngIf="response1_came && response2_came"> -->
+        <span *ngIf="response1_came && response2_came && response3_came && response4_came">
+	<div profile_box>
+		<img src="assets/images/img1.jpg" class="main-img">
+		<div class="name-h">
+      <div>
+        <img *ngIf="errors.indexOf(owner_array?.pic)>=0" src="assets/images/default-avatar.jpg">
+        <img  *ngIf="errors.indexOf(owner_array?.pic)==-1" src="{{url+owner_array?.pic}}">
+      <h2 *ngIf="errors.indexOf(owner_array?.fname)==-1">{{owner_array?.fname[0].toUpperCase()+owner_array?.fname.slice(1)}} {{owner_array?.lname[0].toUpperCase()+owner_array?.lname.slice(1)}}</h2>
+     
+      <span follower_col><strong>{{noOfFollowers}}</strong> {{noOfFollowers == 1 ? 'Follower' : 'Followers' }}</span>
+			<div class="follow_btn">
+        <a href="javascript:void()" (click)="follow()" *ngIf="!following">Follow</a>
+        <a href="javascript:void()" (click)="follow()" *ngIf="following">Following</a>        
+        <a routerLink="/requestformatch/{{owner_array?._id}}">Request field</a>
+
+			</div>
+    </div>
+  </div>
+  </div>
+  
+  <div match_list padding>
+    <!--h4 class="main-ttls">Matches</-h4-->
+    <ion-segment [(ngModel)]="matches_list" color="primary" match_tab>
+      <ion-segment-button value="upcoming">
+        Upcoming
+      </ion-segment-button>
+      <ion-segment-button value="previous">
+        Previous
+      </ion-segment-button>
+   </ion-segment>
+   
+   <div allOrders [ngSwitch]="matches_list">
+      <div itemLists *ngSwitchCase="'previous'" padding-top>
+        <ion-row mr-m-5>
+
+          <ion-col size="6" *ngFor="let previous of previous_array">
+            <div class="box-imgs-sa small-2-box">
+              <img *ngIf="errors.indexOf(previous?.cover)>=0" src="assets/images/default-avatar.jpg">
+              <img  *ngIf="errors.indexOf(previous?.cover)==-1" src="{{murl+previous?.cover}}">
+              <div class="cont-sts">
+                <h4 class="name-h" routerLink="/match-details/{{previous._id}}">{{previous.name}}</h4>
+                <ul class="list-dts">
+                  <li> <ion-icon name="pin"></ion-icon> {{previous.location}}</li>
+                  <li> <ion-icon name="calendar"></ion-icon> {{previous.date | date : 'd MMM, y' }} </li>
+                  <li> <ion-icon name="time"></ion-icon> {{previous.stime}}</li>
+                </ul>
+                <!--a routerLink="/match-results" class="results_link">Results</a-->
+              </div>
+            </div>
+          </ion-col>
+
+          <p *ngIf="previous_array.length==0" class="notfound">No match found</p>	
+       
+        </ion-row>
+      </div>
+   
+      <div itemLists *ngSwitchCase="'upcoming'" padding-top>
+        <ion-row mr-m-5>
+          
+            <ion-col size="6" *ngFor="let upcoming of upcoming_array">
+                <div class="box-imgs-sa small-2-box">
+                    <img *ngIf="errors.indexOf(upcoming?.cover)>=0" src="assets/images/usr_img.jpg">
+                    <img  *ngIf="errors.indexOf(upcoming?.cover)==-1" src="{{murl+upcoming?.cover}}">
+                    <div class="cont-sts">
+                      <h4 class="name-h" routerLink="/match-details/{{upcoming._id}}">{{upcoming.name}}</h4>
+                      <ul class="list-dts">
+                        <li> <ion-icon name="pin"></ion-icon> {{upcoming.location}}</li>
+                        <li> <ion-icon name="calendar"></ion-icon> {{upcoming.date | date : 'd MMM, y' }} </li>
+                        <li> <ion-icon name="time"></ion-icon> {{upcoming.stime}}</li>
+                      </ul>
+                      <!--a routerLink="/match-results" class="results_link">Results</a-->
+                    </div>
+                  </div>
+          </ion-col>
+          <p *ngIf="upcoming_array.length==0" class="notfound">No match found</p>
+
+        </ion-row>
+      </div>
+   </div>    
+  </div>
+</span>
+
+  <!-- ============skeleton=========== -->
+  <span *ngIf="!response1_came && !response2_came && !response3_came && !response4_came">
+    	<div profile_box>
+          <img src="assets/images/img1.jpg" class="main-img">
+          <div class="name-h">
+            <div>
+              <img src="assets/images/default-avatar.jpg">          
+            
+          </div>
+        </div>
+        </div>
+     
+      
+      <div match_list padding>
+        <!--h4 class="main-ttls">Matches</-h4-->
+        <ion-segment [(ngModel)]="matches_list" color="primary" match_tab>
+          <ion-segment-button value="upcoming">
+            Upcoming
+          </ion-segment-button>
+          <ion-segment-button value="previous">
+            Previous
+          </ion-segment-button>
+       </ion-segment>
+       
+       <div allOrders [ngSwitch]="matches_list">
+          <div itemLists *ngSwitchCase="'previous'" padding-top>
+            <ion-row mr-m-5>
+    
+                <ion-col size="6" *ngFor="let upcomingmatch of skeleton">
+                    <div >  				
+                    <ion-thumbnail slot="start" class="skeleton">
+                      <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-thumbnail>		
+                    </div>
+             </ion-col>
+    
+          
+           
+            </ion-row>
+          </div>
+       
+          <div itemLists *ngSwitchCase="'upcoming'" padding-top>
+            <ion-row mr-m-5>
+              
+                <ion-col size="6" *ngFor="let upcomingmatch of skeleton">
+                    <div >  				
+                    <ion-thumbnail slot="start" class="skeleton">
+                      <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-thumbnail>		
+                    </div>
+             </ion-col>
+            
+    
+            </ion-row>
+          </div>
+       </div>    
+      </div>
+    </span> 
+
+</ion-content>

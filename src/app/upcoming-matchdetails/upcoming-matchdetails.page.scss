@@ -1,0 +1,195 @@
+ion-header{
+	
+	ion-buttons{
+		ion-menu-button{
+			position:relative;
+			color:#fff;
+			[alert]{
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				background:#ff5722;
+				border-radius: 50px; 
+				top: 10px;
+				right: 10px;
+			}
+		}
+	}
+}
+ion-content[bg-dark] {
+	--background: #252c46;
+	background: #252c46;
+	[mb-15]{
+		margin-bottom:20px;
+	}
+	[match_loc]{
+		.info_col{
+			padding: 9px;
+			border-radius: 2px;
+			border: 0.5px solid #5b5e6b;
+			color: #fff;
+			i{
+				float:left;
+				margin-right:15px;
+				font-size:30px;
+				color:#00afff;
+			}
+			.m_info{
+				overflow:hidden;
+				font-size:12px;
+				strong{
+					font-weight:bold;
+					font-size:14px;
+					span{
+						margin-top:3px;
+						display:block;
+						font-weight:normal;
+					}
+				}
+			}
+		}
+	}
+
+	.owner_info{
+		margin-bottom: 10px;
+		position: relative;
+		display: flex;
+		align-items: center;
+		&:before{
+			/*content: "";*/
+			position: absolute;
+			max-width: 200px;
+			height: 1px;
+			background: #5b5e6b;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		&:after{
+			/*content: "";*/
+			position: absolute;
+			max-width: 200px;
+			height: 1px;
+			background: #5b5e6b;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		img{
+			width: 60px;
+			height: 60px;
+			border-radius: 50px;
+			float: left;
+			margin-right: 15px;
+		}
+		.inn_info{
+			overflow:hidden;
+			position:relative;
+			width:100%;
+			h5{
+				color:#fff;
+				font-size:14px;
+				float: left;
+				margin:0;
+				span{
+					    display: inline-block;
+						margin-top: 0px;
+						font-size: 12px;
+						color: #00afff;
+						border-left: 2px solid #00afff;
+						margin-left: 8px;
+						padding-left: 5px;
+						font-weight: 700;
+						letter-spacing: 1px;
+						padding-top: 1px;
+				}
+			}
+			a{
+				float: right;
+				text-decoration: none;
+				color: #fff;
+				background: #00afff;
+				font-size: 12px;
+				padding: 3px 12px;
+				border-radius: 50px;
+			}
+		}
+	}
+	[plr_prt]{
+		h4{
+			color: #fff;
+			font-size: 14px;
+			margin: 0 0 15px 0;
+			span{
+				letter-spacing: 1px;
+				margin-left: 10px;
+				float:right;
+			}
+			a{
+				float: right;
+				letter-spacing: 1px;
+				margin-left: 10px;
+				text-decoration: none;
+				color: #fff;
+				background: #00afff;
+				font-size: 12px;
+				padding: 3px 12px;
+				border-radius: 50px;
+				font-weight: normal;
+			}
+		}
+
+	}
+	[plr_prt_m]{
+		color: #fff;
+		border-bottom: 1px solid #5b5e6b;
+		padding: 3px 0;
+		font-size: 12px;
+		align-items: center;
+		text-align:center;
+		ion-col{
+			padding-top:0;
+			padding-bottom:0;
+		}
+		img{
+			width:40px;
+			height:40px;	
+			border-radius:50px;
+		}
+	}
+	[plr_hdr]{
+		color: #00afff;
+		padding-bottom: 12px;
+		border-top: 1px solid #5b5e6b;
+		padding-top: 12px;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}
+.icon-stadium-1{
+	transform: rotate(90deg);
+    margin-left: -8px;
+}
+ion-content[bg-dark] .owner_info .inn_info  {
+.btn-who {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+	a.invit-frn  {
+		float: left;
+		font-size: 10px;
+		letter-spacing: 1px;
+		padding: 3px 10px;
+	}
+	a.btn-cancl {
+		float: left;
+		font-size: 10px;
+		letter-spacing: 1px;
+		margin-left: 7px;
+		background: #F44336;
+		padding: 3px 10px;
+	}
+}
+}

@@ -1,0 +1,88 @@
+
+ion-content[bg-dark]{
+    --background: #252c46;
+    background: #252c46;
+    ion-item {
+      --inline-padding-end: 0px;
+		--padding-end: 0px;
+		margin-bottom: var(--ion-value-15);
+		box-shadow: 3px 3px 21px rgba(255, 255, 255, 0.07);
+		border-radius: 0px;
+		border-left: 4px solid #02a8f647;
+		--background: #fff;
+		margin-bottom: 15px;
+		--color: #fff;
+		border-bottom: 1px solid #b7b7b7;
+		--padding-start: 0;
+		height: 52px;
+		background: #fff;
+		padding-top: 6px;
+		padding-left: 10px;
+          ion-buttons{
+				margin-right: var(--ion-value-20);
+				color: #fff;
+				font-size: var(--ion-value-24);
+				padding-right: 5px;
+          }
+          ion-avatar{
+                  text-align: center;
+					font-size: 22px;
+					color: #fff;
+					padding-top: 5px;
+					background: #02a8f6;
+					margin-right: 12px;
+					margin-top: 0px;
+          img{
+              height: var(--ion-value-16);
+              margin-top: var(--ion-value-11);
+              object-fit: contain;
+          }
+          ion-icon{
+              margin-top: var(--ion-value-9);
+          }
+          }
+          ion-label{    
+            white-space: normal;
+            margin-left:var(--ion-value-15);
+            h2{
+              font-size: 15px;
+				color: #252c46;
+				font-weight: 500;
+				letter-spacing: 1px;
+            }
+          }
+    }
+	ion-item.bg-list-nd{
+		--background: transparent;
+		background: rgba(255, 255, 255, 0.19);
+		color: #fff;
+		position: relative;
+		border: none;
+		padding: 0px;
+		span.icon-stra {
+			/* position: absolute !important; */
+			    background: #02a8f6;
+				width: 65px;
+				height: 100%;
+				left: 0;
+				top: 0px;
+				text-align: center;
+				font-size: 20px;
+				height: 52px;
+				line-height: 52px;
+				-webkit-clip-path: polygon(0 0, 100% 0, 79% 99%, 0% 100%);
+				clip-path: polygon(0 0, 100% 0, 79% 99%, 0% 100%);
+				padding-right: 7px;
+				margin-right: 10px;
+				padding-top: 2px;
+		}
+		ion-label {
+			h2 {
+				color: #fff;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				font-size: 12px;
+			}
+		}
+	}
+  }

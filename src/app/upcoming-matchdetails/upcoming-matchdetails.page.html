@@ -1,0 +1,93 @@
+<app-header [title]="title">
+</app-header>
+
+<ion-content bg-dark padding>
+
+
+<ion-row>
+	<ion-col size-md="12">
+		<div class="owner_info">
+			<img src="assets/images/usr_img1.jpg"  routerLink="/owner-profile">
+			<div class="inn_info">
+				<h5  routerLink="/owner-profile">Robert Downy Jr<span class="owner-lsr">Owner</span></h5>
+				<div class="btn-who">
+					<a class="invit-frn" href="javascript:void(0);" (click)="presentModal()">Invite</a>
+					<a class="btn-cancl" href="javascript:void(0);" (click)="presentModal2()">Cancel</a>
+				</div>
+			</div>
+		</div>
+	</ion-col>
+</ion-row>
+<ion-row match_loc>
+	<ion-col size-md="6">
+		<div class="info_col">
+			<i class="icon icon-calendar-2"></i>
+			<div class="m_info">
+				<strong>Date <span>25, Feb 2020</span></strong>
+			</div>
+		</div>
+	</ion-col>
+	<ion-col size-md="6">
+		<div class="info_col">
+			<i class="icon icon-clock-1"></i>
+			<div class="m_info">
+				<strong>Time <span>09:00 - 14:00</span></strong>
+			</div>
+		</div>
+	</ion-col>
+	</ion-row>
+	<ion-row match_loc mb-15>
+	<ion-col size-md="12">
+		<div class="info_col">
+			<i class="icon icon-stadium-1"></i>
+			<div class="m_info">
+				<strong>Miami Stadium <span>55Glen Ridge Dr. Fair Lawn, Nj 07410</span></strong>
+			</div>
+		</div>
+	</ion-col>
+</ion-row>
+
+<ion-row plr_prt>
+	<ion-col size-md="12">
+		<h4>Participating Players <span>5/10</span></h4>
+	</ion-col>
+</ion-row>
+<ion-row plr_prt_m plr_hdr>
+	<ion-col size="2">Player</ion-col>
+	<ion-col size="5">Name</ion-col>
+	<ion-col size="3">Position</ion-col>
+	<ion-col size="2">Goals</ion-col>
+</ion-row>
+<ion-row plr_prt_m>
+	<ion-col size="2"><img src="assets/images/plr1.jpg" /></ion-col>
+	<ion-col size="5">Tammy Abraham</ion-col>
+	<ion-col size="3">Striker</ion-col>
+	<ion-col size="2">50</ion-col>
+</ion-row>
+
+<ion-row plr_prt_m>
+	<ion-col size="2"><img src="assets/images/plr2.jpg" /></ion-col>
+	<ion-col size="5">Robin van</ion-col>
+	<ion-col size="3">Midfielder</ion-col>
+	<ion-col size="2">60</ion-col>
+</ion-row>
+
+<ion-row plr_prt_m>
+	<ion-col size="2"><img src="assets/images/plr3.jpg" /></ion-col>
+	<ion-col size="5">Vyacheslav</ion-col>
+	<ion-col size="3">Forward</ion-col>
+	<ion-col size="2">20</ion-col>
+</ion-row>
+<ion-row plr_prt_m>
+	<ion-col size="2"><img src="assets/images/plr4.jpg" /></ion-col>
+	<ion-col size="5">Justin Fashanu</ion-col>
+	<ion-col size="3">Defender</ion-col>
+	<ion-col size="2">23</ion-col>
+</ion-row>
+<ion-row plr_prt_m>
+	<ion-col size="2"><img src="assets/images/plr1.jpg" /></ion-col>
+	<ion-col size="5">Zinedine Zidane</ion-col>
+	<ion-col size="3">Goalkeeper</ion-col>
+	<ion-col size="2">22</ion-col>
+</ion-row>  
+</ion-content>

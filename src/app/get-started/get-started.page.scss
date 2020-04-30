@@ -1,0 +1,116 @@
+ion-content.login-bg {
+	--background: #252b46;
+	background: #252b46;
+	.logo-top {
+		text-align: center;
+		padding: 80px 0 30px;
+		 img {
+			width: 112px;
+			margin: 0 auto;
+		}
+	}
+	.ttl_box{
+		h4{
+			color: #fff;
+			text-align: center;
+			margin-top: 0px;
+			margin-bottom: 20px;
+			padding-bottom: 15px;
+			font-size: 22px;
+			position: relative;
+			span{
+				display: block;
+			}
+			&:after{
+				content: "";
+				position: absolute;
+				width: 50px;
+				height: 3px;
+				background: #00afff;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				border-radius: 100px;
+			}
+		}
+	}
+	.logn-form {
+		padding: 25px;
+	}
+	.box-feilds {
+		color: #fff;
+		font-family: 'Montserrat', sans-serif;
+		position: relative;
+		padding-left: 40px !important;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		margin-bottom: 15px;
+		ion-input  {
+			font-family: Montserrat, sans-serif !important;
+			font-size: 14px;
+			padding-bottom: 7px !important;
+			--placeholder-color:#fff;
+			--placeholder-opacity:1;
+		}
+		img.icon-log {
+			width: 20px;
+			position: absolute;
+			top: 7px;
+			left:0;
+		}
+	}
+	ion-item.remembr  {
+		--background: transparent;
+		background: transparent;
+		border: none;
+		color: #fff;
+		font-size: 12px;
+		position: relative;
+		left: -20px;
+		ion-checkbox  {
+			margin-right: 7px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+	a.forgt-txt {
+		font-size: 11.54px;
+		float: right;
+		text-align: right;
+		text-decoration: none;
+		color: #5ac1f8;
+		margin-top: 15px;
+	}
+	.login-btn{
+		margin: 0px;
+		margin-top: 10px;
+		font-family: "Montserrat", sans-serif !important;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 17px;
+		height: 54px;
+	}
+	p.sign-up-txt {
+		text-align: center;
+		color: #fff;
+		/* margin: 0px; */
+		font-size: 14.5px;
+		font-weight: 400;
+		a {
+			color: #5ac8fa;
+			font-weight: 700;
+			text-decoration: none;
+		}
+	}
+}
+.mb-5{
+    margin-bottom: 5px !important;
+}
+p.dummy-scnd {
+    color: rgba(255, 255, 255, 0.74);
+    text-align: center;
+    max-width: 90%;
+    line-height: 24px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}

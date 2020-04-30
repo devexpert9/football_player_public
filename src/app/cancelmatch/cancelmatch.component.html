@@ -1,0 +1,20 @@
+
+<ion-header>
+  <ion-toolbar heading_ttl>
+    <ion-title>Cancel Match</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content bg-dark padding>
+   <div class="cnl_booking">
+    <ion-buttons  (click)="myDismiss()" close_mdl><ion-icon ios="ios-close" md="md-close"></ion-icon></ion-buttons>
+     <h3>Let us know the reason to cancel your <span>Match</span></h3>
+     <div class="msg_box">
+      <ion-textarea rows="4" cols="20"></ion-textarea>
+     </div>
+     <div class="modal_btn">
+        <ion-buttons>Submit</ion-buttons>
+        <ion-buttons (click)="myDismiss()" dismiss>Cancel</ion-buttons>
+     </div>
+   </div>
+</ion-content>

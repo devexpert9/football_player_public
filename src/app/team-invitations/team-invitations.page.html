@@ -1,0 +1,61 @@
+<app-header [title]="title">
+</app-header>
+
+<ion-content padding bg-dark>
+	<ion-row  *ngIf="response_came">
+		<ion-col size="12">
+			<ion-list list-rqsts>
+
+
+
+				<ion-card class="cont-box" *ngFor="let key of requestslist; let i =index">
+					<img src="{{url}}{{key.player.pic}}" class="img-st-new" *ngIf="errors.indexOf(key.player.pic)==-1"/>
+					<img src="assets/images/plr1.jpg" class="img-st-new" *ngIf="errors.indexOf(key.player.pic)>=0"/>
+					<div class="cont-rigts">
+					  <ion-card-title>{{key.player.fname[0].toUpperCase()+key.player.fname.slice(1)}} {{key.player.lname[0].toUpperCase()+key.player.lname.slice(1)}}</ion-card-title>
+						<ul class="list-date">
+							<li> <ion-icon name="calendar"></ion-icon> {{key.request.date | date : 'd MMM, y' }} </li>
+							<li *ngIf="key.request.fullday==false"> <ion-icon name="time"></ion-icon> {{key.request.stime}} </li>
+							<li *ngIf="key.request.fullday==true"> <ion-icon name="time"></ion-icon> Full Day </li>
+						</ul>
+						<p>
+							{{key.request.comment}}
+						</p>
+					</div>
+					<div class="btn-acct">
+						<a href="javascript:void(0);" class="accrot" (click)="actionOnFieldReq(key.request._id,1,i,key.request.payment_id,key.player._id,key.request.date,key.request.etime,key.request.stime,key.request.fullday)"> <ion-icon name="checkmark"></ion-icon> </a>
+						<a href="javascript:void(0);" (click)="actionOnFieldReq(key.request._id,0,i,key.request.payment_id,key.player._id,key.request.date,key.request.etime,key.request.stime,key.request.fullday)" class="reject"> <ion-icon name="close"></ion-icon> </a>
+					</div>
+				</ion-card>
+				<p *ngIf="norequest" class="notfound">No Requests Yet</p>
+
+
+			</ion-list>
+		</ion-col>
+	</ion-row>
+
+		<!-- ============skeleton=========== -->
+
+	<div *ngIf="!response_came">
+			<div class="ion-padding custom-skeleton">
+					<ion-item style="--background: #252c46;background: #252c46;" *ngFor="let item of skeleton" >
+							<ion-avatar slot="start">
+							  <ion-skeleton-text animated></ion-skeleton-text>
+							</ion-avatar>
+							<ion-label>
+							  <h3>
+								<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+							  </h3>
+							  <p>
+								<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+							  </p>
+							  <p>
+								<ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+							  </p>
+							</ion-label>
+						  </ion-item>
+			</div>		
+	</div>
+
+
+</ion-content>

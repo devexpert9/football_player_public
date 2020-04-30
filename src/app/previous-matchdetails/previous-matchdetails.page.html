@@ -1,0 +1,160 @@
+<app-header [title]="title">
+</app-header>
+
+<ion-content padding bg-dark>
+    <ion-row>
+		<ion-col size-md="12">
+			<div class="owner_info">
+				<img src="assets/images/usr_img1.jpg"  routerLink="/owner-profile">
+				<div class="inn_info">
+					<h5  routerLink="/owner-profile">Robert Downy Jr<span>Owner</span></h5>
+				
+				</div>
+			</div>
+		</ion-col>
+	</ion-row>
+<ion-row match_loc>
+	<ion-col size-md="6">
+		<div class="info_col">
+			<i class="icon icon-calendar-2"></i>
+			<div class="m_info">
+				<strong>Date <span>25, Feb 2020</span></strong>
+			</div>
+		</div>
+	</ion-col>
+	<ion-col size-md="6">
+		<div class="info_col">
+			<i class="icon icon-clock-1"></i>
+			<div class="m_info">
+				<strong>Time <span>09:00 - 14:00</span></strong>
+			</div>
+		</div>
+	</ion-col>
+	</ion-row>
+	<ion-row match_loc mb-15>
+	<ion-col size-md="12">
+			<div class="info_col">
+				<i class="icon icon-stadium-1"></i>
+				<div class="m_info">
+					<strong>Miami Stadium <span>55Glen Ridge Dr. Fair Lawn, Nj 07410</span></strong>
+				</div>
+			</div>
+		</ion-col>
+	</ion-row>
+	<div match_results>
+      <div class="box-imgs-sa">
+       <div class="cont-sts">
+         
+          <div class="result-box">
+            <div class="lft_box img-box">
+            <div><img src="assets/images/cl1.png" /></div>
+              <h5>Football Club 1</h5>
+			  
+            </div>
+            <div class="result-sec">
+              <h6>4 - 3</h6>
+              <a (click)="presentModal()" >Match Stats</a>
+			  
+            </div>
+            <div class="lft_box img-box">
+              <div><img src="assets/images/cl2.png" /></div>
+              <h5>Football Club 2</h5>
+            </div>
+          </div>
+          <div class="winner-box">
+			<span class="bordr-fls"> Winner: Football Club 1 </span>
+		</div>
+        </div>
+      </div>
+	</div>
+	<div class="players-al">
+		<ion-row plr_prt>
+			<ion-col size-md="12">
+				<h4>Football Club 1 Players</h4>
+			</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m plr_hdr>
+			<ion-col size="2">Player</ion-col>
+			<ion-col size="5">Name</ion-col>
+			<ion-col size="3">Position</ion-col>
+			<ion-col size="2">Goals</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr1.jpg" /></ion-col>
+			<ion-col size="5">Tammy Abraham</ion-col>
+			<ion-col size="3">Striker</ion-col>
+			<ion-col size="2">50</ion-col>
+		</ion-row>
+
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr2.jpg" /></ion-col>
+			<ion-col size="5">Robin van</ion-col>
+			<ion-col size="3">Midfielder</ion-col>
+			<ion-col size="2">60</ion-col>
+		</ion-row>
+
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr3.jpg" /></ion-col>
+			<ion-col size="5">Vyacheslav</ion-col>
+			<ion-col size="3">Forward</ion-col>
+			<ion-col size="2">20</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr4.jpg" /></ion-col>
+			<ion-col size="5">Justin Fashanu</ion-col>
+			<ion-col size="3">Defender</ion-col>
+			<ion-col size="2">23</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr1.jpg" /></ion-col>
+			<ion-col size="5">Zinedine Zidane</ion-col>
+			<ion-col size="3">Goalkeeper</ion-col>
+			<ion-col size="2">22</ion-col>
+		</ion-row>
+	</div>
+	<div class="players-al">
+		<ion-row plr_prt>
+			<ion-col size-md="12">
+				<h4>Football Club 2 Players</h4>
+			</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m plr_hdr>
+			<ion-col size="2">Player</ion-col>
+			<ion-col size="5">Name</ion-col>
+			<ion-col size="3">Position</ion-col>
+			<ion-col size="2">Goals</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr1.jpg" /></ion-col>
+			<ion-col size="5">Tammy Abraham</ion-col>
+			<ion-col size="3">Striker</ion-col>
+			<ion-col size="2">50</ion-col>
+		</ion-row>
+
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr2.jpg" /></ion-col>
+			<ion-col size="5">Robin van</ion-col>
+			<ion-col size="3">Midfielder</ion-col>
+			<ion-col size="2">60</ion-col>
+		</ion-row>
+
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr3.jpg" /></ion-col>
+			<ion-col size="5">Vyacheslav</ion-col>
+			<ion-col size="3">Forward</ion-col>
+			<ion-col size="2">20</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr4.jpg" /></ion-col>
+			<ion-col size="5">Justin Fashanu</ion-col>
+			<ion-col size="3">Defender</ion-col>
+			<ion-col size="2">23</ion-col>
+		</ion-row>
+		<ion-row plr_prt_m>
+			<ion-col size="2"><img src="assets/images/plr1.jpg" /></ion-col>
+			<ion-col size="5">Zinedine Zidane</ion-col>
+			<ion-col size="3">Goalkeeper</ion-col>
+			<ion-col size="2">22</ion-col>
+		</ion-row>
+	</div>
+</ion-content>

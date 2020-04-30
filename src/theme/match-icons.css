@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "match-app";
+  src:url("fonts/match-app.eot");
+  src:url("fonts/match-app.eot?#iefix") format("embedded-opentype"),
+    url("fonts/match-app.woff") format("woff"),
+    url("fonts/match-app.ttf") format("truetype"),
+    url("fonts/match-app.svg#match-app") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "match-app" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "match-app" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-clock:before {
+  content: "\61";
+}
+.icon-stadium:before {
+  content: "\62";
+}
+.icon-calendar:before {
+  content: "\63";
+}
+.icon-footbal-play:before {
+  content: "\64";
+}
+.icon-tournament:before {
+  content: "\65";
+}
+.icon-match-list:before {
+  content: "\66";
+}
+.icon-user-profiles:before {
+  content: "\67";
+}
+.icon-clock-1:before {
+  content: "\68";
+}
+.icon-mail:before {
+  content: "\69";
+}
+.icon-calendar-1:before {
+  content: "\6a";
+}
+.icon-calendar-2:before {
+  content: "\6b";
+}
+.icon-calendar-3:before {
+  content: "\6c";
+}
+.icon-stadium-1:before {
+  content: "\6d";
+}
+.icon-stadium-2:before {
+  content: "\6e";
+}
+.icon-stadium-3:before {
+  content: "\6f";
+}
+

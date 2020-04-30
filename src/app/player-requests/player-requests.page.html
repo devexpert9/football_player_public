@@ -1,0 +1,154 @@
+<app-header [title]="title"></app-header>
+
+<ion-content bg-dark>
+  <ion-row>
+    <ion-col size-md="12">
+      <div padding>
+       <ion-list all_requests>
+          <ion-item no-margin no-padding request_list  lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/images/usr_img5.jpg">
+          </ion-avatar>
+          <ion-label no-lines no-padding>
+            <strong>Martin Benson</strong> <span class="pendn-ctyr"> Pending </span>
+            <a href="javascript:void()" class="close-ruf" (click)="presentModal()">  <ion-icon name="close"></ion-icon> </a>
+			<div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 6 Sep, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 9:30 AM</span>
+			  </div>
+            <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+          </ion-label>
+        </ion-item>
+		  <ion-item no-margin no-padding request_list  lines="none">
+            <ion-avatar slot="start">
+              <img src="assets/images/usr_img1.jpg">
+            </ion-avatar>
+            <ion-label no-lines no-padding>
+              <strong>Jonathan Cole</strong>
+			  <div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 2 Dec, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 9:30 AM</span>
+			  </div>
+              <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+            </ion-label>
+          </ion-item>
+			<ion-item no-margin no-padding request_list  lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/images/usr_img1.jpg">
+          </ion-avatar>
+          <ion-label no-lines no-padding>
+            <strong>Roger Delgado </strong> <span class="pendn-ctyr"> Pending </span>
+            <a href="javascript:void()" class="close-ruf" (click)="presentModal()">  <ion-icon name="close"></ion-icon> </a>
+			<div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 6 Aug, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 3:30 AM</span>
+			  </div>
+            <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+          </ion-label>
+        </ion-item>
+          <ion-item no-margin no-padding request_list  lines="none">
+            <ion-avatar slot="start">
+              <img src="assets/images/usr_img2.jpg">
+            </ion-avatar>
+            <ion-label no-lines no-padding>
+              <strong>Jonathan Cole</strong>
+			  <div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 8 Nov, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 7:30 PM</span>
+			  </div>
+              <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+            </ion-label>
+          </ion-item>
+		   <ion-item no-margin no-padding request_list  lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/images/usr_img2.jpg">
+          </ion-avatar>
+          <ion-label no-lines no-padding>
+            <strong>Micheal Crawdorf </strong><span class="pendn-ctyr"> Pending </span>
+            <a href="javascript:void()" class="close-ruf" (click)="presentModal()">  <ion-icon name="close"></ion-icon> </a>
+			<div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 4 Sep, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 2:05 PM</span>
+			  </div>
+            <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+          </ion-label>
+        </ion-item>
+          <ion-item no-margin no-padding request_list  lines="none">
+            <ion-avatar slot="start">
+              <img src="assets/images/usr_img3.jpg">
+            </ion-avatar>
+            <ion-label no-lines no-padding>
+              <strong>Tony Britton </strong>
+			  <div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 2 Oct, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 4:30 PM</span>
+			  </div>
+              <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+            </ion-label>
+          </ion-item>
+          <ion-item no-margin no-padding request_list  lines="none">
+            <ion-avatar slot="start">
+              <img src="assets/images/usr_img4.jpg">
+            </ion-avatar>
+            <ion-label no-lines no-padding>
+              <strong>Jason Stateham</strong>
+			  <div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 10 Oct, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 4:08 PM</span>
+			  </div>
+              <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+            </ion-label>
+          </ion-item>
+          <ion-item no-margin no-padding request_list  lines="none">
+            <ion-avatar slot="start">
+              <img src="assets/images/usr_img5.jpg">
+            </ion-avatar>
+            <ion-label no-lines no-padding>
+              <strong>Brian Cant</strong>
+			  <div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 6 Sep, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 9:30 AM</span>
+			  </div>
+              <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+            </ion-label>
+          </ion-item>
+        
+       
+        <ion-item no-margin no-padding request_list  lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/images/usr_img4.jpg">
+          </ion-avatar>
+          <ion-label no-lines no-padding>
+            <strong>Richard Brian </strong> <span class="pendn-ctyr"> Pending </span>
+            <a href="javascript:void()" class="close-ruf" (click)="presentModal()">  <ion-icon name="close"></ion-icon> </a>
+			<div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 8 Dec, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 6:30 PM</span>
+			  </div>
+            <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+          </ion-label>
+        </ion-item>
+        <ion-item no-margin no-padding request_list  lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/images/usr_img3.jpg">
+          </ion-avatar>
+          <ion-label no-lines no-padding>
+            <strong>Sebastian Cabat</strong> <span class="pendn-ctyr"> Pending </span>
+            <a href="javascript:void()" class="close-ruf" (click)="presentModal()">  <ion-icon name="close"></ion-icon> </a>
+			<div class="req_time">
+          <span><ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon> 21 Sep, 2019</span>
+          <span><ion-icon ios="ios-time" md="ios-time"></ion-icon> 9:00 AM</span>
+			  </div>
+            <p>Nullam quis iaculis mi. Integer tempor velit vel nulla blandit vulputate.</p>
+          </ion-label>
+        </ion-item>
+       
+       
+      </ion-list>
+
+   
+  </div>
+
+    </ion-col>
+  </ion-row>
+</ion-content>

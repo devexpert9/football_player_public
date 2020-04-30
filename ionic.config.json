@@ -1,0 +1,7 @@
+{
+  "name": "matchApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

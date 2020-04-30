@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "65638060486",
+    "firebase_url": "https://football-player-8b3f9.firebaseio.com",
+    "project_id": "football-player-8b3f9",
+    "storage_bucket": "football-player-8b3f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65638060486:android:c2bf38f7fead679f2322c7",
+        "android_client_info": {
+          "package_name": "io.ionic.playerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65638060486-i19dkbns8oqqq349aqddrhjae7o6sj3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWUDaQPaAvLXQXEftgmCB8YPM-ZoVY_90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65638060486-i19dkbns8oqqq349aqddrhjae7o6sj3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

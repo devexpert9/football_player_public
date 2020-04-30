@@ -1,0 +1,104 @@
+[heading_ttl]{
+    ion-title{
+        background:#00afff;
+    }
+}
+.cnl_booking
+{
+    background: #fff;
+    color: #00afff;
+    text-align: center;
+    padding:10px 10px 10px 10px;
+    border-radius: 7px;
+    margin-top: 60px;
+    position:relative;
+    ion-item{
+        --inner-padding-end:0;
+
+    }
+    [close_mdl]{
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: #00aff0;
+        color: #fff;
+        border-radius: 50px;
+        font-size: 28px;
+    }
+    h3{
+        font-size: 14px;
+        margin: 0 0 15px 0;
+        line-height: 22px;
+        color: #000;
+        text-transform: initial;
+        font-weight: 700;
+        span{
+            color: #00aff0;
+        }
+    }
+    ion-textarea{
+		border: 1px solid #c8c7cc;
+        border-radius: 0px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #252c46;
+        margin-top: 10px;
+        --padding-start: 7px;
+        --placeholder-color: #2d2d2d;
+        --placeholder-opacity: .6;
+    }
+	ion-icon{
+	    color: #00aff0;
+	}
+	ion-label{
+		font-size: 12px;
+		color: #00aff0;
+	}
+	ion-datetime{
+        border: 1px solid #c8c7cc;
+        width: 100%;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 14px;
+	}
+	[icon_close]{
+		color:#fff;
+	}
+    .modal_btn{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 -10px -10px -10px;
+        ion-buttons {
+            color: #fff;
+            background: #00afff;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 0px 0px 7px 7px;
+            position: absolute;
+            bottom: -60px;
+        }
+        [dismiss]{
+            background:#009fe8;
+            border-radius: 0px 0px 7px 0px;
+        }
+    }
+}
+.msg_6.block_page {
+    display: none;
+}
+.msg_6 {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 -5px;
+    margin-top: 5px;
+}
+.msg_6 div {
+    width: 50%;
+    padding: 0 5px 0 5px;
+}
+
+.valid{
+    color:red
+}
