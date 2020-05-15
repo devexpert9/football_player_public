@@ -52,8 +52,6 @@ export class LoginPage implements OnInit {
 
    }
 
-  
-
   makeform(){
     this.login = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,Validators.email])],      

@@ -21,6 +21,7 @@ norequest:any;
 _id:any;
 errors:any=['',null,undefined,'null','undefined'];
 url:any=config.API_URL+'server/data/p_pics/';
+team_url:any=config.API_URL+'server/data/team/';
 actionres:any;
 response_came:boolean=false;
 skeleton:any;
@@ -63,7 +64,7 @@ skeleton:any;
   }
 
   getRequests(){
-    this.apiservice.post('getAllInvitations',{_id:this._id},'').subscribe((result) => {
+    this.apiservice.post('getAllInvitations',{_id : this._id },'').subscribe((result) => {
     this.response_came=true;    
       this.notifi.stopLoading();              
       this.requestsRes=result;
@@ -123,8 +124,42 @@ err => {
        }
    
 
-   
+    
       
 
    }
+
+   action(i_id, t_id, i, status){
+
+
+    this.apiservice.post('actionOnTeaminvitation',{i_id:i_id, t_id:t_id, status:status, _id: this._id},'').subscribe((result) => {  
+      this.notifi.stopLoading();   
+      var res;
+      res= result;
+
+     
+
+  if(res.status == 1){ 
+    this.requestslist.splice(i, 1); 
+
+    if(this.requestslist.length==0){
+      this.norequest=true;
+
+    }
+    if(status==1){
+      this.notifi.presentToast('Invitation is accepted','success');  
+    }else{
+      this.notifi.presentToast('Invitation is rejected','success');  
+    } 
+         
+  }
+},
+err => {
+      this.notifi.stopLoading();
+      this.notifi.presentToast('Internal server error. Try again','danger');
+});
+
+
+  }
+
 }

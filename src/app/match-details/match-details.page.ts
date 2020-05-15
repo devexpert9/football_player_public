@@ -232,4 +232,9 @@ export class MatchDetailsPage implements OnInit {
 
             }
 
+            count(p){
+             console.log(p)
+              return p
+            }
+
 }

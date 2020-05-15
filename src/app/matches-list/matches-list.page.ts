@@ -97,7 +97,7 @@ err => {
    }
 
    previousMatches(){
-    this.apiservice.post('mypreviousMatches','','').subscribe((result) => {  
+    this.apiservice.post('mypreviousMatches',{_id: this._id},'').subscribe((result) => {  
       this.response2_came=true;         
       this.notifi.stopLoading();              
       this.previousres=result;

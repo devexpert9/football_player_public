@@ -1,0 +1,41 @@
+[usr_notification]{
+    position:relative;
+    --padding:0;
+    --background:#252c46;
+	background: transparent;
+    ion-item{
+        --background: transparent;
+		color: #fff;
+		font-size: 14px;
+		border-bottom: 1px solid #6b6b6b;
+		background: rgba(255, 255, 255, 0.13) !important;
+		margin-bottom: 15px;
+		padding: 4px 2px 4px 10px;
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-left: 3px solid #00afff;
+        ion-avatar {
+			width: 40px;
+			height: 40px;
+			background: #00afff;
+			text-align: center;
+			line-height: 40px;
+			font-size: 20px;
+		}
+		ion-label{
+            font-size:12px;
+            white-space: initial;
+			line-height: 18px;
+            strong{
+                text-transform: capitalize;
+            }
+        }
+		ion-badge.ion-color {
+		   font-weight: 400;
+			letter-spacing: 1px;
+			font-size: 11px;
+			border-radius: 50px;
+			padding: 3px 8px;
+		}
+    }
+    
+}

@@ -15,7 +15,7 @@
 			<div class="follow_btn">
         <a href="javascript:void()" (click)="follow()" *ngIf="!following">Follow</a>
         <a href="javascript:void()" (click)="follow()" *ngIf="following">Following</a>        
-        <a routerLink="/requestformatch/{{owner_array?._id}}">Request field</a>
+        <a routerLink="/requestformatch/{{owner_array?._id}}" *ngIf="has_team">Request field</a>
 
 			</div>
     </div>
@@ -39,8 +39,17 @@
 
           <ion-col size="6" *ngFor="let previous of previous_array">
             <div class="box-imgs-sa small-2-box">
-              <img *ngIf="errors.indexOf(previous?.cover)>=0" src="assets/images/default-avatar.jpg">
-              <img  *ngIf="errors.indexOf(previous?.cover)==-1" src="{{murl+previous?.cover}}">
+
+              
+					<img src="assets/images/woman.png" class="main-img"  *ngIf="previous.gender=='f'">
+					<img src="assets/images/centre.png" class="main-img"  *ngIf="previous.gender=='coed'">
+          <img src="assets/images/ma.png" class="main-img"  *ngIf="previous.gender=='m'">
+          
+
+              <!-- <img *ngIf="errors.indexOf(previous?.cover)>=0" src="assets/images/default-avatar.jpg">
+              <img  *ngIf="errors.indexOf(previous?.cover)==-1" src="{{murl+previous?.cover}}"> -->
+
+
               <div class="cont-sts">
                 <h4 class="name-h" routerLink="/match-details/{{previous._id}}">{{previous.name}}</h4>
                 <ul class="list-dts">
@@ -63,8 +72,11 @@
           
             <ion-col size="6" *ngFor="let upcoming of upcoming_array">
                 <div class="box-imgs-sa small-2-box">
-                    <img *ngIf="errors.indexOf(upcoming?.cover)>=0" src="assets/images/usr_img.jpg">
-                    <img  *ngIf="errors.indexOf(upcoming?.cover)==-1" src="{{murl+upcoming?.cover}}">
+
+                  <img src="assets/images/woman.png" class="main-img"  *ngIf="upcoming.gender=='f'">
+                  <img src="assets/images/centre.png" class="main-img"  *ngIf="upcoming.gender=='coed'">
+                  <img src="assets/images/ma.png" class="main-img"  *ngIf="upcoming.gender=='m'">
+
                     <div class="cont-sts">
                       <h4 class="name-h" routerLink="/match-details/{{upcoming._id}}">{{upcoming.name}}</h4>
                       <ul class="list-dts">

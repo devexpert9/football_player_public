@@ -5,7 +5,7 @@
 			<div class="paddng-ns">
 			<div class="search-bxs" *ngIf="!nodata">
 				<ion-input placeholder="Search..." (keyup)="search($event)"></ion-input>
-				<ion-icon name="search" routerLink="/search-results"></ion-icon>
+				<ion-icon name="search"></ion-icon>
 			</div>
 			</div>
 		</ion-col>
@@ -15,8 +15,8 @@
       
      <ion-item no-padding lines="none" *ngFor="let follow of followArray; let i = index" >
 	        <ion-avatar slot="start">
-	            <img *ngIf="errors.indexOf(follow.pic)>=0" src="assets/images/default-avatar.jpg">
-	            <img  *ngIf="errors.indexOf(follow.pic)==-1" src="{{url+follow.pic}}">
+	            <img *ngIf="errors.indexOf(follow?.pic)>=0" src="assets/images/default-avatar.jpg">
+	            <img  *ngIf="errors.indexOf(follow?.pic)==-1" src="{{url+follow?.pic}}">
 	        </ion-avatar>
 	        <ion-label  no-lines>
 	          <h2 routerLink="/owner-profile/{{follow?._id}}"><span>{{follow?.fname[0].toUpperCase()+follow?.fname.slice(1)}} {{follow?.lname[0].toUpperCase()+follow?.lname.slice(1)}} </span> </h2><a href="javascript:void(0);" class="unfolow" (click)="follownow(follow._id,i)" *ngIf="!noresults"> Unfollow</a>

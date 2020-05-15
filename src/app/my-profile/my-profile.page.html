@@ -3,8 +3,9 @@
 
 <ion-content bg-dark>
 	<div UserImg>
-    <button [routerLink]="['/create-team']" routerLinkActive="router-link-active"  class="createTeam">Create Team</button>
-		<div Imgs>
+    <button [routerLink]="['/create-team']" routerLinkActive="router-link-active"  class="createTeam" *ngIf="!has_team">Create Team</button>
+    <button [routerLink]="['/see-team']" routerLinkActive="router-link-active"  class="createTeam" *ngIf="has_team">See Team</button>
+    <div Imgs>
 				<span (click)="selectImage()">
             <ng-container *ngIf="!img_selected">
                 <img *ngIf="errors.indexOf(propic)>=0" src="assets/images/default-avatar.jpg">
@@ -16,7 +17,7 @@
           
           </span>
       <h2>{{alldata.fname[0].toUpperCase()+alldata.fname.slice(1)}} {{alldata.lname[0].toUpperCase()+alldata.lname.slice(1)}}  <ion-icon name="information-circle-outline" tooltip="Note: It is Important to use your full name and actual headshot photo so other players may
-        Easily identify you when they are voting for Man of the Match (MOTM)" positionH="left" positionV="bottom"></ion-icon></h2>
+        easily identify you when they are voting for Man Of The Match (MOTM)" [options]="myOptions"></ion-icon></h2>
       <p *ngIf="errors.indexOf(alldata.city)==-1">{{alldata.city}}, {{alldata.state}}, {{alldata.country}}</p>
 
       <div>

@@ -1,7 +1,7 @@
 <app-header [title]="title">
 </app-header>
 <ion-content bg-dark padding>
-    <form [formGroup]="updatedata" (ngSubmit)="checkForm()">
+    <form [formGroup]="updatedata" (ngSubmit)="sendrequest()">
    <div class="cnl_booking">
    
      <h3>Request For <span>Field</span></h3>
@@ -42,6 +42,15 @@
        <div *ngIf="timerequired && is_submit" class="valid">
         Please select start and end time
     </div>
+
+
+    <ion-button  shape="round" (click)="presentModal()" *ngIf="!selected">Select Players</ion-button>
+
+    <ion-button  shape="round" (click)="presentModal()" *ngIf="selected" > <ion-icon name="checkmark"></ion-icon>  Selected</ion-button>
+
+    <div *ngIf="selected_player_id.length == 0 && is_submit" class="valid">
+      Please select players for match
+  </div>
 
 
 

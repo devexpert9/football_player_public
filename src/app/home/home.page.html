@@ -21,10 +21,13 @@
 			  <ion-slide *ngFor="let match of matchlist">
 				  
 				<div class="box-imgs-sa">
-						<ion-icon name="heart" fav_prprty (click)="addfav(match._id,1)" *ngIf="favlist?.indexOf(match._id)==-1"></ion-icon>
-						<ion-icon name="heart" fav_prprty red (click)="addfav(match._id,0)" *ngIf="favlist?.indexOf(match._id)>=0" style="color: #00afff"></ion-icon>
+						<!-- <ion-icon name="heart" fav_prprty (click)="addfav(match._id,1)" *ngIf="favlist?.indexOf(match._id)==-1"></ion-icon>
+						<ion-icon name="heart" fav_prprty red (click)="addfav(match._id,0)" *ngIf="favlist?.indexOf(match._id)>=0" style="color: #00afff"></ion-icon> -->
 
-				<img src="{{url}}{{match.cover}}" class="main-img" ng-click="next(match._id)">
+						<img src="assets/images/woman.png" class="main-img"   *ngIf="match.gender=='f'">
+						<img src="assets/images/centre.png" class="main-img"    *ngIf="match.gender=='coed'">
+						<img src="assets/images/ma.png" class="main-img"   *ngIf="match.gender=='m'">
+
 					<div class="cont-sts">
 						<span routerLink="/match-details/{{match._id}}" style="z-index: 9999;">
 							<h4 class="name-h" routerLink="/match-details/{{match._id}}">{{match.name}} <span class="bagd-srs"> {{match.status}} Joined </span> </h4>
@@ -65,10 +68,16 @@
 
 			<div class="box-imgs-sa small-2-box">
 
-	<ion-icon name="heart"  fav_prprty (click)="addfav(upcomingmatch._id,1)" *ngIf="favlist?.indexOf(upcomingmatch._id)==-1" ></ion-icon>
-	<ion-icon  name="heart" fav_prprty red (click)="addfav(upcomingmatch._id,0)" *ngIf="favlist?.indexOf(upcomingmatch._id)>=0" style="color: #00afff"></ion-icon>
+	<!-- <ion-icon name="heart"  fav_prprty (click)="addfav(upcomingmatch._id,1)" *ngIf="favlist?.indexOf(upcomingmatch._id)==-1" ></ion-icon>
+	<ion-icon  name="heart" fav_prprty red (click)="addfav(upcomingmatch._id,0)" *ngIf="favlist?.indexOf(upcomingmatch._id)>=0" style="color: #00afff"></ion-icon> -->
 
-			<img src="{{url}}{{upcomingmatch.cover}}" class="main-img" routerLink="/match-details/{{upcomingmatch._id}}">
+            	<img src="assets/images/woman.png" class="main-img"  *ngIf="upcomingmatch.gender=='f'">
+
+				<img src="assets/images/centre.png" class="main-img" *ngIf="upcomingmatch.gender=='coed'">
+
+				<img src="assets/images/ma.png" class="main-img"    *ngIf="upcomingmatch.gender=='m'">
+
+
 				<span class="bagd-joins" *ngIf="searching"> {{upcomingmatch.players}} Joined </span>
 				<span class="bagd-joins" *ngIf="!searching"> {{upcomingmatch.status}} Joined </span>
 

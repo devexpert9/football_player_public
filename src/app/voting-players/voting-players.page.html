@@ -1,0 +1,70 @@
+<ion-content bg-dark content-padding>
+  <ion-icon name="close-circle" class="close_icon" (click)="myDismiss(null, '')"></ion-icon>
+<h4 class="heading">Choose player</h4>
+<ion-row>
+  <ion-col size="12">
+    <!-- <h4  class="main-ttls mrgn-cstm"> Matches <ion-button size="small" routerLink="/update-results" class="ad_results">Add Results</ion-button></h4> -->
+    
+  </ion-col>
+</ion-row>
+<ion-row>
+
+
+  <ion-col size="12">
+  
+
+    
+      
+    <div *ngIf="response_came">
+
+       
+       
+      <ng-container *ngFor="let item of playerlist">
+        <ion-item   *ngIf="_id != item._id">
+          <ion-avatar slot="start">
+            <img *ngIf="errors.indexOf(item?.pic)>=0" src="assets/images/default-avatar.jpg">
+            <img  *ngIf="errors.indexOf(item?.pic)==-1" src="{{url+item?.pic}}">
+          </ion-avatar>
+          <ion-label>
+
+            {{item?.fname[0].toUpperCase()+item?.fname.slice(1)}} {{item?.lname[0].toUpperCase()+item?.lname.slice(1)}}
+
+          </ion-label>
+          <ion-checkbox color="primary" (click)="myDismiss(item?.fname[0].toUpperCase()+item?.fname.slice(1)+' '+item?.lname[0].toUpperCase()+item?.lname.slice(1), item._id)" [checked]= "selected_player_id == item._id ? true : false" ></ion-checkbox>
+          </ion-item>
+        </ng-container>
+          
+      
+      </div>
+   
+
+    
+
+
+<!-- //skeleton -->
+
+
+<div *ngIf="!response_came">
+  
+  <div class="ion-padding custom-skeleton" *ngFor="let item of skeleton">
+    
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+  </div>
+
+
+
+ 
+</div>
+
+<!-- //skeleton -->
+
+
+
+
+  </ion-col>
+</ion-row>
+</ion-content>

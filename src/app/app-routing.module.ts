@@ -131,6 +131,34 @@ const routes: Routes = [
   {
     path: 'team-invitations',
     loadChildren: () => import('./team-invitations/team-invitations.module').then( m => m.TeamInvitationsPageModule)
+  },
+  {
+    path: 'voting/:_id',
+    loadChildren: () => import('./voting/voting.module').then( m => m.VotingPageModule)
+  },
+  {
+    path: 'voting-players',
+    loadChildren: () => import('./voting-players/voting-players.module').then( m => m.VotingPlayersPageModule)
+  },
+  {
+    path: 'myvotes',
+    loadChildren: () => import('./myvotes/myvotes.module').then( m => m.MyvotesPageModule)
+  },
+  {
+    path: 'select-players-from-team',
+    loadChildren: () => import('./select-players-from-team/select-players-from-team.module').then( m => m.SelectPlayersFromTeamPageModule)
+  },
+  {
+    path: 'admins',
+    loadChildren: () => import('./admins/admins.module').then( m => m.AdminsPageModule)
+  },
+  {
+    path: 'see-team',
+    loadChildren: () => import('./see-team/see-team.module').then( m => m.SeeTeamPageModule)
+  },
+  {
+    path: 'card/:m_id/:c_id/:type/:o_id',
+    loadChildren: () => import('./card/card.module').then( m => m.CardPageModule)
   }
 ];
 

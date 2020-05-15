@@ -10,6 +10,7 @@ import { MenuController, Platform, Events } from '@ionic/angular';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ApiService } from './services/api/api.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -48,10 +49,16 @@ export class AppComponent {
 	  icons:'person-add'
     },
     {
+      title: 'Owners List',
+      url: 'admins',
+      icon: 'list',
+	  icons:'list'
+    },
+    {
       title: 'Confirmations',
       url: 'confirmations',
-      icon: 'person-add',
-	  icons:'person-add'
+      icon: 'checkbox',
+	  icons:'checkbox'
     },
     {
       title: 'Team Invitations',
@@ -68,6 +75,7 @@ export class AppComponent {
   logged_in:any=false;
   fname:any;
   lname:any;
+  points:any;
   _id:any=localStorage.getItem('_id');
   constructor(
     private platform: Platform,
@@ -108,6 +116,12 @@ export class AppComponent {
       this.fname= this.alldata.fname;
       this.lname= this.alldata.lname;
     });
+
+    setTimeout(()=>{    
+      this.getPlayerInfo();
+ }, 3000);
+
+   
      
   }
   
@@ -179,5 +193,19 @@ export class AppComponent {
   closeMenu(){
     this.menu.close();
   }
+
+  getPlayerInfo(){
+    this.apiservice.post('getPlayerInfo',{_id: this._id},'').subscribe((result) => {  
+      var res;
+      res= result;
+      this.points = res.points;
+  },
+  err => {
+     
+  });
+
+  };
+
+  
 
 }

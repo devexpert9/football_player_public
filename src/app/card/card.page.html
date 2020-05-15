@@ -1,0 +1,54 @@
+<ion-content class="login-bg">
+  <form novalidate (ngSubmit)="payment()" [formGroup]="resetform">
+    <div class="payment_dtl">  
+    
+       <h3>Pay a small of <span>${{static_amount}}</span> to confirm the match</h3>
+       <div class="modal_btn">    
+       
+      </div>
+     </div>
+<div class="logn-form">
+  <h4 class="border-ttl"> Card Details </h4>
+  <ion-row>
+    <ion-col size="12">
+      <div class="box-feilds">
+        <ion-input placeholder="Card Number" formControlName="cardno" type="number"></ion-input>
+        <img src="assets/images/user.png" class="icon-log"> 
+      </div>
+      <div *ngIf="!resetform.controls.cardno.valid && is_submit" class="valid">
+      Enter a valid  card number
+    </div>
+    </ion-col>
+    
+    <ion-col size="12">
+      <div class="box-feilds">
+          <ion-datetime  formControlName="expdate" placeholder="Expiry Date" displayFormat="MM/YYYY" pickerFormat="MMMM YYYY" min="2020-03-14" max="2024-12-09"></ion-datetime>      
+        <img src="assets/images/user.png" class="icon-log"> 
+      </div>
+      <div *ngIf="!resetform.controls.expdate.valid && is_submit" class="valid">
+        Enter expiry date
+    </div>
+    </ion-col>
+    
+    <ion-col size="12">
+      <div class="box-feilds">
+        <ion-input type="password" placeholder="CVV" formControlName="cvv" ></ion-input>
+        <img src="assets/images/user.png" class="icon-log"> 
+      </div>
+      <div *ngIf="!resetform.controls.cvv.valid && is_submit" class="valid">
+        Enter a valid CVV
+    </div>
+
+    </ion-col>
+    
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-button color="primary" expand="full" shape="round" class="login-btn" (click)="payment()">Pay</ion-button>
+
+      <ion-button color="primary" expand="full" shape="round" class="login-btn" [routerLink]="type==1 ? ['/notifications'] : ['/confirmations']" routerLinkActive="router-link-active" >Cancel</ion-button>
+    </ion-col>
+  </ion-row>
+</div>
+</form>
+</ion-content>

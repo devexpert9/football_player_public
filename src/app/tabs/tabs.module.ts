@@ -41,12 +41,12 @@ const routes: Routes = [
         ]
       },      
         {
-          path: 'favourite-properties',
+          path: 'myvotes',
           children: [
             {
               path: '',
               loadChildren: () =>
-                import('../favourite-properties/favourite-properties.module').then(m => m.FavouritePropertiesPageModule)
+                import('../myvotes/myvotes.module').then(m => m.MyvotesPageModule)
             }
           ]
         },

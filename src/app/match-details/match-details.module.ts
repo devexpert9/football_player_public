@@ -7,11 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { MatchDetailsPageRoutingModule } from './match-details-routing.module';
 
 import { MatchDetailsPage } from './match-details.page';
-
+import { NgxStarsModule } from 'ngx-stars';
 import { FeespayComponent  } from "../feespay/feespay.component";
 import { SharedModule } from "../shared/shared.module";
 @NgModule({
   imports: [
+    NgxStarsModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

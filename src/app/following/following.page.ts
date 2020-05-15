@@ -85,7 +85,7 @@ export class FollowingPage implements OnInit {
 
 
 follownow(id,i){
-
+  this.notifi.presentLoading();
   this.apiservice.post('followOwner',{_id:this._id, owner_id:id, status:0},'').subscribe((result) => {  
       this.notifi.stopLoading();   
       this.follow_res=result;

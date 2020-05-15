@@ -77,7 +77,7 @@ export class OwnerProfilePage implements OnInit {
    response2_came:any=false;
    response3_came:any=false;
    response4_came:any=false;
-
+   has_team:any;
 
   constructor(
     public modalController: ModalController,
@@ -112,6 +112,7 @@ export class OwnerProfilePage implements OnInit {
     this.upcomingMatches();
     this.mypreviousMatches();
     this.getfollow();
+    this.getPlayerInfo();
 
   }
 
@@ -278,5 +279,33 @@ getfollow(){
   });
 
 }
+
+
+
+getPlayerInfo(){
+
+  this.notifi.presentLoading();
+  this.apiservice.post('getPlayerInfo',{_id: this._id},'').subscribe((result) => {  
+    this.notifi.stopLoading();   
+    var res;
+    res= result;
+    if(res.status == 1){ 
+      this.has_team=true;
+          
+    }else{
+      this.has_team=false;
+
+    }
+},
+err => {
+    this.notifi.stopLoading();
+    this.notifi.presentToast('Internal server error. Try again','danger');
+});
+
+
+
+
+
+}; 
 
 }

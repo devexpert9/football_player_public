@@ -8,7 +8,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 declare var window: any; 
 import { SelectFavComponent } from '../select-fav/select-fav.component';
 import {config} from '../config'
-@Component({
+import { FeespayComponent  } from "../feespay/feespay.component";
+@Component({ 
   selector: 'app-confirmations',
   templateUrl: './confirmations.page.html',
   styleUrls: ['./confirmations.page.scss'],
@@ -24,6 +25,8 @@ url:any=config.API_URL+'server/data/match/';
 actionres:any;
 response_came:boolean=false;
 skeleton:any;
+match_id:any;
+owner_id:any
   constructor(
       public modalController: ModalController,
       public router: Router,    
@@ -34,6 +37,7 @@ skeleton:any;
       }
 
       ionViewDidEnter(){
+        this.requestslist =[];
         this.norequest=false;
         this.response_came=false;            
         this._id =localStorage.getItem('_id');
@@ -90,8 +94,8 @@ err => {
 
    actionOnFieldReq(match_id,status,i,confirm_id){
 
-      
-           this.apiservice.post('ConfirmAvailabilty',{match_id:match_id, status:status,_id:this._id,confirm_id:confirm_id},'').subscribe((result) => {  
+    this.notifi.presentLoading();   
+      this.apiservice.post('ConfirmAvailabilty',{match_id:match_id, status:status,_id:this._id,confirm_id:confirm_id},'').subscribe((result) => {  
       this.notifi.stopLoading();   
       
       console.log(result);
@@ -116,11 +120,7 @@ err => {
       this.notifi.presentToast('Internal server error. Try again','danger');
 });
 
-      
-   
-
-   
-      
-
    }
+ 
+
 }

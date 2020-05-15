@@ -47,7 +47,7 @@ export class MyProfilePage implements OnInit {
   image:any;
   propic:any;
   profile:any;
-  url:any=config.API_URL+'server/data/p_pics/';
+  url:any= config.API_URL+'server/data/p_pics/';
   updatedata:FormGroup;
   is_submit:any=false;
   filevar:any;
@@ -66,7 +66,9 @@ export class MyProfilePage implements OnInit {
   lng:any;
   userSettings = {};
   address:any;
-
+  myOptions:any;
+  has_team:any;
+  points:any;
   constructor(	   
     public formBuilder: FormBuilder,	
     private filePath: FilePath,
@@ -82,7 +84,8 @@ export class MyProfilePage implements OnInit {
     public apiservice:ApiService,
     public notifi:NotiService,
     public sanitizer:DomSanitizer  
-       )  {   
+       )  { 
+
         this.alldata =JSON.parse(localStorage.getItem('user')); 
          this.address='';
          this.lat='';
@@ -98,13 +101,19 @@ export class MyProfilePage implements OnInit {
           
            this.userSettings['inputString'] = this.alldata.address ;
            this.address= this.alldata.address ;
-           this.userSettings = Object.assign({},this.userSettings);       
+           this.userSettings = Object.assign({},this.userSettings);  
+           
+           this.myOptions = {
+            'placement': 'left',
+            'show-delay': 500
+        }
           
           }
 
   ngOnInit() {
   }
    ionViewDidEnter(){
+    
     this.alldata =''
     this.alldata= JSON.parse(localStorage.getItem('user')); 
     this.propic=this.alldata.pic;    
@@ -123,6 +132,8 @@ export class MyProfilePage implements OnInit {
             dob:this.alldata.dob,
             position:this.alldata.position
            });
+
+     this.getPlayerInfo();      
    }
   makeform(){
     this.updatedata= this.formBuilder.group({
@@ -348,5 +359,35 @@ autoCompleteCallback1(selectedData:any) {
     address: selectedData.data.description
     }); 
 }
+
+
+getPlayerInfo(){
+
+  this.notifi.presentLoading();
+  this.apiservice.post('getPlayerInfo',{_id: this._id},'').subscribe((result) => {  
+    this.notifi.stopLoading();   
+    var res;
+    res= result;
+    if(res.status == 1){ 
+      this.has_team=true;
+      this.points= res.points;
+          
+    }else{
+      this.has_team=false;
+
+    }
+},
+err => {
+    this.notifi.stopLoading();
+    this.notifi.presentToast('Internal server error. Try again','danger');
+});
+
+
+
+
+
+}; 
+
+
 
 }

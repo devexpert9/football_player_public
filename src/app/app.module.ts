@@ -23,12 +23,14 @@ import { RequestfieldmodalComponent } from "./requestfieldmodal/requestfieldmoda
 import { FCM } from '@ionic-native/fcm/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AlertController } from '@ionic/angular';
-
+import { VotingPlayersPage } from './voting-players/voting-players.page';
+import { SelectPlayersFromTeamPage } from './select-players-from-team/select-players-from-team.page';
+import { NgxStarsModule } from 'ngx-stars';
 @NgModule({
-  declarations: [AppComponent , SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
-  entryComponents: [SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
+  declarations: [SelectPlayersFromTeamPage, VotingPlayersPage,AppComponent , SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
+  entryComponents: [SelectPlayersFromTeamPage, VotingPlayersPage,SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
   imports: [
-
+    NgxStarsModule,
     Ng4GeoautocompleteModule,
     BrowserModule,
     IonicModule.forRoot(),

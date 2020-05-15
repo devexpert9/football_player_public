@@ -1,0 +1,36 @@
+<app-header [title]="title"></app-header>
+<ion-content bg-dark padding>
+
+  <h4 class="heading">Vote For Man Of The Match</h4> 
+	<div addProperty>
+     
+		<ion-list UserDetails>
+
+<!-- ///// -->
+
+<ion-button  shape="round" expand="full" (click)="openModal()" *ngIf="errors.indexOf(player_name)>=0"> <ion-icon name="football"></ion-icon>  Select Player</ion-button>
+<ion-button  shape="round" expand="full" (click)="openModal()" *ngIf="errors.indexOf(player_name)==-1"> <ion-icon name="football"></ion-icon>  {{ player_name}}</ion-button>
+          
+        <div *ngIf="errors.indexOf(selected_player_id)>=0 && is_submit" class="valid">
+
+            Please select player
+
+        </div>
+
+<br>
+        <ion-item no-padding>
+          <ion-icon  icon-left slot="start" name="logo-slack"></ion-icon>
+          <ion-label position="stacked">Leave your comment</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="comment"></ion-input>    
+        </ion-item>
+
+        <div *ngIf="errors.indexOf(comment)>=0 && is_submit" class="valid">
+          Please leave a comment
+      </div>
+
+    </ion-list>
+    <ion-button type="submit" shape="round" expand="full" (click)="vote()" >Vote Now</ion-button>
+
+  </div>
+
+</ion-content>

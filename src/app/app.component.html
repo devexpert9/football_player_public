@@ -7,7 +7,9 @@
               <img pro-img src="{{url}}{{propic}}" *ngIf="errors.indexOf(propic)==-1"  style="width:57px;"/>
               <ion-title lines="none" class="ion-text-left" usr-name>
                 {{fname[0].toUpperCase()+fname.slice(1)}} {{lname[0].toUpperCase()+lname.slice(1)}}
+
           </ion-title>
+          <ngx-stars  [size]="1" [maxStars]="5" [readonly]="true" [initialStars]="points"></ngx-stars>
         </ion-toolbar>
       </ion-header>
       <ion-content bg-dark>

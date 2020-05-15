@@ -19,6 +19,40 @@
             <ion-badge color="primary" (click)="clear(item?.noti_id,i)">Clear</ion-badge>
           </ion-item>
 
+          <ion-item no-margin no-padding  lines="none" *ngIf="item?.type==9">
+
+            <ion-avatar slot="start">
+
+            <img src="assets/images/woman.png" class="main-img"  *ngIf="item?.gender=='f'">
+
+            <img src="assets/images/centre.png" class="main-img" *ngIf="item?.gender=='coed'">
+
+            <img src="assets/images/ma.png" class="main-img"    *ngIf="item?.gender=='m'">
+
+            </ion-avatar>
+
+            <ion-label no-lines>
+
+              Please vote for MOTM for match <strong><a routerLink="/voting/{{item?._id}}">{{item?.name}}</a></strong>
+             
+            </ion-label>
+            
+            <ion-badge color="primary" (click)="clear(item?.noti_id,i)">Clear</ion-badge>
+          </ion-item>
+
+
+          <ion-item no-margin no-padding  lines="none" *ngIf="item?.type==10">
+            <ion-avatar slot="start">
+                <img *ngIf="errors.indexOf(item?.pic)>=0" src="assets/images/default-avatar.jpg">
+                <img  *ngIf="errors.indexOf(item?.pic)==-1" src="{{purl+item?.pic}}">
+            </ion-avatar>
+            <ion-label no-lines>
+              <strong>{{item?.fname[0].toUpperCase()+item?.fname.slice(1)}} {{item?.lname[0].toUpperCase()+item?.lname.slice(1)}}</strong> has accepted your field request. Click on confirm <a [routerLink]="['/card/'+item?._id+'/'+item.noti_id+'/'+item?.fullday+'/'+item.owner_id]">Confirm</a>.
+            </ion-label>
+            <ion-badge color="primary" (click)="clear(item?.noti_id,i)">Clear</ion-badge>
+       </ion-item>
+
+
 
           <ion-item no-margin no-padding  lines="none" *ngIf="item?.type==4">
               <ion-avatar slot="start">
@@ -48,7 +82,7 @@
   <p *ngIf="notiArray?.length==0" style="
     color: grey;
     margin-left: 23%;;
-">No notification(s) found</p>
+">No Notifications found</p>
 
 <!-- ==========skeleton===== -->
 <!-- Skeleton screen -->

@@ -94,7 +94,7 @@ export class HomePage {
   ngOnInit() {
   }
   todayMatches() {
-    this.apiservice.post('todayMatches', '', '').subscribe((result) => {
+    this.apiservice.post('todayMatches', {_id: this._id}, '').subscribe((result) => {
       this.response1_came = true;
       this.response = result;
       if (this.response.status == 1) {
@@ -144,13 +144,13 @@ export class HomePage {
     if (this.errors.indexOf(ev.target.value) == -1) {
       this.keyword = ev.target.value;
       this.searching = true;
-      this.apiservice.post('searchmatch', { keyword: ev.target.value }, '').subscribe((result) => {
+      this.apiservice.post('searchmatch', { keyword: ev.target.value, _id : this._id }, '').subscribe((result) => {
         this.notifi.stopLoading();
         this.searchres = result;
         if (this.searchres.status == 1) {
-          console.log(this.searchres);
-          this.upcominglist = this.searchres.data[0];
           this.noresults = false;
+          this.upcominglist = this.searchres.data;
+        
 
         }
         else {

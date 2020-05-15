@@ -29,7 +29,13 @@
 
 						<ion-col size="6" *ngFor="let upcoming of upcominglist">
 							<div class="box-imgs-sa small-2-box">
-								<img src="{{url}}{{upcoming.cover}}" class="main-img" routerLink="/match-details/{{upcoming._id}}">
+								<!-- <img src="{{url}}{{upcoming.cover}}" class="main-img" routerLink="/match-details/{{upcoming._id}}"> -->
+
+								<img src="assets/images/woman.png" class="main-img"   *ngIf="upcoming.gender=='f'" routerLink="/match-details/{{upcoming._id}}">
+								<img src="assets/images/centre.png" class="main-img"    *ngIf="upcoming.gender=='coed'" routerLink="/match-details/{{upcoming._id}}">
+								<img src="assets/images/ma.png" class="main-img"   *ngIf="upcoming.gender=='m'" routerLink="/match-details/{{upcoming._id}}">
+
+
 								<span class="bagd-joins">{{upcoming.players}} Joined </span>
 								<div class="cont-sts">
 									<h4 class="name-h" routerLink="/match-details/{{upcoming._id}}">{{upcoming.name}}  </h4>
@@ -52,7 +58,15 @@
 							<p *ngIf="previouslist.length==0" class="notfound">No match found</p>
 							<ion-col size="6" *ngFor="let previousmatch of previouslist">
 									<div class="box-imgs-sa small-2-box">
-										<img src="{{url}}{{previousmatch.cover}}" class="main-img" routerLink="/previousmatch-matchdetails">
+										<!-- <img src="{{url}}{{previousmatch.cover}}" class="main-img" routerLink="/previousmatch-matchdetails">
+										 -->
+
+							<img src="assets/images/woman.png" class="main-img"   *ngIf="previousmatch.gender=='f'" routerLink="/previousmatch-matchdetails">
+							<img src="assets/images/centre.png" class="main-img"    *ngIf="previousmatch.gender=='coed'" routerLink="/previousmatch-matchdetails">
+							<img src="assets/images/ma.png" class="main-img"   *ngIf="previousmatch.gender=='m'" routerLink="/previousmatch-matchdetails">
+
+										 
+
 										<span class="bagd-joins"> 4 Joined </span>
 										<div class="cont-sts">
 											<h4 class="name-h" routerLink="/previous-matchdetails">{{previousmatch.name}}  </h4>

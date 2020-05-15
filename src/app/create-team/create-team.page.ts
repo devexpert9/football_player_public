@@ -209,6 +209,7 @@ takePicture(sourceType: PictureSourceType) {
 
    uploadmatch(img,file){
     this.notifi.presentLoading(); 
+    this.addmatch.value.players.push(this._id);
     const formData = new FormData();
     formData.append('file', img, file); 
     formData.append('_id', this._id);
@@ -225,6 +226,7 @@ takePicture(sourceType: PictureSourceType) {
               this.is_submit=false;
               this.addmatch.reset();   
               this.imgpath=''; 
+              this.router.navigate(['/my-profile']);
  
               }
 },
@@ -237,7 +239,7 @@ takePicture(sourceType: PictureSourceType) {
 
   getplayers(){
     this.notifi.presentLoading();  
-    this.apiservice.post('getPlayersForMatch','','').subscribe((result) => {  
+    this.apiservice.post('getPlayersForMatch',{_id:this._id},'').subscribe((result) => {  
       this.notifi.stopLoading();              
     
      var res;
