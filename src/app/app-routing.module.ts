@@ -93,7 +93,7 @@ const routes: Routes = [
     loadChildren: () => import('./upcoming-matchdetails/upcoming-matchdetails.module').then( m => m.UpcomingMatchdetailsPageModule),canActivate: [TabsauthService]
   },
   {
-    path: 'previous-matchdetails',
+    path: 'previous-matchdetails/:id',
     loadChildren: () => import('./previous-matchdetails/previous-matchdetails.module').then( m => m.PreviousMatchdetailsPageModule),canActivate: [TabsauthService]
   },
   {
@@ -157,8 +157,16 @@ const routes: Routes = [
     loadChildren: () => import('./see-team/see-team.module').then( m => m.SeeTeamPageModule)
   },
   {
-    path: 'card/:m_id/:c_id/:type/:o_id',
+    path: 'card/:m_id/:c_id/:type/:o_id/:coming_status',
     loadChildren: () => import('./card/card.module').then( m => m.CardPageModule)
+  },
+  {
+    path: 'choose-players-for-team',
+    loadChildren: () => import('./choose-players-for-team/choose-players-for-team.module').then( m => m.ChoosePlayersForTeamPageModule)
+  },
+  {
+    path: 'popup-players',
+    loadChildren: () => import('./popup-players/popup-players.module').then( m => m.PopupPlayersPageModule)
   }
 ];
 

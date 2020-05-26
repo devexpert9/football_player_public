@@ -16,8 +16,8 @@ ion-header{
 	}
 }
 ion-content[bg-dark] {
-	--background: #252c46;
-	background: #252c46;
+	--background: #535353;
+	background: #535353;
 	--padding-start:15px;
 	--padding-end:15px;
 	--padding-top:15px;
@@ -27,7 +27,7 @@ ion-content[bg-dark] {
 		font-size: 18px;
 		text-transform: uppercase;
 		margin-top: 15px;
-		border-left: 3px solid #00afff;
+		border-left: 3px solid #fd93fb;
 		padding-left: 7px;
         margin-bottom: 13px;
         .ad_results{
@@ -70,7 +70,7 @@ ion-content[bg-dark] {
 			a.cancel{
 				position: absolute;
 				bottom: -10px;
-				background: #00afff;
+				background: #fd93fb;
 				font-size: 9px;
 				padding: 3px 8px;
 				border-radius: 50px;
@@ -83,7 +83,7 @@ ion-content[bg-dark] {
 			   }
 			h4.name-h {
 				margin-top: 0px;
-				color: #00afff;
+				color: #fd93fb;
 				font-size: 16px;
 				margin-bottom: 7px;
 				font-weight: 600;
@@ -103,7 +103,7 @@ ion-content[bg-dark] {
 				padding-right: 60px;
 				position:relative;
 				ion-icon {
-					color: #00afff;
+					color: #fd93fb;
 					font-size: 14px;
 					vertical-align: bottom;
 					float:left;
@@ -122,7 +122,7 @@ ion-content[bg-dark] {
 					margin-right: 11px;
 					margin-top: 7px;
 					ion-icon {
-						color: #00afff;
+						color: #fd93fb;
 						font-size: 14px;
 						vertical-align: bottom;
 					}
@@ -158,7 +158,7 @@ ion-content[bg-dark] {
 		margin-bottom: 15px;
 		span.bagd-joins {
 		   color: #fff;
-		   background: #00afff;
+		   background: #fd93fb;
 		   font-size: 9px;
 		   padding: 3px 8px;
 		   border-radius: 50px;
@@ -248,9 +248,9 @@ ion-content[bg-dark] {
     }
     ion-segment-button.segment-button-checked{
         background:transparent;
-        color:#00afff;
+        color:#fd93fb;
         position:relative;
-        border-color:#00afff;
+        border-color:#fd93fb;
 		font-size:14px;
         &::after{
             content: "";
@@ -258,7 +258,7 @@ ion-content[bg-dark] {
             height: 0;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            border-top: 5px solid #00afff;
+            border-top: 5px solid #fd93fb;
             position: absolute;
             bottom: -5px;
             left: 0;

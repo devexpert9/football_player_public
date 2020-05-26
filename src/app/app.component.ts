@@ -110,15 +110,17 @@ export class AppComponent {
        });
        
       this.events.subscribe('logged', data => {
+      this.points='';
       this.propic=data;
       this.alldata=JSON.parse(localStorage.getItem('user'));
+      this.getPlayerInfo(this.alldata._id);
       this.logged_in=true;
       this.fname= this.alldata.fname;
       this.lname= this.alldata.lname;
     });
 
     setTimeout(()=>{    
-      this.getPlayerInfo();
+      this.getPlayerInfo(this._id);
  }, 3000);
 
    
@@ -128,9 +130,12 @@ export class AppComponent {
  
   initializeApp() {    
     this.platform.ready().then(() => {
-      this.statusBar.backgroundColorByHexString('#252b46');
+      this.statusBar.backgroundColorByHexString('#6b6b6b');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      setTimeout(()=>{    
+        this.getPlayerInfo(this._id);
+   }, 3000);
 
 
        this.fcm.onNotification().subscribe(data => {
@@ -170,7 +175,8 @@ export class AppComponent {
     });
   }
 
-  logout(){    
+  logout(){ 
+   
    localStorage.removeItem('user');
    localStorage.removeItem('logged_in');
    localStorage.removeItem('_id');
@@ -194,11 +200,14 @@ export class AppComponent {
     this.menu.close();
   }
 
-  getPlayerInfo(){
-    this.apiservice.post('getPlayerInfo',{_id: this._id},'').subscribe((result) => {  
+
+  getPlayerInfo(_id){
+    this.apiservice.post('playerAllInfo',{_id: _id},'').subscribe((result) => {  
       var res;
       res= result;
       this.points = res.points;
+     
+
   },
   err => {
      

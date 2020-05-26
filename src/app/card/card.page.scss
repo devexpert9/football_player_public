@@ -1,6 +1,6 @@
 ion-content.login-bg {
-	--background: #252b46;
-	background: #252b46;
+	--background: #6b6b6b;
+	background: #6b6b6b;
 	.logo-top {
 		text-align: center;
 		padding: 110px 0 30px;
@@ -52,7 +52,7 @@ ion-content.login-bg {
 		float: right;
 		text-align: right;
 		text-decoration: none;
-		color: #5ac1f8;
+		color: #fd93fb;
 		margin-top: 15px;
 	}
 	.login-btn{
@@ -71,7 +71,7 @@ ion-content.login-bg {
 		font-size: 14.5px;
 		font-weight: 400;
 		a {
-			color: #5ac8fa;
+			color: #fd93fb;
 			font-weight: 700;
 			text-decoration: none;
 		}
@@ -90,7 +90,7 @@ ion-content.login-bg {
 			position: absolute;
 			width: 50px;
 			height: 3px;
-			background: #00afff;
+			background: #fd93fb;
 			bottom: 0;
 			left: 0;
 			right: 0;
@@ -104,8 +104,8 @@ ion-content.login-bg {
 }
 
 .payment_dtl {
-    background: #252b46;
-    color: #00afff;
+    background: #6b6b6b;
+    color: #fd93fb;
     text-align: center;
     padding: 35px 10px 0px 10px;
     border-radius: 7px;
@@ -119,7 +119,7 @@ ion-content.login-bg {
         text-transform: initial;
         font-weight: 700;
         span{
-            color: #00aff0;
+            color: #fd93fb;
             display: block;
             font-size: 30px;
             margin: 20px 0;      
@@ -129,7 +129,7 @@ ion-content.login-bg {
         position: absolute;
         top: -10px;
         right: -10px;
-        background: #00aff0;
+        background: #fd93fb;
         color: #fff;
         border-radius: 50px;
         font-size: 28px;
@@ -142,7 +142,7 @@ ion-content.login-bg {
         top: 60px;
         ion-buttons {
             color: #fff;
-            background: #00afff;
+            background: #fd93fb;
             display: block;
             width: 100%;
             padding: 10px;
@@ -150,7 +150,7 @@ ion-content.login-bg {
             border-radius: 0px 0px 7px 7px;
         }
         [dismiss]{
-            background:#009fe8;
+            background:#fd93fb;
             border-radius: 0px 0px 7px 0px;
         }
     }

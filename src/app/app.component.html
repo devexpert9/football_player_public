@@ -5,11 +5,13 @@
           <ion-toolbar lines="none" profile_img >
               <img pro-img src="assets/images/default-avatar.jpg" *ngIf="errors.indexOf(propic)>=0"/>
               <img pro-img src="{{url}}{{propic}}" *ngIf="errors.indexOf(propic)==-1"  style="width:57px;"/>
-              <ion-title lines="none" class="ion-text-left" usr-name>
+              <ion-title lines="none" class="ion-text-left" usr-name style="top: 15px;">
                 {{fname[0].toUpperCase()+fname.slice(1)}} {{lname[0].toUpperCase()+lname.slice(1)}}
 
           </ion-title>
-          <ngx-stars  [size]="1" [maxStars]="5" [readonly]="true" [initialStars]="points"></ngx-stars>
+          <div style="margin-left: 92px;
+          margin-top: 22px;">  <ngx-stars  [size]="1" [maxStars]="5" [readonly]="true" [initialStars]="points" *ngIf="errors.indexOf(points)==-1"></ngx-stars></div>
+        
         </ion-toolbar>
       </ion-header>
       <ion-content bg-dark>

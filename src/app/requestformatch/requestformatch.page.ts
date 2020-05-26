@@ -32,6 +32,9 @@ export class RequestformatchPage implements OnInit {
   selected_player_id:any=[];
   selected:boolean=false;
   team_id: any;
+  is_today:any=true;
+  total_hours:any;
+  end_hours:any;
   constructor(private modalController: ModalController,
     public formBuilder: FormBuilder,	
     public apiservice:ApiService,
@@ -61,7 +64,7 @@ async presentModal() {
 
   modal.onDidDismiss().then((detail) => {
     
-    
+     console.log(detail)
      if(detail.data.status==1){
        this.selected_player_id= detail.data.selected_player_ids;
        this.selected=true;
@@ -173,7 +176,6 @@ makeform(){
     this.is_submit=true;
     if(this.updatedata.valid){
 
-
      var sdate = new Date(this.updatedata.value.stime);
         var edate = new Date(this.updatedata.value.etime);
         let shour:any = sdate.getHours();
@@ -225,4 +227,72 @@ makeform(){
 
 
   }
+
+  checkdate(){
+ 
+  this.updatedata.controls['stime'].setValue(null)
+  this.updatedata.controls['etime'].setValue(null)
+   var d = new Date();
+   var date:any = d.getDate();
+   var month:any = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+   var year = d.getFullYear();
+   if (date < 10) {
+     date = '0' + date;
+   }
+   if (month < 10) {
+     month = '0' + month;
+   }
+  
+   var hours:any = d.getHours();
+   var mins:any = d.getMinutes();
+  
+   if (hours < 10) {
+     hours = '0' + hours;
+   }
+   if (mins < 10) {
+     mins = '0' + mins;
+   }
+  
+   var stime = hours + ':' + mins;
+   var dateStr = year + "-" + month + "-" + date;
+  
+  if(this.updatedata.value.date.split('T')[0]==dateStr){
+    this.is_today=true;
+    var hours_n = new Date().getHours();
+    var i= hours_n;
+    var cars = 24
+    var hours_array =[];
+    for (i = hours; i <= cars; i++) {
+      console.log(i)
+      hours_array.push(hours_n++)
+      
+    }
+    this.total_hours = hours_array
+  
+  
+  
+  }else{
+    this.is_today=false;
+  }
+     
+  }
+
+
+  checktime(){
+    this.updatedata.controls['etime'].setValue(null)
+
+    var hours_n =  new Date(this.updatedata.value.stime);
+    let ehour:any = hours_n.getHours();
+    var i= ehour;
+    var cars = 24
+    var hours_array =[];
+   for (i = ehour; i <= cars; i++) {
+     console.log(i)
+     hours_array.push(ehour++)
+     
+   }
+   this.end_hours = hours_array
+
+ }
+
 }

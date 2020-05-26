@@ -1,10 +1,10 @@
 ion-tabs{
     ion-tab-bar {
-        border-color: #00afff;
+        border-color: #fd93fb;
     }
     ion-tab-button {
         font-size:11px;
-        background: #252c46;
+        background: #535353;
         color: #fff;
         padding: 0 8px 5px 8px;
         ion-label{
@@ -15,7 +15,7 @@ ion-tabs{
         }
     }
     ion-tab-button.tab-selected {
-        color: #00afff;
+        color: #fd93fb;
     }
     
 }

@@ -15,7 +15,7 @@
     <ion-col size="12">
       <div class="box-feilds">
         <ion-input placeholder="Please enter OTP" formControlName="otp" type="number"></ion-input>
-        <img src="assets/images/user.png" class="icon-log"> 
+        <img src="assets/images/lock.png" class="icon-log"> 
       </div>
       <div *ngIf="!resetform.controls.otp.valid && is_submit" class="valid">
         Please enter OTP
@@ -25,7 +25,7 @@
     <ion-col size="12">
       <div class="box-feilds">
         <ion-input type="password" placeholder="New password" formControlName="npassword" (keyup)="matchpasswords()"></ion-input>
-        <img src="assets/images/user.png" class="icon-log"> 
+        <img src="assets/images/lock.png" class="icon-log"> 
       </div>
       <div *ngIf="!resetform.controls.npassword.valid && is_submit" class="valid">
           Please enter minimum 6 character password
@@ -35,7 +35,7 @@
     <ion-col size="12">
       <div class="box-feilds">
         <ion-input type="password" placeholder="Confirm password" formControlName="cpassword"  (keyup)="matchpasswords()"></ion-input>
-        <img src="assets/images/user.png" class="icon-log"> 
+        <img src="assets/images/lock.png" class="icon-log"> 
       </div>
       <div *ngIf="!resetform.controls.cpassword.valid && is_submit" class="valid">
           Please confirm new password

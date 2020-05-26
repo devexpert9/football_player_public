@@ -6,12 +6,12 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #00afff;
-  --ion-color-primary-rgb: 0, 175, 255;
+  --ion-color-primary: #fd93fb;
+  --ion-color-primary-rgb: 253, 147, 251;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #111;
+  --ion-color-primary-tint: #000;
 
   /** secondary **/
   --ion-color-secondary: #0cd1e8;
@@ -83,7 +83,7 @@ ion-content, h1, h2, h3, h4, h5, h6, p, button, a, ion-input, ion-label {
 }
 ion-header  {
 	ion-toolbar {
-		--background: #252c46;
+		--background: #535353;
 		color: #fff;
 		font-family: "Montserrat", sans-serif !important;
 		font-size: 13px;
@@ -98,8 +98,8 @@ ion-header  {
 	&:after { display:none;}
 }
 ion-content[bg-dark] {
-	--background: #252c46;
-	background: #252c46;
+	--background: #535353;
+	background: #535353;
 }
 .nav-menu  {
     background: transparent;
@@ -120,7 +120,7 @@ ion-content[bg-dark] {
     background: rgba(255, 255, 255, 0.11);
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.14);
-    border-top: 3px solid #00afff;
+    border-top: 3px solid #fd93fb;
 	&>img {
 		width: 70px !important;
 		height: 70px !important;

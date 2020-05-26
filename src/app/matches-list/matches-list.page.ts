@@ -43,7 +43,7 @@ export class MatchesListPage implements OnInit {
   skeleton:any=[];
   response1_came:any=false;
   response2_came:any=false;
-  
+  t_hours:any
   constructor(
     private filePath: FilePath,
     private transfer: FileTransfer,
@@ -60,17 +60,26 @@ export class MatchesListPage implements OnInit {
     public sanitizer:DomSanitizer 
   ) { 
     this.skeleton=[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,6,7,65,4,2,3,4,5,6,7,8]; 
+
+    this.events.subscribe('refresh', data => {
+      this. ionViewDidEnter();
+    })
+
   }
 
-   ionViewDidEnter(){
-    this.response1_came=false;
-    this.response2_came=false;
-     this.upcominglist=[];
-     this.previouslist=[];
-     this.upcomingMatches();
-    this.previousMatches();
+      ionViewDidEnter(){
+        this._id = localStorage.getItem('_id');
+        this.response1_came=false;
+        this.response2_came=false;
+        this.upcominglist=[];
+        this.previouslist=[];
+        this.upcomingMatches();
+        this.previousMatches();
+        this.getHoursOfPlay();
 
-   }
+      }
+
+ 
   ngOnInit() {
   }
 
@@ -113,6 +122,25 @@ err => {
 },
 err => {
       this.response2_came=true;   
+      this.notifi.stopLoading();
+      this.notifi.presentToast('Internal server error, Please try later','danger');
+});
+
+   }
+
+   getHoursOfPlay(){
+    this.apiservice.post('getHoursOfPlay',{_id:this._id},'').subscribe((result) => { 
+      this.response1_came=true;           
+     var res;
+     res = result;
+    
+    this.t_hours = Math.round(res.hours)
+     
+     
+  
+},
+err => {
+      this.response1_came=true;          
       this.notifi.stopLoading();
       this.notifi.presentToast('Internal server error, Please try later','danger');
 });

@@ -56,6 +56,11 @@ export class MatchDetailsPage implements OnInit {
           response1_came:any=false;
           response2_came:any=false;
           skeleton:any=[];
+          team_1:any;
+          team_2:any;
+          team_1_players:any;
+          team_2_players:any;
+          team_3_players:any;
           constructor(
           public modalController: ModalController,
           private filePath: FilePath,
@@ -80,6 +85,11 @@ export class MatchDetailsPage implements OnInit {
       }
 
        ionViewDidEnter(){
+
+        this._id = localStorage.getItem('_id');
+        this.team_1_players =[]
+        this.team_2_players =[]
+        this.team_3_players =[]
         this.response2_came=false; 
         this.response1_came=false; 
         this.getjoinresult=[];
@@ -123,7 +133,7 @@ export class MatchDetailsPage implements OnInit {
      if(this.respData.status == 1){
       this.noOfPlayers++;  
       this.getjoinresult.push(this._id);
-      this.onlyplayers.push({
+      this.team_3_players.push({
         pic:this.alldata.pic,
         fname:this.alldata.fname,
         lname:this.alldata.lname,
@@ -155,7 +165,7 @@ export class MatchDetailsPage implements OnInit {
       this.noOfPlayers--;       
       var index = this.getjoinresult.indexOf(this._id); 
       this.getjoinresult.splice(index, 1);
-      this.onlyplayers.splice(index, 1);    
+      this.team_3_players.splice(index, 1);    
 
       }else{
 
@@ -188,6 +198,8 @@ export class MatchDetailsPage implements OnInit {
           // this.notifi.presentToast(this.response.msg,'success'); 
           this.matchlist=this.response;
           this.owner_id= this.response.owner._id; 
+         this.team_1 = this.matchlist.match.team1
+         this.team_2 = this.matchlist.match.team2
           this.title= this.matchlist.match.team1+' VS '+this.matchlist.match.team2
           console.log(this.matchlist);
           }
@@ -203,20 +215,20 @@ export class MatchDetailsPage implements OnInit {
 
   getJoinMatch(){ 
    
-        this.apiservice.post('getJoinmatch',{match_id:this.match_id,_id:this._id},'').subscribe((result) => { 
+        this.apiservice.post('newGetJoinmatch',{match_id:this.match_id,_id:this._id},'').subscribe((result) => { 
           this.response2_came=true; 
         this.notifi.stopLoading();  
         this.getjoinres=result;
         console.log(this.getjoinres);
       
         if(this.getjoinres.status == 1){   
-           this.onlyplayers= this.getjoinres.playersList;
-          for(let key of  this.getjoinres.playersList){
-            this.getjoinresult.push(key._id);
 
-          }         
-
-          this.noOfPlayers= this.getjoinresult.length;
+          this.team_1_players = this.getjoinres.players1
+          this.team_2_players = this.getjoinres.players2
+          this.team_3_players = this.getjoinres.players3
+           this.getjoinresult = this.getjoinres.players
+           
+           this.noOfPlayers= this.getjoinresult.length;
          
         }else{
           this.getjoinresult=[];

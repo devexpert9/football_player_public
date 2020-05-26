@@ -100,6 +100,9 @@ export class OwnerProfilePage implements OnInit {
       }
 
   ionViewDidEnter(){
+    this._id=localStorage.getItem('_id');
+    this.upcoming_array =[];
+    this.previous_array =[];
     this.response1_came =false;
     this.response2_came =false;
     this.response3_came =false;

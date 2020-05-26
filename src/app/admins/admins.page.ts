@@ -54,6 +54,8 @@ export class AdminsPage implements OnInit {
   }
   
   ionViewDidEnter(){
+    this._id=localStorage.getItem('_id');
+    this.followArray =[];
     this.response_came=false;    
     this.getfollowers();
      

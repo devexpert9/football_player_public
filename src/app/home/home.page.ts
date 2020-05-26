@@ -21,8 +21,8 @@ export class HomePage {
   slideOptsOne = {
     initialSlide: 1,
     speed: 400,
-    autoplay: true,
-    loop: true
+    // autoplay: true,
+    // loop: true
 
   };
 
@@ -53,39 +53,60 @@ export class HomePage {
   noOfJoinres: any;
   noOfJoindata: any;
 
-  noTodayMatch: boolean = false;
-  noUpcomingMatch: boolean = false;
+  noTodayMatch:any;
+  noUpcomingMatch:any;
   skeleton: any = [];
   response1_came: any = false;
   response2_came: any = false;
   constructor(
-    private filePath: FilePath,
-    private transfer: FileTransfer,
-    private file: File,
-    private camera: Camera,
-    private ref: ChangeDetectorRef,
+ 
     public TransferObject: FileTransferObject,
     public router: Router,
     public actionSheetController: ActionSheetController,
     public events: Events,
-    private platform: Platform,
     public apiservice: ApiService,
     public notifi: NotiService,
     public sanitizer: DomSanitizer
 
   ) {
-
+   
     this.skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 2, 3, 4, 5, 6, 7, 65, 4, 2, 3, 4, 5, 6, 7, 8]
-
+    
+    this.events.subscribe('refresh', data => {
+      this.ionViewDidEnter();
+    })
 
   }
 
-  ionViewDidEnter() {
-    this.response2_came = false;
-    this.response1_came = false;
+
+  ngOnDestroy(){
+    this.events.unsubscribe('refresh');
+  }
+
+  
+  ionViewDidEnter(){
+  
     this.favlist = [];
     this.matchlist = [];
     this.upcominglist = [];
+    this._id = localStorage.getItem('_id');
+    this.response2_came = false;
+    this.response1_came = false;
+    this.todayMatches();
+    this.upcomingMatches();
+    this.getfav();
+
+  }
+  
+
+
+  clear(){
+    this.favlist = [];
+    this.matchlist = [];
+    this.upcominglist = [];
+    this._id = localStorage.getItem('_id');
+    this.response2_came = false;
+    this.response1_came = false;
     this.todayMatches();
     this.upcomingMatches();
     this.getfav();
@@ -100,6 +121,7 @@ export class HomePage {
       if (this.response.status == 1) {
         // this.notifi.presentToast(this.response.msg,'success'); 
         this.matchlist = this.response.data;
+        this.noTodayMatch = false;
         // console.log(this.matchlist);
       }
       if (this.response.status == 0) {
@@ -122,7 +144,7 @@ export class HomePage {
       if (this.upcomingres.status == 1) {
         // this.notifi.presentToast(this.response.msg,'success'); 
         this.upcominglist = this.upcomingres.data;
-        // console.log(this.upcominglist);
+        this.noUpcomingMatch = false;
 
 
       }
@@ -148,10 +170,10 @@ export class HomePage {
         this.notifi.stopLoading();
         this.searchres = result;
         if (this.searchres.status == 1) {
+          this.noUpcomingMatch =false;
+          this.noTodayMatch =false;
           this.noresults = false;
           this.upcominglist = this.searchres.data;
-        
-
         }
         else {
 

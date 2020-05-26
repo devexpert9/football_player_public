@@ -113,7 +113,7 @@ export class MyProfilePage implements OnInit {
   ngOnInit() {
   }
    ionViewDidEnter(){
-    
+    this.getPlayerInfo();      
     this.alldata =''
     this.alldata= JSON.parse(localStorage.getItem('user')); 
     this.propic=this.alldata.pic;    
@@ -133,7 +133,7 @@ export class MyProfilePage implements OnInit {
             position:this.alldata.position
            });
 
-     this.getPlayerInfo();      
+     
    }
   makeform(){
     this.updatedata= this.formBuilder.group({

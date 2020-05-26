@@ -52,10 +52,10 @@ export class TransactionsPage implements OnInit {
   }
 
   ionViewDidEnter(){
-    this.response_came=false;
     this._id= localStorage.getItem('_id');
-    this.no_details=false;
     this.transactions=[];
+    this.response_came=false;
+    this.no_details=false;
     this.transactions_details();
 
   }

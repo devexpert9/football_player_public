@@ -10,32 +10,57 @@
         <ion-checkbox color="primary" (click)="isActive = !isActive" formControlName="fullday"  ></ion-checkbox> <span>Full Day</span>
         </ion-item>
      </div>
+
+
 <div class="msg_6">
      <div class="msg_box">
       <ion-item no-padding lines="none">
-          <ion-datetime no-border field_clr  displayFormat="MM DD YY" placeholder="Select Date" formControlName="date"[min]="date"></ion-datetime>
+          <ion-datetime no-border field_clr  displayFormat="MM DD YY" placeholder="Select Date" formControlName="date"[min]="date" (ionChange)="checkdate()"></ion-datetime>
         </ion-item>
      </div>
 </div>
+
+
 <div *ngIf="!updatedata.controls.date.valid && is_submit" class="valid">
   Please select date
 </div>
 
+<span *ngIf="!is_today">
+
+  <div class="msg_6" [ngClass]="{'block_page': isActive}" >
+
+    <div class="msg_box">
+     <ion-item no-padding lines="none">
+         <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Select Time" formControlName="stime"></ion-datetime>
+       </ion-item>
+    </div>         
+   </div>
+
+</span>
+
+
+
+  <span *ngIf="is_today">
     <div class="msg_6" [ngClass]="{'block_page': isActive}">
 
-        <div class="msg_box">
-         <ion-item no-padding lines="none">
-             <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Select Time" formControlName="stime"></ion-datetime>
-           </ion-item>
-        </div>         
-       </div>
+      <div class="msg_box">
+      <ion-item no-padding lines="none">
+          <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Select Time" formControlName="stime" hourValues="{{total_hours}}" (ionChange)="checktime()"></ion-datetime>
+        </ion-item>
+      </div>         
+    </div>
+
+  </span>
+
+    
+
 
 
      <div class="msg_6" [ngClass]="{'block_page': isActive}">
 
         <div class="msg_box">
          <ion-item no-padding lines="none">
-             <ion-datetime  display-format="HH-mm" picker-format="HH-mm"  no-border field_clr  placeholder="Select Time" formControlName="etime"></ion-datetime>
+             <ion-datetime  display-format="HH-mm" picker-format="HH-mm"  no-border field_clr  placeholder="Select Time" formControlName="etime" hourValues="{{end_hours}}"></ion-datetime>
            </ion-item>
         </div>         
        </div>
@@ -46,7 +71,7 @@
 
     <ion-button  shape="round" (click)="presentModal()" *ngIf="!selected">Select Players</ion-button>
 
-    <ion-button  shape="round" (click)="presentModal()" *ngIf="selected" > <ion-icon name="checkmark"></ion-icon>  Selected</ion-button>
+    <ion-button  shape="round" (click)="presentModal()" *ngIf="selected" > <ion-icon name="checkmark" style="color:black"></ion-icon>  Selected</ion-button>
 
     <div *ngIf="selected_player_id.length == 0 && is_submit" class="valid">
       Please select players for match

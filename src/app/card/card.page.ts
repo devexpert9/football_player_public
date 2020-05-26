@@ -28,7 +28,7 @@ export class CardPage implements OnInit {
   _id:any=localStorage.getItem('_id');
   static_amount: any;
   pay_type:any;
- 
+  coming_status:any
   public resetform: FormGroup;
 
   constructor(
@@ -44,6 +44,8 @@ export class CardPage implements OnInit {
     public alertController: AlertController 
     ) {
 
+      this.coming_status = this.ActivatedRoute.snapshot.paramMap.get('coming_status');
+console.log(this.coming_status)
       this.match_id = this.ActivatedRoute.snapshot.paramMap.get('m_id');
       this.c_id = this.ActivatedRoute.snapshot.paramMap.get('c_id');
       this.type = Number(this.ActivatedRoute.snapshot.paramMap.get('type'));
@@ -121,7 +123,8 @@ export class CardPage implements OnInit {
               token: token.id,
               commission: this.amount_to_pay,
               _id: this._id,
-              type : this.pay_type
+              type : this.pay_type,
+              coming_status : this.coming_status
              }
              
                this.apiservice.post('confirmPayment',reqData,'').subscribe((result) => {  

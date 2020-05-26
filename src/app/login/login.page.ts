@@ -90,6 +90,7 @@ export class LoginPage implements OnInit {
             localStorage.setItem('logged_in',this.response.data._id);
             localStorage.setItem('user',JSON.stringify(this.response.data));
             this.events.publish('logged',this.response.data.pic);
+            this.events.publish('refresh','');
             this.login.reset();
             this.is_submit=false;
             this.router.navigate(['/tabs/tabs/home']);

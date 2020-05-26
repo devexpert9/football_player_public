@@ -55,8 +55,10 @@ export class NotificationsPage implements OnInit {
   }
 
     ionViewDidEnter(){
+      this._id=localStorage.getItem('_id');
+      this.notiArray =[];
       this.response_came=false;  
-    this.getJoinMatch();
+      this.getJoinMatch();
 
   }
 

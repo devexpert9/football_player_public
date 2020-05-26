@@ -1,5 +1,5 @@
 <ion-content bg-dark content-padding>
-  <ion-icon name="close-circle" class="close_icon" (click)="myDismiss()"></ion-icon>
+  <ion-icon name="close-circle" class="close_icon" (click)="myDismiss(0)"></ion-icon>
 <h4 class="heading">Choose players</h4>
 <ion-row>
   <ion-col size="12">
@@ -11,7 +11,7 @@
 
 
   <ion-col size="12">
-    <ion-button btn_done class="button_done" (click)="myDismiss()" [disabled]="selected_player_ids.length==0 ? true: false">Save</ion-button >
+    <ion-button btn_done class="button_done" (click)="myDismiss(1)" [disabled]="selected_player_ids.length==0 ? true: false">Save</ion-button >
     <div *ngIf="response_came">
 
       <ng-container *ngFor="let item of playerlist">

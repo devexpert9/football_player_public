@@ -1,6 +1,6 @@
 ion-content.login-bg {
-	--background: #252b46;
-	background: #252b46;
+	--background: #535353;
+	background: #535353;
 	.logo-top {
 		text-align: center;
 		padding: 80px 0 30px;
@@ -26,7 +26,7 @@ ion-content.login-bg {
 				position: absolute;
 				width: 50px;
 				height: 3px;
-				background: #00afff;
+				background: #fd93fb;
 				bottom: 0;
 				left: 0;
 				right: 0;
@@ -79,7 +79,7 @@ ion-content.login-bg {
 		float: right;
 		text-align: right;
 		text-decoration: none;
-		color: #5ac1f8;
+		color: #fd93fb;
 		margin-top: 15px;
 	}
 	.login-btn{
@@ -98,7 +98,7 @@ ion-content.login-bg {
 		font-size: 14.5px;
 		font-weight: 400;
 		a {
-			color: #5ac8fa;
+			color: #fd93fb;
 			font-weight: 700;
 			text-decoration: none;
 		}

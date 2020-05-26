@@ -14,7 +14,7 @@
         </div>
 
     
-        <ion-item no-padding>
+        <!-- <ion-item no-padding>
           <ion-icon icon-left slot="start" name="business"></ion-icon>
           <ion-label position="stacked">Select Players</ion-label>
           <ion-select multiple="true" cancelText="Cancel" okText="Okay!" formControlName="players">
@@ -29,10 +29,20 @@
             </ion-select-option>
            
           </ion-select>
-        </ion-item>
+        </ion-item> -->
+
+
+        <ion-item no-padding>
+          <ion-icon  icon-left slot="start" name="logo-slack"></ion-icon>
+           
+           
+            <div  (click)="presentModal()" class="choose" *ngIf="ids.length==0">Select Players</div>
+            <div  (click)="presentModal()" class="choose" *ngIf="ids.length>0">Selected</div>
+      </ion-item> 
+
 
   
-        <div *ngIf="!addmatch.controls.players.valid && is_submit" class="valid">
+        <div *ngIf="ids.length==0 && is_submit" class="valid">
             Please select players
         </div>
   

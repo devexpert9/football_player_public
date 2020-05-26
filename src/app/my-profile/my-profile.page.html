@@ -16,9 +16,9 @@
             </ng-container>		
           
           </span>
-      <h2>{{alldata.fname[0].toUpperCase()+alldata.fname.slice(1)}} {{alldata.lname[0].toUpperCase()+alldata.lname.slice(1)}}  <ion-icon name="information-circle-outline" tooltip="Note: It is Important to use your full name and actual headshot photo so other players may
+      <h2 style="color:  #fff;">{{alldata.fname[0].toUpperCase()+alldata.fname.slice(1)}} {{alldata.lname[0].toUpperCase()+alldata.lname.slice(1)}}  <ion-icon name="information-circle-outline" tooltip="Note: It is Important to use your full name and actual headshot photo so other players may
         easily identify you when they are voting for Man Of The Match (MOTM)" [options]="myOptions"></ion-icon></h2>
-      <p *ngIf="errors.indexOf(alldata.city)==-1">{{alldata.city}}, {{alldata.state}}, {{alldata.country}}</p>
+      <p *ngIf="errors.indexOf(alldata.city)==-1" style="color:  #fff;">{{alldata.city}}, {{alldata.state}}, {{alldata.country}}</p>
 
       <div>
       </div>
@@ -26,224 +26,220 @@
     
   </div>
 
-
   <div padding>
-  <ion-segment [(ngModel)]="profile" color="primary" match_tab>
-   
-    <!--ion-segment-button value="overview" no->
-      Overview
-    </ion-segment-button-->
-    <ion-segment-button value="personal">
-      Personal
-    </ion-segment-button>
-      
-	   <ion-segment-button value="password">
-        Password
+    <ion-segment [(ngModel)]="profile" color="primary" match_tab>
+     
+      <!--ion-segment-button value="overview" no->
+        Overview
+      </ion-segment-button-->
+      <ion-segment-button value="personal">
+        Personal
       </ion-segment-button>
-  </ion-segment>
-
-  <div allOrders [ngSwitch]="profile">
-    <!--div itemLists *ngSwitchCase="'overview'">
+        
+       <ion-segment-button value="password">
+          Password
+        </ion-segment-button>
+    </ion-segment>
+  
+    <div allOrders [ngSwitch]="profile">
+      <!--div itemLists *ngSwitchCase="'overview'">
+        <ion-list UserDetails>
+          <ion-item no-padding>
+            <ion-label position="stacked">Overview</ion-label>
+            <ion-textarea value="Sed lacinia posuere diam, et hendrerit neque. Vivamus eu est egestas, porta libero eget, luctus ligula. Praesent quis rhoncus erat, ut commodo sem. Phasellus feugiat libero id gravida bibendum. Sed dui ex, semper ac dolor non, malesuada venenatis orci. Proin egestas urna eros, ac convallis ex mattis nec." rows="8" cols="20"></ion-textarea>
+          </ion-item>
+          
+        </ion-list>
+      </div-->
+      <div itemLists *ngSwitchCase="'personal'">
+          <form [formGroup]="updatedata" (ngSubmit)="updatepersnl()">
       <ion-list UserDetails>
+       <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="person"></ion-icon>
+           <ion-label position="stacked">First Name</ion-label>
+             <ion-input formControlName="fname"></ion-input>
+          </ion-item>
+  
+          <div *ngIf="!updatedata.controls.fname.valid && is_submit" class="valid">
+              Please enter first name
+          </div>
+  
+  
+      <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="person"></ion-icon>
+           <ion-label position="stacked">Last Name</ion-label>
+             <ion-input  formControlName="lname"></ion-input>
+          </ion-item>
+  
+          <div *ngIf="!updatedata.controls.lname.valid && is_submit" class="valid">
+              Please enter last name
+          </div>
+  
+  
+       <ion-item no-padding>
+          <ion-icon  icon-left slot="start" name="mail"></ion-icon>
+          <ion-label position="stacked">Email Address</ion-label>
+             <ion-input  formControlName="email"></ion-input>
+          </ion-item>
+          
+          <div *ngIf="!updatedata.controls.email.valid && is_submit" class="valid">
+              Please enter a valid email
+          </div>
+  
+  
+       <ion-item no-padding>
+          <ion-icon icon-left  slot="start" name="call"></ion-icon>
+          <ion-label position="stacked">Phone No</ion-label>
+             <ion-input formControlName="phone"></ion-input>
+          </ion-item>
+  
+          <div *ngIf="!updatedata.controls.phone.valid && is_submit" class="valid">
+              Please enter a valid phone
+          </div>
+  
+       
+          <div no-padding addressproperty>
+            <ion-icon icon-left  slot="start" name="pin"></ion-icon>
+          <div addressleft>
+                  <ion-label position="stacked">Address</ion-label>
+                
+                  <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+                </div>
+          </div>     
+  
+  
+      <div *ngIf="errors.indexOf(address)==0 && is_submit" class="valid">
+          Please enter address
+      </div>    
+   
+      <ion-item no-padding>
+        <ion-icon icon-left slot="start" name="navigate"></ion-icon>
+          <ion-label position="stacked">State</ion-label>
+        <ion-input  formControlName="state"></ion-input>
+      </ion-item>
+      
+      <div *ngIf="!updatedata.controls.state.valid && is_submit" class="valid">
+          Please enter state
+      </div>
+      
+  
+      <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="globe"></ion-icon>
+          <ion-label position="stacked">City</ion-label>
+            <ion-input  formControlName="city"></ion-input>
+      </ion-item>
+      
+      <div *ngIf="!updatedata.controls.city.valid && is_submit" class="valid">
+          Please enter city
+      </div>
+      
+  
+      <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="md-globe"></ion-icon>
+          <ion-label position="stacked">Country</ion-label>
+      
+        <ion-input  formControlName="country"></ion-input>
+      </ion-item>
+      
+      <div *ngIf="!updatedata.controls.country.valid && is_submit" class="valid">
+          Please enter country
+      </div>
+      
+  
+      <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="locate"></ion-icon>
+          <ion-label position="stacked">Zip</ion-label>
+            <ion-input formControlName="zip"></ion-input>
+      </ion-item>
+      
+      <div *ngIf="!updatedata.controls.zip.valid && is_submit" class="valid">
+          Please enter zip
+      </div>
+      
+  
         <ion-item no-padding>
-          <ion-label position="stacked">Overview</ion-label>
-          <ion-textarea value="Sed lacinia posuere diam, et hendrerit neque. Vivamus eu est egestas, porta libero eget, luctus ligula. Praesent quis rhoncus erat, ut commodo sem. Phasellus feugiat libero id gravida bibendum. Sed dui ex, semper ac dolor non, malesuada venenatis orci. Proin egestas urna eros, ac convallis ex mattis nec." rows="8" cols="20"></ion-textarea>
+          <ion-icon icon-left slot="start" name="body"></ion-icon>
+          <ion-label position="stacked">Weight</ion-label>
+          <ion-input type="number" formControlName="weight"></ion-input>
         </ion-item>
+  
+        <div *ngIf="!updatedata.controls.weight.valid && is_submit" class="valid">
+            Please enter weight
+        </div>
+  
+  
+        <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="body"></ion-icon>
+          <ion-label position="stacked">Height</ion-label>
+          <ion-input  type="number" formControlName="height"></ion-input>
+        </ion-item>
+  
+        <div *ngIf="!updatedata.controls.height.valid && is_submit" class="valid">
+            Please enter height
+        </div>
+  
+  
+        <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="calendar"></ion-icon>
+          <ion-label position="stacked">DOB</ion-label>
+          <ion-datetime class="white-sts" formControlName="dob" placeholder="Select Date of Birth"></ion-datetime>
+        </ion-item>
+  
+        <div *ngIf="!updatedata.controls.dob.valid && is_submit" class="valid">
+            Please enter DOB
+        </div>
+  
+  
+      <ion-item no-padding>
+          <ion-icon icon-left slot="start" name="shirt"></ion-icon>
+          <ion-label position="stacked">Position</ion-label>
+          <ion-input  formControlName="position"></ion-input>
+        </ion-item>
+  
+        <div *ngIf="!updatedata.controls.position.valid && is_submit" class="valid">
+            Please enter position
+        </div>
+  
+  
         
       </ion-list>
-    </div-->
-    <div itemLists *ngSwitchCase="'personal'">
-        <form [formGroup]="updatedata" (ngSubmit)="updatepersnl()">
-    <ion-list UserDetails>
-	   <ion-item no-padding>
-			  <ion-icon icon-left slot="start" name="person"></ion-icon>
-	 		  <ion-label position="stacked">First Name</ion-label>
-           <ion-input formControlName="fname"></ion-input>
-        </ion-item>
-
-        <div *ngIf="!updatedata.controls.fname.valid && is_submit" class="valid">
-            Please enter first name
-        </div>
-
-
-		<ion-item no-padding>
-			  <ion-icon icon-left slot="start" name="person"></ion-icon>
-	 		  <ion-label position="stacked">Last Name</ion-label>
-           <ion-input  formControlName="lname"></ion-input>
-        </ion-item>
-
-        <div *ngIf="!updatedata.controls.lname.valid && is_submit" class="valid">
-            Please enter last name
-        </div>
-
-
-		 <ion-item no-padding>
-			  <ion-icon  icon-left slot="start" name="mail"></ion-icon>
-	 		 <ion-label position="stacked">Email Address</ion-label>
-           <ion-input  formControlName="email"></ion-input>
-        </ion-item>
-        
-        <div *ngIf="!updatedata.controls.email.valid && is_submit" class="valid">
-            Please enter a valid email
-        </div>
-
-
-		 <ion-item no-padding>
-			  <ion-icon icon-left  slot="start" name="call"></ion-icon>
-	 		 <ion-label position="stacked">Phone No</ion-label>
-           <ion-input formControlName="phone"></ion-input>
-        </ion-item>
-
-        <div *ngIf="!updatedata.controls.phone.valid && is_submit" class="valid">
-            Please enter a valid phone
-        </div>
-
-     
-       
-		<ion-item no-padding>
-			  <ion-icon icon-left slot="start" name="pin"></ion-icon>
-        <ion-label position="stacked">Address</ion-label>  
-      
-    </ion-item>  
-    <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>       
-
-      <br>
-      <br>
-      <br>
-
-    
-    <div *ngIf="errors.indexOf(address)==0 && is_submit" class="valid">
-				Please enter address
-    </div>    
- 
-		<ion-item no-padding>
-			<ion-icon icon-left slot="start" name="navigate"></ion-icon>
-				<ion-label position="stacked">State</ion-label>
-			<ion-input  formControlName="state"></ion-input>
-    </ion-item>
-    
-    <div *ngIf="!updatedata.controls.state.valid && is_submit" class="valid">
-				Please enter state
-    </div>
-    
-
-		<ion-item no-padding>
-			  <ion-icon icon-left slot="start" name="globe"></ion-icon>
-	 		 <ion-label position="stacked">City</ion-label>
-          <ion-input  formControlName="city"></ion-input>
-    </ion-item>
-    
-    <div *ngIf="!updatedata.controls.city.valid && is_submit" class="valid">
-				Please enter city
-    </div>
-    
-
-		<ion-item no-padding>
-			  <ion-icon icon-left slot="start" name="md-globe"></ion-icon>
-	 		 <ion-label position="stacked">Country</ion-label>
-		
-      <ion-input  formControlName="country"></ion-input>
-    </ion-item>
-    
-    <div *ngIf="!updatedata.controls.country.valid && is_submit" class="valid">
-				Please enter country
-    </div>
-    
-
-		<ion-item no-padding>
-			  <ion-icon icon-left slot="start" name="locate"></ion-icon>
-	 		 <ion-label position="stacked">Zip</ion-label>
-          <ion-input formControlName="zip"></ion-input>
-    </ion-item>
-    
-    <div *ngIf="!updatedata.controls.zip.valid && is_submit" class="valid">
-				Please enter zip
-    </div>
-    
-
-      <ion-item no-padding>
-        <ion-icon icon-left slot="start" name="body"></ion-icon>
-        <ion-label position="stacked">Weight</ion-label>
-        <ion-input type="number" formControlName="weight"></ion-input>
-      </ion-item>
-
-      <div *ngIf="!updatedata.controls.weight.valid && is_submit" class="valid">
-          Please enter weight
-      </div>
-
-
-      <ion-item no-padding>
-        <ion-icon icon-left slot="start" name="body"></ion-icon>
-        <ion-label position="stacked">Height</ion-label>
-        <ion-input  type="number" formControlName="height"></ion-input>
-      </ion-item>
-
-      <div *ngIf="!updatedata.controls.height.valid && is_submit" class="valid">
-          Please enter height
-      </div>
-
-
-      <ion-item no-padding>
-        <ion-icon icon-left slot="start" name="calendar"></ion-icon>
-        <ion-label position="stacked">DOB</ion-label>
-        <ion-datetime class="white-sts" formControlName="dob" placeholder="Select Date of Birth"></ion-datetime>
-      </ion-item>
-
-      <div *ngIf="!updatedata.controls.dob.valid && is_submit" class="valid">
-          Please enter DOB
-      </div>
-
-
-	  <ion-item no-padding>
-        <ion-icon icon-left slot="start" name="shirt"></ion-icon>
-        <ion-label position="stacked">Position</ion-label>
-        <ion-input  formControlName="position"></ion-input>
-      </ion-item>
-
-      <div *ngIf="!updatedata.controls.position.valid && is_submit" class="valid">
-          Please enter position
-      </div>
-
-
-      
-    </ion-list>
-    <button type="submit" makeOrder>Save Changes</button>
-  </form>
-    </div>
-    <div itemLists *ngSwitchCase="'password'">
-        <form [formGroup]="passwordfrom" (ngSubmit)="updatepassword()">
-          <ion-list UserDetails>
-         <ion-item no-padding>
-            <ion-icon icon-left slot="start" name="lock"></ion-icon>
-            <ion-label position="stacked" >Old Password</ion-label>
-           <ion-input type="password" formControlName="opassword"></ion-input>
-
-            </ion-item>
-            <div *ngIf="!passwordfrom.controls.opassword.valid && second_form" class="valid">
-              Please enter old password
-          </div>
-         <ion-item no-padding>
-            <ion-icon icon-left slot="start" name="lock"></ion-icon>
-            <ion-label position="stacked" >New Password</ion-label>
-           <ion-input  type="password" formControlName="npassword"></ion-input>
-    
-            </ion-item>
-            <div *ngIf="!passwordfrom.controls.npassword.valid && second_form" class="valid">
-              Please enter minimun 6 character password
-          </div>
-             <ion-item no-padding>
-            <ion-icon icon-left slot="start" name="lock"></ion-icon>
-            <ion-label position="stacked" >Confirm Password</ion-label>
-           <ion-input  type="password" formControlName="cpassword"></ion-input>
-     
-            </ion-item>
-            <div *ngIf="!passwordfrom.controls.cpassword.valid && second_form" class="valid">
-              Please confirm your new password
-          </div>
-        </ion-list>
       <button type="submit" makeOrder>Save Changes</button>
-      </form>
-        </div>
+    </form>
+      </div>
+      <div itemLists *ngSwitchCase="'password'">
+          <form [formGroup]="passwordfrom" (ngSubmit)="updatepassword()">
+            <ion-list UserDetails>
+           <ion-item no-padding>
+              <ion-icon icon-left slot="start" name="lock"></ion-icon>
+              <ion-label position="stacked" >Old Password</ion-label>
+             <ion-input type="password" formControlName="opassword"></ion-input>
+  
+              </ion-item>
+              <div *ngIf="!passwordfrom.controls.opassword.valid && second_form" class="valid">
+                Please enter old password
+            </div>
+           <ion-item no-padding>
+              <ion-icon icon-left slot="start" name="lock"></ion-icon>
+              <ion-label position="stacked" >New Password</ion-label>
+             <ion-input  type="password" formControlName="npassword"></ion-input>
+      
+              </ion-item>
+              <div *ngIf="!passwordfrom.controls.npassword.valid && second_form" class="valid">
+                Please enter minimun 6 character password
+            </div>
+               <ion-item no-padding>
+              <ion-icon icon-left slot="start" name="lock"></ion-icon>
+              <ion-label position="stacked" >Confirm Password</ion-label>
+             <ion-input  type="password" formControlName="cpassword"></ion-input>
+       
+              </ion-item>
+              <div *ngIf="!passwordfrom.controls.cpassword.valid && second_form" class="valid">
+                Please confirm your new password
+            </div>
+          </ion-list>
+        <button type="submit" makeOrder>Save Changes</button>
+        </form>
+          </div>
+    </div>
   </div>
-</div>
-</ion-content>
+  </ion-content>

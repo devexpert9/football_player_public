@@ -1,6 +1,6 @@
 ion-content[bg-dark] {
-	--background: #252c46;
-	background: #252c46;
+	--background: #535353;
+	background: #535353;
 	--padding-start:15px;
 	--padding-end: 15px;
 	--padding-bottom:15px;
@@ -25,7 +25,7 @@ ion-content[bg-dark] {
 			font-size: 18px;
 			right: 11px;
 			top: 10px;
-			z-index:99;
+			z-index: 99;
 		}
 	}
 	h4.main-ttls {
@@ -33,7 +33,7 @@ ion-content[bg-dark] {
 		font-size: 18px;
 		text-transform: uppercase;
 		margin-top: 15px;
-		border-left: 3px solid #00afff;
+		border-left: 3px solid #fd93fb;
 		padding-left: 7px;
 		margin-bottom: 13px;
 
@@ -41,6 +41,7 @@ ion-content[bg-dark] {
 	.box-imgs-sa {
 		position: relative;
 		display: block;
+		text-align:left;
 		&:before{
 			content: '';
 			display: block;
@@ -55,13 +56,14 @@ ion-content[bg-dark] {
 			position: absolute;
 			top: 7px;
 			left: 10px;
-			z-index: 999;		
+			z-index: 999;
+			color: #fd93fb;
 			font-size: 20px;
 		}
 		img.main-img {
 			width: 100%;
 			height: 182px;
-			object-fit: cover;
+			object-fit: contain;
 			border-radius: 10px;
 		}
 		.cont-sts {
@@ -73,17 +75,16 @@ ion-content[bg-dark] {
 			margin-top: -45px;
 			position: relative;
 			z-index: 111;
-			text-align:left;
 			h4.name-h {
 				margin-top: 0px;
-				color: #00afff;
+				color: #fd93fb;
 				font-size: 16px;
 				margin-bottom: 7px;
 				font-weight: 600;
 				span.bagd-srs {
 					float: right;
 					color: #fff;
-					background: #00afff;
+					background: #fd93fb;
 					font-size: 9px;
 					padding: 3px 14px;
 					border-radius: 50px;
@@ -94,7 +95,7 @@ ion-content[bg-dark] {
 				font-size: 12px;
 				color: #222840;
 				ion-icon {
-					color: #00afff;
+					color: #fd93fb;
 					font-size: 14px;
 					vertical-align: bottom;
 				}
@@ -110,7 +111,7 @@ ion-content[bg-dark] {
 					margin-right: 11px;
 					margin-top: 7px;
 					ion-icon {
-						color: #00afff;
+						color: #fd93fb;
 						font-size: 14px;
 						vertical-align: bottom;
 					}
@@ -123,7 +124,7 @@ ion-content[bg-dark] {
 		
 		 span.bagd-joins {
 			color: #fff;
-			background: #00afff;
+			background: #fd93fb;
 			font-size: 9px;
 			padding: 3px 8px;
 			border-radius: 50px;
@@ -139,7 +140,7 @@ ion-content[bg-dark] {
 			top: 7px;
     		left: 10px;
 			z-index: 999;
-		
+			color: #fd93fb;
 			font-size: 20px;
 		}
 		img.main-img {
@@ -194,215 +195,6 @@ ion-content[bg-dark] {
 		margin-bottom: 5px;
 		margin-top: 20px;
 	}
-}
-
-ion-content[bg-light] {
-	--background:white;
-	background: white;
-	--padding-start:15px;
-	--padding-end: 15px;
-	--padding-bottom:15px;
-	.search-bxs {
-		display: block;
-		border: 1px solid grey;
-		border-radius: 10px;
-		color: grey;
-		height: 38px;
-		position: relative;
-		padding: 0px 12px;
-		opacity: 1;
-		ion-input  {
-			font-size: 13px;
-			color:grey;
-			--placeholder-color:grey;
-			--placeholder-opacity:1;
-		}
-		ion-icon {
-			position: absolute;
-			color: #fff;
-			font-size: 18px;
-			right: 11px;
-			top: 10px;
-			z-index:99;
-		}
-	}
-	h4.main-ttls {
-		color: #fff;
-		font-size: 18px;
-		text-transform: uppercase;
-		margin-top: 15px;
-		border-left: 3px solid #00afff;
-		padding-left: 7px;
-		margin-bottom: 13px;
-
-	}
-	.box-imgs-sa {
-		position: relative;
-		display: block;
-		&:before{
-			content: '';
-			display: block;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: rgba(51, 51, 68, 0.30);
-			position: absolute;
-		 }
-		[fav_prprty]{
-			position: absolute;
-			top: 7px;
-			left: 10px;
-			z-index: 999;		
-			font-size: 20px;
-		}
-		img.main-img {
-			width: 100%;
-			height: 182px;
-			object-fit: cover;
-			border-radius: 10px;
-		}
-		.cont-sts {
-			background: #fff;
-			padding: 12px;
-			border-radius: 10px;
-			max-width: 90%;
-			margin: 0 auto;
-			margin-top: -45px;
-			position: relative;
-			z-index: 111;
-			text-align:left;
-			h4.name-h {
-				margin-top: 0px;
-				color: #00afff;
-				font-size: 16px;
-				margin-bottom: 7px;
-				font-weight: 600;
-				span.bagd-srs {
-					float: right;
-					color: #fff;
-					background: #00afff;
-					font-size: 9px;
-					padding: 3px 14px;
-					border-radius: 50px;
-				}
-			}
-			.location-sc {
-				display: block;
-				font-size: 12px;
-				color: #222840;
-				ion-icon {
-					color: #00afff;
-					font-size: 14px;
-					vertical-align: bottom;
-				}
-			}
-			ul.list-dts {
-				padding: 0px;
-				margin: 0px;
-				list-style: none;
-				 li {
-					display: inline-block;
-					font-size: 10px;
-					color: #222840;
-					margin-right: 11px;
-					margin-top: 7px;
-					ion-icon {
-						color: #00afff;
-						font-size: 14px;
-						vertical-align: bottom;
-					}
-				}
-			}
-		}
-	}
-	.box-imgs-sa.small-2-box { 
-		 margin-bottom: 15px;
-		
-		 span.bagd-joins {
-			color: #fff;
-			background: #00afff;
-			font-size: 9px;
-			padding: 3px 8px;
-			border-radius: 50px;
-			display: inline-block;
-			margin-top: 2px;
-			position: absolute;
-			top: 7px;
-			right: 10px;
-		}
-		[fav_prprty]
-		{
-			position: absolute;
-			top: 7px;
-    		left: 10px;
-			z-index: 999;
-		
-			font-size: 20px;
-		}
-		img.main-img {
-			height: 135px;
-		}
-		.cont-sts {
-			padding: 7px;
-			max-width: 92%;
-			margin-top: -22px;
-			h4.name-h {
-				    font-size: 12px;
-					margin-bottom: 0px;
-			}
-			ul.list-dts {
-				    padding: 0px;
-					margin: 0px;
-					list-style: none;
-					line-height: 12px;
-					margin-top: 4px;
-				li {
-					display: inline-block;
-					font-size: 9px;
-					margin-right: 0;
-					margin-top: 0px;
-					width: 100%;
-					text-overflow: ellipsis;
-					overflow: hidden;
-					white-space: nowrap;
-					margin-right: 1%;
-					margin-bottom: 2px;
-					ion-icon {
-						font-size: 10px;
-						vertical-align: text-bottom;
-					}
-				}
-				li.center{
-					text-align: center;
-					span.bagd-joins {
-						color: #fff;
-						background: #232941;
-						font-size: 6px;
-						padding: 0px 8px;
-						border-radius: 50px;
-						display: inline-block;
-						margin-top: 2px;
-					}
-				}
-			}
-		}
-	}
-	 h4.main-ttls.mrgn-cstm {
-		margin-bottom: 5px;
-		margin-top: 20px;
-	}
-}
-
-
-.google-ads img {
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 4px;
-    background: rgba(255, 255, 255, 0.08);
-    height: 150px;
-    object-fit: cover;
-    object-position: center top;
 }
 
 .skeleton{

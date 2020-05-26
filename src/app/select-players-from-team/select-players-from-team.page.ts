@@ -53,20 +53,32 @@ export class SelectPlayersFromTeamPage implements OnInit {
     }
 
    ionViewDidEnter(){
+     this._id = localStorage.getItem('_id');
+     this.playerlist = [];
      this.response_came = false;
     this.notifi.presentLoading();
     this.getPlayers();
    }
 
 
-   async myDismiss() {  
+   async myDismiss(s) {  
+    var data;
+    
+    if(s==0){
 
-   var data = {
-     status: 1,
-    selected_player_ids: this.selected_player_ids,
-    team_id : this.team_id
+        data = {
+        status: 0,
+      }
+      }else{
 
-   }
+          data = {
+          status: 1,
+         selected_player_ids: this.selected_player_ids,
+         team_id : this.team_id
+     
+        }
+
+      }
 
     await this.modalController.dismiss(data);
 

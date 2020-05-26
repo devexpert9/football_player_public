@@ -5,156 +5,161 @@
 </ion-header-->
 
 <ion-content class="login-bg">
-		<form novalidate (ngSubmit)="justlogin()" [formGroup]="login">
-	<div class="logo-top">
-		<img src="assets/images/logo.png">
-	</div>
-	<div class="ttl_box">
-		<h4>Signup to join <span>new matches</span></h4>
-	</div>
-	<div class="logn-form">
-		<ion-row>
-			<ion-col size="12">
-				<div class="box-feilds">
-					<ion-input placeholder="First Name" formControlName="fname"></ion-input>
-					<img src="assets/images/user.png" class="icon-log"> 
-				</div>
-			</ion-col>
-			<div *ngIf="!login.controls.fname.valid && is_submit" class="valid">
-					Please enter first name
+	<form novalidate (ngSubmit)="justlogin()" [formGroup]="login">
+<div class="logo-top">
+	<img src="assets/images/logo.png">
+</div>
+<div class="ttl_box">
+	<h4>Signup to join <span>new matches</span></h4>
+</div>
+<div class="logn-form">
+	<ion-row>
+		<ion-col size="12">
+			<div class="box-feilds">
+				<ion-input placeholder="First Name" formControlName="fname"></ion-input>
+				<img src="assets/images/user.png" class="icon-log"> 
 			</div>
+		</ion-col>
+		<div *ngIf="!login.controls.fname.valid && is_submit" class="valid">
+				Please enter first name
+		</div>
 
-			<ion-col size="12">
-				<div class="box-feilds">
-					<ion-input placeholder="Last Name" formControlName="lname"></ion-input>
-					<img src="assets/images/user.png" class="icon-log"> 
-				</div>
-			</ion-col>
-
-			<div *ngIf="!login.controls.lname.valid && is_submit" class="valid">
-					Please enter last name
+		<ion-col size="12">
+			<div class="box-feilds">
+				<ion-input placeholder="Last Name" formControlName="lname"></ion-input>
+				<img src="assets/images/user.png" class="icon-log"> 
 			</div>
+		</ion-col>
+
+		<div *ngIf="!login.controls.lname.valid && is_submit" class="valid">
+				Please enter last name
+		</div>
 
 
-			<ion-col size="12">
-				<div class="box-feilds">
-					<ion-input type="number" placeholder="Phone Number" formControlName="pnumber"></ion-input>
-					<img src="assets/images/phone.png" class="icon-log"> 
-				</div>
-			</ion-col>
-
-			<div *ngIf="!login.controls.pnumber.valid && is_submit" class="valid">
-					Please enter a valid phone number
+		<ion-col size="12">
+			<div class="box-feilds">
+				<ion-input type="number" placeholder="Phone Number" formControlName="pnumber"></ion-input>
+				<img src="assets/images/phone.png" class="icon-log"> 
 			</div>
+		</ion-col>
+
+		<div *ngIf="!login.controls.pnumber.valid && is_submit" class="valid">
+				Please enter a valid phone number
+		</div>
 
 
-			<ion-col size="12">
-				<div class="box-feilds">
-					<ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-					<img src="assets/images/email.png" class="icon-log"> 
-				</div>
-			</ion-col>
-
-			<div *ngIf="!login.controls.email.valid && is_submit" class="valid">
-					Please enter email
+		<ion-col size="12">
+			<div class="box-feilds">
+				<ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+				<img src="assets/images/email.png" class="icon-log"> 
 			</div>
+		</ion-col>
+
+		<div *ngIf="!login.controls.email.valid && is_submit" class="valid">
+				Please enter email
+		</div>
 
 
-			<ion-col size="12">
-				<div class="box-feilds">
-					<ion-datetime class="white-sts" value="" placeholder="Select Date of Birth" formControlName="dob"></ion-datetime>
-					<img src="assets/images/calendar.png" class="icon-log"> 
-				</div>
-			</ion-col>
-
-			<div *ngIf="!login.controls.dob.valid && is_submit" class="valid">
-					Please enter DOB
+		<ion-col size="12">
+			<div class="box-feilds">
+				<ion-datetime class="white-sts" value="" placeholder="Select Date of Birth" formControlName="dob"></ion-datetime>
+				<img src="assets/images/calendar.png" class="icon-log"> 
 			</div>
+		</ion-col>
 
-			<ion-col size="12">
-				<div class="box-feilds">
-					<ion-input type="text" placeholder="Position" formControlName="position"></ion-input>
-					<img src="assets/images/player.png" class="icon-log"> 
-				</div>
-			</ion-col>
+		<div *ngIf="!login.controls.dob.valid && is_submit" class="valid">
+				Please enter DOB
+		</div>
 
-			<div *ngIf="!login.controls.position.valid && is_submit" class="valid">
-					Please enter position
+		<ion-col size="12">
+			<div class="box-feilds">
+				<ion-input type="text" placeholder="Position" formControlName="position"></ion-input>
+				<img src="assets/images/player.png" class="icon-log"> 
 			</div>
+		</ion-col>
+
+		<div *ngIf="!login.controls.position.valid && is_submit" class="valid">
+				Please enter position
+		</div>
 
 
 
-	       <ion-col size="12">
-			 <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete> 
-			</ion-col>
- 
-			<div *ngIf="address_error && is_submit" class="valid">
-					Please enter address
+	   <ion-col size="12">
+	   <div class="box-feilds" signupadd>
+				 <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete> 
+				<!--img src="assets/images/player.png" class="icon-log"--> 
+				<ion-icon class="icon-log"  name="business"></ion-icon>
 			</div>
+		
+		</ion-col>
+
+		<div *ngIf="address_error && is_submit" class="valid">
+				Please enter address
+		</div>
 
 
-      <br>
-      <br>
-      <br>
+  <br>
+  <br>
+  <br>
 
 
 
 
-			
-			<!--ion-col size="12">
-				<div class="box-feilds">
-					<ion-input type="text" placeholder="Goals"></ion-input>
-					<img src="assets/images/foot.png" class="icon-log"> 
-				</div>
-			</ion-col-->		
-			<ion-col size="12">
-				<div class="box-feilds mb-5">
-					<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-					<img src="assets/images/lock.png" class="icon-log"> 
-				</div>
-			</ion-col>
-
-
-			<div *ngIf="!login.controls.password.valid && is_submit" class="valid">
-					Please enter minimum 6 characters password
+		
+		<!--ion-col size="12">
+			<div class="box-feilds">
+				<ion-input type="text" placeholder="Goals"></ion-input>
+				<img src="assets/images/foot.png" class="icon-log"> 
 			</div>
-			
-
-			<ion-col size="12">
-				<div class="box-feilds mb-5">
-					<ion-input type="password" placeholder="Confirm Password" formControlName="cpassword"></ion-input>
-					<img src="assets/images/lock.png" class="icon-log"> 
-				</div>
-			</ion-col>
-
-			<div *ngIf="!login.controls.cpassword.valid && is_submit" class="valid">
-					Please confirm password
+		</ion-col-->		
+		<ion-col size="12">
+			<div class="box-feilds mb-5">
+				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+				<img src="assets/images/lock.png" class="icon-log"> 
 			</div>
+		</ion-col>
 
-			<div *ngIf="is_submit && notmatch" class="valid">
-					Passwords do not match
+
+		<div *ngIf="!login.controls.password.valid && is_submit" class="valid">
+				Please enter minimum 6 characters password
+		</div>
+		
+
+		<ion-col size="12">
+			<div class="box-feilds mb-5">
+				<ion-input type="password" placeholder="Confirm Password" formControlName="cpassword"></ion-input>
+				<img src="assets/images/lock.png" class="icon-log"> 
 			</div>
+		</ion-col>
 
-		</ion-row>
-		<ion-row>
-			<ion-col size="12">
-				<ion-item class="remembr" no-lines lines="none">
-					<ion-label>I agree with all <a href="#" class="theme-color"> Terms & Conditions. </a></ion-label>
-					<ion-checkbox color="primary" slot="start" formControlName="agree"></ion-checkbox>
-				</ion-item>
-			</ion-col>
+		<div *ngIf="!login.controls.cpassword.valid && is_submit" class="valid">
+				Please confirm password
+		</div>
 
-			<div *ngIf="!login.controls.agree.valid && is_submit" class="valid">
-					Please read and agree Terms & Conditions 
-			</div>
+		<div *ngIf="is_submit && notmatch" class="valid">
+				Passwords do not match
+		</div>
 
-		</ion-row>
-		<ion-row>
-			<ion-col size="12">
-				<ion-button type="submit" color="primary" expand="full" shape="round" class="login-btn" >Sign Up</ion-button>
-			</ion-col>
-		</ion-row>
-	</div>
-	<p class="sign-up-txt"> Already have an account? <a href="javascript:void(0);" routerLink="/login"> Log In </a> </p>
+	</ion-row>
+	<ion-row>
+		<ion-col size="12">
+			<ion-item class="remembr" no-lines lines="none">
+				<ion-label>I agree with all <a href="#" class="theme-color"> Terms & Conditions. </a></ion-label>
+				<ion-checkbox color="primary" slot="start" formControlName="agree"></ion-checkbox>
+			</ion-item>
+		</ion-col>
+
+		<div *ngIf="!login.controls.agree.valid && is_submit" class="valid">
+				Please read and agree Terms & Conditions 
+		</div>
+
+	</ion-row>
+	<ion-row>
+		<ion-col size="12">
+			<ion-button type="submit" color="primary" expand="full" shape="round" class="login-btn" >Sign Up</ion-button>
+		</ion-col>
+	</ion-row>
+</div>
+<p class="sign-up-txt"> Already have an account? <a href="javascript:void(0);" routerLink="/login"> Log In </a> </p>
 </form>
 </ion-content>

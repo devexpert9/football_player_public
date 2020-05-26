@@ -16,7 +16,7 @@
 			<h4 class="main-ttls"> Today's Matches </h4>
 			<p *ngIf="noTodayMatch" class="notfound">No match found</p>			
 			<div class="ion-slider">
-				<ion-slides pager="true" [options]="slideOptsOne" #slideWithNav>		
+				<ion-slides pager="true" [options]="slideOptsOne" #slideWithNav *ngIf="matchlist.length!=0">		
 
 			  <ion-slide *ngFor="let match of matchlist">
 				  

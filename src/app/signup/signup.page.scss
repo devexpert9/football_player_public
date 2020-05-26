@@ -1,6 +1,6 @@
 ion-content.login-bg {
-	--background: #252b46;
-	background: #252b46;
+	--background: #535353;
+	background: #535353;
 	.logo-top {
 		text-align: center;
 		padding: 30px 0 10px;
@@ -24,7 +24,7 @@ ion-content.login-bg {
 				position: absolute;
 				width: 50px;
 				height: 3px;
-				background: #00afff;
+				background: #fd93fb;
 				bottom: 0;
 				left: 0;
 				right: 0;
@@ -43,6 +43,8 @@ ion-content.login-bg {
 		margin-bottom: 5px;
 		padding-left: 40px !important;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		    display: inline-block;   
+    width: 100%;
 		
 		ion-input  {
 			font-family: Montserrat, sans-serif !important;
@@ -51,8 +53,9 @@ ion-content.login-bg {
 			--placeholder-color:#fff;
 			--placeholder-opacity:1;
 		}
-		img.icon-log {
+		.icon-log {
 			width: 20px;
+			font-size: 20px;color:var(--ion-color-primary)!important;
 			position: absolute;
 			top: 7px;
 			left:0;
@@ -77,7 +80,7 @@ ion-content.login-bg {
 		float: right;
 		text-align: right;
 		text-decoration: none;
-		color: #5ac1f8;
+		color: #fd93fb;
 		margin-top: 15px;
 	}
 	.login-btn{
@@ -97,12 +100,12 @@ ion-content.login-bg {
 		font-weight: 400;
 		margin-bottom:40px;
 		a {
-			color: #5ac8fa;
+			color: #fd93fb;
 			font-weight: 700;
 			text-decoration: none;
 		}
 	}
-	.theme-color {color:#00afff; text-decoration:none; }
+	.theme-color {color:#fd93fb; text-decoration:none; }
 }
 .mb-5{
     margin-bottom: 5px !important;

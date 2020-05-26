@@ -4,7 +4,8 @@
 		<ion-content bg-dark content-padding>
 	<ion-row>
 		<ion-col size="12">
-      <h4  class="main-ttls mrgn-cstm"> Matches </h4>
+	  <h4  class="main-ttls mrgn-cstm"> Matches </h4>
+	  <p *ngIf="errors.indexOf(t_hours)==-1" style="color: bisque;"> Total Hours of game: {{t_hours}} </p>
       
 		</ion-col>
 	</ion-row>
@@ -61,15 +62,15 @@
 										<!-- <img src="{{url}}{{previousmatch.cover}}" class="main-img" routerLink="/previousmatch-matchdetails">
 										 -->
 
-							<img src="assets/images/woman.png" class="main-img"   *ngIf="previousmatch.gender=='f'" routerLink="/previousmatch-matchdetails">
-							<img src="assets/images/centre.png" class="main-img"    *ngIf="previousmatch.gender=='coed'" routerLink="/previousmatch-matchdetails">
-							<img src="assets/images/ma.png" class="main-img"   *ngIf="previousmatch.gender=='m'" routerLink="/previousmatch-matchdetails">
+							<img src="assets/images/woman.png" class="main-img"   *ngIf="previousmatch.gender=='f'" routerLink="/previousmatch-matchdetails/{{previousmatch._id}}">
+							<img src="assets/images/centre.png" class="main-img"    *ngIf="previousmatch.gender=='coed'" routerLink="/previousmatch-matchdetails/{{previousmatch._id}}">
+							<img src="assets/images/ma.png" class="main-img"   *ngIf="previousmatch.gender=='m'" routerLink="/previousmatch-matchdetails/{{previousmatch._id}}">
 
 										 
 
 										<span class="bagd-joins"> 4 Joined </span>
 										<div class="cont-sts">
-											<h4 class="name-h" routerLink="/previous-matchdetails">{{previousmatch.name}}  </h4>
+											<h4 class="name-h" routerLink="/previous-matchdetails/{{previousmatch._id}}">{{previousmatch.name}}  </h4>
 											<ul class="list-dts">
 												<li> <ion-icon name="pin"></ion-icon> {{previousmatch.location}} </li>
 												<li> <ion-icon name="calendar"></ion-icon> {{previousmatch.date | date : 'd MMM, y' }} <ion-icon name="time"></ion-icon>{{previousmatch.stime}}</li>

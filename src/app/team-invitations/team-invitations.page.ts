@@ -35,8 +35,9 @@ skeleton:any;
       }
 
       ionViewDidEnter(){
-        this.response_came=false;            
         this._id =localStorage.getItem('_id');
+        this.requestslist = [];
+        this.response_came=false;            
         this.getRequests();
       }
 

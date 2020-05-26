@@ -1,5 +1,6 @@
 import { ModalController } from '@ionic/angular';
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Events, ActionSheetController, Platform } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { ApiService } from '../services/api/api.service';
 import { Router } from '@angular/router';
@@ -29,20 +30,27 @@ export class MyvotesPage implements OnInit {
           public router: Router,
           public apiservice:ApiService,
           public notifi:NotiService,
-          public ActivatedRoute:ActivatedRoute
+          public ActivatedRoute:ActivatedRoute,
+          public events: Events,
               ) {
                 this.skeleton=[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,6,7,65,4,2,3,4,5,6,7,8]
-     
+
+                this.events.subscribe('refresh', data => {
+                   this.ionViewDidEnter();
+                })
   }
+
+              ionViewDidEnter(){
+                this._id=localStorage.getItem('_id');
+                this.notiArray =[];
+                this.response_came=false;  
+                this.getMyVotes();
+              }
 
   ngOnInit() {
   }
 
-    ionViewDidEnter(){
-      this.response_came=false;  
-    this.getMyVotes();
-
-  }
+   
 
 
   getMyVotes(){ 

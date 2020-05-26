@@ -1,7 +1,7 @@
 [usr_notification]{
     position:relative;
     --padding:0;
-    --background:#252c46;
+    --background:#535353;
 	background: transparent;
     ion-item{
         --background: transparent;
@@ -12,11 +12,11 @@
 		margin-bottom: 15px;
 		padding: 4px 2px 4px 10px;
 		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-left: 3px solid #00afff;
+		border-left: 3px solid #fd93fb;
         ion-avatar {
 			width: 40px;
 			height: 40px;
-			background: #00afff;
+			background: #fd93fb;
 			text-align: center;
 			line-height: 40px;
 			font-size: 20px;

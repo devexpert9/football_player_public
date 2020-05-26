@@ -21,15 +21,15 @@ ion-header{
 	}
 }
 ion-content[bg-dark] {
-	--background: #252c46;
-	background: #252c46;
+	--background: #535353;
+	background: #535353;
 	h4.main-ttls {
 		padding-right: 10px;
 	    color: #fff;
 	    font-size: 23px;
 	    font-weight: 300;
 	    margin-top: 0px;
-	    border-left: 3px solid #00afff;
+	    border-left: 3px solid#fd93fb;
 	    padding-left: 10px;
 	    margin-bottom: 13px;
 	}
@@ -143,10 +143,11 @@ ion-button{
 	
 		padding: 11px;
 		border-radius: 24px;
-		background-color: #00afff;
-		color:#252c46;;
+		background-color:#fd93fb;
+		color:#535353;;
 }
 .heading{
 	text-align: center;
     color: white
 }
+ 

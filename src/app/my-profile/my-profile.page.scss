@@ -107,7 +107,7 @@ ion-content{
 			{
 			
 				font-size:30px;
-				color: #00afff;
+				color: #fd93fb;
 				margin-right: 10px;
 			}
 			ion-avatar{
@@ -185,9 +185,9 @@ ion-content{
     }
     ion-segment-button.segment-button-checked{
         background:transparent;
-        color:#00afff;
+        color:#fd93fb;
         position:relative;
-        border-color:#00afff;
+        border-color:#fd93fb;
 		overflow: inherit;
 		font-size:14px;
         &::after{
@@ -196,7 +196,7 @@ ion-content{
             height: 0;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            border-top: 5px solid #00afff;
+            border-top: 5px solid #fd93fb;
             position: absolute;
             bottom: -5px;
             left: 0;
@@ -234,19 +234,21 @@ ion-select.slect  {
 }
 
 .createTeam{
-    z-index: 9999;
-    margin-left: 223px;
-    margin-bottom: 99px;
-    background: #31569c80;
+z-index: 9999;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 103px;
+    background: var(--ion-color-primary);
     color: #fff;
-    padding: 8px 20px 8px 20px;
-    font-size: 14px;
+    padding: 3px 8px;
+    font-size: -2px;
     font-weight: 300;
-    border-radius: 6px;
     line-height: 24px;
-    max-width: 200px;
+    max-width: initial;
     text-align: center;
     text-decoration: none;
     border: 1px solid var(--ion-color-primary);
+    border-radius: 30px;
 
 }
+

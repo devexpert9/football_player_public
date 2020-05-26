@@ -1,12 +1,12 @@
 [heading_ttl]{
     ion-title{
-        background:#00afff;
+        background:#fd93fb;
     }
 }
 .cnl_booking
 {
     background: #fff;
-    color: #00afff;
+    color: #fd93fb;
     text-align: center;
     padding:10px 10px 10px 10px;
     border-radius: 7px;
@@ -20,7 +20,7 @@
         position: absolute;
         top: -10px;
         right: -10px;
-        background: #00aff0;
+        background: #fd93fb;
         color: #fff;
         border-radius: 50px;
         font-size: 28px;
@@ -33,7 +33,7 @@
         text-transform: initial;
         font-weight: 700;
         span{
-            color: #00aff0;
+            color: #fd93fb;
         }
     }
     ion-textarea{
@@ -41,18 +41,18 @@
         border-radius: 0px;
         margin-bottom: 15px;
         font-size: 14px;
-        color: #252c46;
+        color: #535353;
         margin-top: 10px;
         --padding-start: 7px;
         --placeholder-color: #2d2d2d;
         --placeholder-opacity: .6;
     }
 	ion-icon{
-	    color: #00aff0;
+	    color: #fd93fb;
 	}
 	ion-label{
 		font-size: 12px;
-		color: #00aff0;
+		color: #fd93fb;
 	}
 	ion-datetime{
         border: 1px solid #c8c7cc;
@@ -70,7 +70,7 @@
         margin: 0 -10px -10px -10px;
         ion-buttons {
             color: #fff;
-            background: #00afff;
+            background: #fd93fb;
             display: block;
             width: 100%;
             padding: 10px;
@@ -80,7 +80,7 @@
             bottom: -60px;
         }
         [dismiss]{
-            background:#009fe8;
+            background:#fd93fb;
             border-radius: 0px 0px 7px 0px;
         }
     }

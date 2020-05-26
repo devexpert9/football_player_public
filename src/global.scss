@@ -60,7 +60,7 @@
 }
 
 .ion-slider span.swiper-pagination-bullet.swiper-pagination-bullet-active{
-	background:#00afff !important;
+	background:#fd93fb !important;
 }
 
 .loading-wrapper.sc-ion-loading-md{
@@ -69,7 +69,9 @@
 }
 
 .spinner-bubbles.sc-ion-loading-md, .spinner-circles.sc-ion-loading-md, .spinner-crescent.sc-ion-loading-md, .spinner-dots.sc-ion-loading-md, .spinner-lines.sc-ion-loading-md, .spinner-lines-small.sc-ion-loading-md {
-    color:#3314bb !important;
+color:var(--ion-color-primary)!important;
+width:50px!important;
+height:50px!important
 }
 
 .notfound{
@@ -110,4 +112,58 @@ ng4geo-autocomplete button.search-icon i.search-default-icon {
 input:focus , textarea:focus , select:focus , ion-datetime:focus , button:focus, ion-item:focus {
 	outline: none;
 	color: #fff;
+}
+[addressproperty]  , [signupadd]
+{
+  ng4geo-autocomplete
+  {    width: 100%!important;
+  input
+  {
+  width: 100%!important;
+    padding: 0px!important;
+    border: none!important;
+    margin: 0!important;
+	&::placeholder {
+    color: #fff;
+}
+  }
+  }
+}ngx-stars .stars-line span.star {
+    background: #fd93fb!important;
+	}
+ngx-stars .stars-line span.star.zero-star
+{
+display:none!important;
+}
+
+
+[addressproperty]{
+	
+			border-bottom: 1px solid #484848;
+			display: flex;
+			ion-label
+			{
+			font-size: 11px;
+			color: #fff;
+			}
+			ion-icon
+			{min-width:30px;
+			font-size: 30px;
+			color: #fd93fb;
+			margin-right: 10px;
+			}
+			[addressleft]
+			{width: 100%!important;
+			ng4geo-autocomplete
+			{    width: 100%!important;
+			input
+			{font-size: 14px;
+			height:30px!important;
+			width: 100%!important;
+			padding: 0px!important;
+			border: none!important;
+			margin: 0!important;
+			}
+			}
+			}
 }

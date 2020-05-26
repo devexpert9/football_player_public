@@ -25,10 +25,11 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AlertController } from '@ionic/angular';
 import { VotingPlayersPage } from './voting-players/voting-players.page';
 import { SelectPlayersFromTeamPage } from './select-players-from-team/select-players-from-team.page';
+import { PopupPlayersPage } from './popup-players/popup-players.page';
 import { NgxStarsModule } from 'ngx-stars';
 @NgModule({
-  declarations: [SelectPlayersFromTeamPage, VotingPlayersPage,AppComponent , SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
-  entryComponents: [SelectPlayersFromTeamPage, VotingPlayersPage,SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
+  declarations: [PopupPlayersPage, SelectPlayersFromTeamPage, VotingPlayersPage,AppComponent , SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
+  entryComponents: [PopupPlayersPage, SelectPlayersFromTeamPage, VotingPlayersPage,SelectFavComponent , CancelbookingComponent , CancelmatchComponent, RequestfieldmodalComponent],
   imports: [
     NgxStarsModule,
     Ng4GeoautocompleteModule,

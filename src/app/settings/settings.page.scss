@@ -1,14 +1,14 @@
 
 ion-content[bg-dark]{
-    --background: #252c46;
-    background: #252c46;
+    --background: #535353;
+    background: #535353;
     ion-item {
       --inline-padding-end: 0px;
 		--padding-end: 0px;
 		margin-bottom: var(--ion-value-15);
 		box-shadow: 3px 3px 21px rgba(255, 255, 255, 0.07);
 		border-radius: 0px;
-		border-left: 4px solid #02a8f647;
+		border-left: 4px solid #fd93fb47;
 		--background: #fff;
 		margin-bottom: 15px;
 		--color: #fff;
@@ -29,7 +29,7 @@ ion-content[bg-dark]{
 					font-size: 22px;
 					color: #fff;
 					padding-top: 5px;
-					background: #02a8f6;
+					background: #fd93fb;
 					margin-right: 12px;
 					margin-top: 0px;
           img{
@@ -46,7 +46,7 @@ ion-content[bg-dark]{
             margin-left:var(--ion-value-15);
             h2{
               font-size: 15px;
-				color: #252c46;
+				color: #535353;
 				font-weight: 500;
 				letter-spacing: 1px;
             }
@@ -61,7 +61,7 @@ ion-content[bg-dark]{
 		padding: 0px;
 		span.icon-stra {
 			/* position: absolute !important; */
-			    background: #02a8f6;
+			    background: #fd93fb;
 				width: 65px;
 				height: 100%;
 				left: 0;

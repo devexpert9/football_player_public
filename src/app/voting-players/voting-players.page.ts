@@ -56,6 +56,8 @@ export class VotingPlayersPage implements OnInit {
     }
 
    ionViewDidEnter(){
+     this._id = localStorage.getItem('_id');
+     this.playerlist = [];
     this.response_came = false;
     this.notifi.presentLoading();
     this.getPlayers();

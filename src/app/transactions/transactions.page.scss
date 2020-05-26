@@ -28,8 +28,8 @@ ion-header{
 	}
 }
 ion-content[bg-dark] {
-	--background: #252c46;
-	background: #252c46;
+	--background: #535353;
+	background: #535353;
 	[mb-15]{
 		margin-bottom:20px;
 	}
@@ -43,7 +43,7 @@ ion-content[bg-dark] {
 				float:left;
 				margin-right:15px;
 				font-size:30px;
-				color:#00afff;
+				color:#fd93fb;
 			}
 			.m_info{
 				overflow:hidden;
@@ -108,14 +108,14 @@ ion-content[bg-dark] {
 					display:block;
 					margin-top:4px;
 					font-size:12px;
-					color:#00afff;
+					color:#fd93fb;
 				}
 			}
 			a{
 				float: right;
 				text-decoration: none;
 				color: #fff;
-				background: #00afff;
+				background: #fd93fb;
 				font-size: 12px;
 				padding: 3px 12px;
 				border-radius: 50px;
@@ -137,7 +137,7 @@ ion-content[bg-dark] {
 				margin-left: 10px;
 				text-decoration: none;
 				color: #fff;
-				background: #00afff;
+				background: #fd93fb;
 				font-size: 12px;
 				padding: 3px 12px;
 				border-radius: 50px;
@@ -170,7 +170,7 @@ ion-content[bg-dark] {
 		}
 	}
 	[plr_hdr]{
-		color: #00afff;
+		color: #fd93fb;
 		padding-bottom: 10px;
 		border-top: 1px solid #5b5e6b;
 		padding-top: 10px;

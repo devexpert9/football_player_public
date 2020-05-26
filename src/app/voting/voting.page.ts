@@ -41,7 +41,7 @@ export class VotingPage implements OnInit {
   }
   ionViewDidEnter(){
 
-      
+      this._id = localStorage.getItem('_id');
   }
 
   async openModal(){

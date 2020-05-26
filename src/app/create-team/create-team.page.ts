@@ -12,7 +12,7 @@ import { Events, ActionSheetController, Platform } from '@ionic/angular';
 import { DomSanitizer } from '@angular/platform-browser';
 declare var window: any; 
 import { ModalController } from '@ionic/angular';
-import { SelectFavComponent } from '../select-fav/select-fav.component';
+import { PopupPlayersPage } from '../popup-players/popup-players.page';
 @Component({
   selector: 'app-create-team',
   templateUrl: './create-team.page.html',
@@ -35,6 +35,7 @@ export class CreateTeamPage implements OnInit {
   alldata:any;
   players:any;
   url:any=config.API_URL+'server/data/p_pics/';
+  ids:any=[];
   public form = [
     { val: 'Pepperoni', isChecked: true },
     { val: 'Sausage', isChecked: false },
@@ -65,6 +66,7 @@ export class CreateTeamPage implements OnInit {
   ngOnInit() {
   }
   ionViewDidEnter(){
+    this.ids=[];
     this.stripe_id = false;
     this.alldata= JSON.parse(localStorage.getItem('user'));    
      
@@ -73,23 +75,30 @@ export class CreateTeamPage implements OnInit {
 
       }
 
-      this.getplayers();
+      
       
   }
 
   makeform(){
     this.addmatch= this.formBuilder.group({
          name:['',Validators.compose([Validators.required])],
-         players:['',Validators.compose([Validators.required])],
-       
-        
-       
+      
     });
   }
   async presentModal() {
     const modal = await this.modalController.create({
-      component: SelectFavComponent
+      component: PopupPlayersPage,
+      componentProps: {ids: this.ids}
+
     });
+
+    modal.onDidDismiss().then((detail) => {
+
+      this.ids = detail.data.ids
+
+
+    })
+
     return await modal.present();
   }
 
@@ -151,6 +160,9 @@ takePicture(sourceType: PictureSourceType) {
 
 
   addmatchnow(){
+
+
+    console.log(this.ids)
   
     var sdate = new Date(this.addmatch.value.stime);
     var edate = new Date(this.addmatch.value.etime);
@@ -209,12 +221,12 @@ takePicture(sourceType: PictureSourceType) {
 
    uploadmatch(img,file){
     this.notifi.presentLoading(); 
-    this.addmatch.value.players.push(this._id);
+    this.ids.push(this._id);
     const formData = new FormData();
     formData.append('file', img, file); 
     formData.append('_id', this._id);
     formData.append('name', this.addmatch.value.name);
-    formData.append('ids', JSON.stringify(this.addmatch.value.players));
+    formData.append('ids', JSON.stringify(this.ids));
 
 
   
@@ -237,26 +249,6 @@ takePicture(sourceType: PictureSourceType) {
    
   }
 
-  getplayers(){
-    this.notifi.presentLoading();  
-    this.apiservice.post('getPlayersForMatch',{_id:this._id},'').subscribe((result) => {  
-      this.notifi.stopLoading();              
-    
-     var res;
-     res= result;
-     if(res.status==1){
-      this.players= res.data;
-      console.log(this.players)
-     }
-
-},
-err => {
-      this.notifi.stopLoading();
-      this.notifi.presentToast('Internal server error. Try again','danger');
-});
-
-  }
-
-
+ 
 }
 

@@ -19,14 +19,23 @@
 							<p>Please confirm your availability for match</p>
 							
 						</ul>
+						<div btnbottom>
+							<ion-button [routerLink]="['/card/'+key.match_id+'/'+key._id+'/'+'3'+'/'+key.owner_id+'/'+1]">
+							On The Way
+							</ion-button>
+							  <ion-button [routerLink]="['/card/'+key.match_id+'/'+key._id+'/'+'3'+'/'+key.owner_id+'/'+0]">
+							Running Late
+							</ion-button>
+							  <ion-button color="danger" (click)="actionOnFieldReq(key.match_id,0,i,key._id)">
+						   Cancel
+							</ion-button>
+						  </div>
+
 						<!-- <p>
 							{{key.request.comment}}
 						</p> -->
 					</div>
-					<div class="btn-acct">
-						<a href="javascript:void(0);" class="accrot" [routerLink]="['/card/'+key.match_id+'/'+key._id+'/'+'3'+'/'+key.owner_id]" routerLinkActive="router-link-active" > <ion-icon name="checkmark"></ion-icon> </a>
-						<a href="javascript:void(0);" (click)="actionOnFieldReq(key.match_id,0,i,key._id)" class="reject"> <ion-icon name="close"></ion-icon> </a>
-					</div>
+	 
 				</ion-card>
 				<p *ngIf="norequest" class="notfound">No confirmations yet</p>
 
@@ -39,7 +48,7 @@
 
 	<div *ngIf="!response_came">
 			<div class="ion-padding custom-skeleton">
-					<ion-item style="--background: #252c46;background: #252c46;" *ngFor="let item of skeleton" >
+					<ion-item style="--background: #535353;background: #535353;" *ngFor="let item of skeleton" >
 							<ion-avatar slot="start">
 							  <ion-skeleton-text animated></ion-skeleton-text>
 							</ion-avatar>
