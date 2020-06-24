@@ -46,10 +46,14 @@ export class PopupPlayersPage implements OnInit {
       
       this.skeleton=[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,6,7,65,4,2,3,4,5,6,7,8]
       setTimeout(()=>{
+       
+        this.selected_player_id = this.navParams.get('ids');
 
-        this.selected_player_id = this.navParams.get('selected_player_id');
+         this.getPlayers();
     
        },1000)
+
+     
     
     }
 
@@ -57,11 +61,9 @@ export class PopupPlayersPage implements OnInit {
     }
 
    ionViewDidEnter(){
-    this._id=localStorage.getItem('_id');
+    this._id = localStorage.getItem('_id');
     this.playerlist=[];
     this.response_came = false;
-    this.notifi.presentLoading();
-    this.getPlayers();
    }
 
 
@@ -81,7 +83,7 @@ export class PopupPlayersPage implements OnInit {
 
   getPlayers(){
   
-    this.apiservice.post('getPlayersForMatch',{match_id: this.match_id},'').subscribe((result) => {       
+    this.apiservice.post('getSelectedPlayers',{ids: JSON.stringify(this.selected_player_id)},'').subscribe((result) => {       
       this.notifi.stopLoading();      
       this.response_came=true;        
      var res;
@@ -109,15 +111,12 @@ export class PopupPlayersPage implements OnInit {
    /////get teams/////
 
     closeModal(){
-     
-        this.modalController.dismiss();
 
+        this.modalController.dismiss();
     }
 
     FieldsChange(values:any,id){
-     
-   
-  
+    
       if(values.target.checked){                       
         if(this.ids.length<15){
   
@@ -126,14 +125,37 @@ export class PopupPlayersPage implements OnInit {
         }
          
       }else{
-  
-      
         var index= this.ids.indexOf(id);
         this.ids.splice(index, 1);
-       
-  
       }         
       }
+
+      search(ev){
+
+        if(this.errors.indexOf(ev.target.value)==-1){
+          this.apiservice.post('searchPlayers',{keyword: ev.target.value},'').subscribe((result) => {       
+            this.notifi.stopLoading();      
+            this.response_came=true;        
+           var res;
+           res= result;
+                  if(res.status == 1){     
+                    
+                      this.noplayerlist = false;
+                    
+                      this.playerlist = res.data;   
+                  }
+                  else{
+                    this.noplayerlist = true;
+                    this.playerlist = [];
+            
+                  }
+          },
+          err => {
+                this.notifi.stopLoading();
+                this.notifi.presentToast('Internal server error. Try again','danger');
+          });
+      }
+    }
 
 }
 

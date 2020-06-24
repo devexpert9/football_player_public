@@ -10,7 +10,8 @@ import { MenuController, Platform, Events } from '@ionic/angular';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ApiService } from './services/api/api.service';
-
+import { Socket } from 'ngx-socket-io';
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -25,13 +26,19 @@ export class AppComponent {
 	  icons:'icon-footbal-play'
     },
     {
+      title: 'Messages',
+      url: '/allchats',
+      icon: 'navigate',
+	    icons:'navigate'
+    },
+    {
       title: 'Matches List',
       url: '/tabs/tabs/matches-list',
       icon: 'list',
 	    icons:'icon-match-list'
     },
     {
-      title: 'My Profile',
+      title: 'My Facility',
       url: '/my-profile',
       icon: 'person',
 	  icons:'icon-user-profiles'
@@ -49,7 +56,7 @@ export class AppComponent {
 	  icons:'person-add'
     },
     {
-      title: 'Owners List',
+      title: 'Facility List',
       url: 'admins',
       icon: 'list',
 	  icons:'list'
@@ -77,6 +84,7 @@ export class AppComponent {
   lname:any;
   points:any;
   _id:any=localStorage.getItem('_id');
+  messages:any=0;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -90,8 +98,14 @@ export class AppComponent {
     private fcm: FCM,
     private geolocation: Geolocation,
     public apiservice:ApiService,
+    private socket: Socket,
 
   ) {
+    this.get_Messages();
+    this.getUpdates().subscribe(new_message => {
+      this.get_Messages();
+      });
+ 
     this.alldata =JSON.parse(localStorage.getItem('user'));
     if(this.errors.indexOf(this.alldata)==-1){
      this.propic=this.alldata.pic;
@@ -110,6 +124,10 @@ export class AppComponent {
        });
        
       this.events.subscribe('logged', data => {
+      this.alldata = JSON.parse(localStorage.getItem('user'));
+      this.propic ='';
+      this._id = localStorage.getItem('_id');        
+      this.get_Messages();
       this.points='';
       this.propic=data;
       this.alldata=JSON.parse(localStorage.getItem('user'));
@@ -202,18 +220,44 @@ export class AppComponent {
 
 
   getPlayerInfo(_id){
-    this.apiservice.post('playerAllInfo',{_id: _id},'').subscribe((result) => {  
+    this.apiservice.post('playerAllInfo', {_id: _id},'').subscribe((result) => {  
+
       var res;
       res= result;
+      localStorage.setItem('team', JSON.stringify(res.team));
       this.points = res.points;
-     
-
   },
   err => {
      
   });
 
   };
+
+  getUpdates() {
+    var self = this;
+    let observable = new Observable(observer => {
+      self.socket.on('rec_message', (data) => {
+        observer.next(data);
+      });
+    })
+    return observable;
+  }
+
+  get_Messages() {
+    this.apiservice.post('get_unread_messages', {_id:this._id},'').subscribe((result) => {
+        var res;
+        res = result;
+        if(res.status == 1){
+        this.messages= res.data;
+        }else{
+        this.messages= null;
+        }
+       
+      },
+      err => {
+ 
+      });
+}
 
   
 

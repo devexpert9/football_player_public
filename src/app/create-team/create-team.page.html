@@ -13,31 +13,13 @@
             Please enter eam Name
         </div>
 
-    
-        <!-- <ion-item no-padding>
-          <ion-icon icon-left slot="start" name="business"></ion-icon>
-          <ion-label position="stacked">Select Players</ion-label>
-          <ion-select multiple="true" cancelText="Cancel" okText="Okay!" formControlName="players">
-
-            <ion-select-option value="{{item?._id}}" *ngFor="let item of players">
-              
-              <img src="assets/images/default-avatar.jpg">
-              <img  *ngIf="errors.indexOf(item.pic)==-1" src="{{url+item?.pic}}">
-              
-              {{item?.fname[0].toUpperCase()+item?.fname.slice(1)}} {{item?.lname[0].toUpperCase()+item?.lname.slice(1)}} 
-            
-            </ion-select-option>
-           
-          </ion-select>
-        </ion-item> -->
-
 
         <ion-item no-padding>
           <ion-icon  icon-left slot="start" name="logo-slack"></ion-icon>
            
            
             <div  (click)="presentModal()" class="choose" *ngIf="ids.length==0">Select Players</div>
-            <div  (click)="presentModal()" class="choose" *ngIf="ids.length>0">Selected</div>
+            <div  (click)="presentModal()" class="choose" *ngIf="ids.length>0">{{ids.length}} Selected</div>
       </ion-item> 
 
 

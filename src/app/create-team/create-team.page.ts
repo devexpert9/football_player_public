@@ -93,7 +93,7 @@ export class CreateTeamPage implements OnInit {
     });
 
     modal.onDidDismiss().then((detail) => {
-
+      console.log(detail);
       this.ids = detail.data.ids
 
 
@@ -234,6 +234,7 @@ takePicture(sourceType: PictureSourceType) {
        this.notifi.stopLoading();              
        this.response=result;
             if(this.response.status == 1){
+              localStorage.setItem('team', JSON.stringify(this.response.team));
               this.notifi.presentToast('Team has been created and invitations have been sent to selected players','success');  
               this.is_submit=false;
               this.addmatch.reset();   

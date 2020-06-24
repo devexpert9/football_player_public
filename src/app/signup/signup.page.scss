@@ -53,6 +53,15 @@ ion-content.login-bg {
 			--placeholder-color:#fff;
 			--placeholder-opacity:1;
 		}
+		ion-select {
+		    font-family: Montserrat, sans-serif !important;
+		    font-size: 14px;
+		    --padding-start: 5px;
+		    color: #fff;
+		    --placeholder-color:#fff;
+			--placeholder-opacity:1;
+		    width: 100%;
+		}
 		.icon-log {
 			width: 20px;
 			font-size: 20px;color:var(--ion-color-primary)!important;
@@ -60,7 +69,23 @@ ion-content.login-bg {
 			top: 7px;
 			left:0;
 		}
+
+		ion-select.slect  {
+    color: #fff;
+    --placeholder-color: #fff;
+    font-family: Montserrat, sans-serif !important;
+    
+    font-size: 14px;
+}
+
+
+
 	}
+	item-native{
+    background: #535353;
+
+	}
+
 	ion-item.remembr  {
 		--background: transparent;
 		background: transparent;
@@ -122,3 +147,94 @@ ion-content.login-bg {
 	color:red;
 	font-size: 12px
 }
+
+
+.select{
+	 
+.item-native{
+    --background: grey;
+
+    background: grey;
+	background: #535353;
+}
+
+
+	 
+}
+
+.box-feilds div {
+	
+	background: #535353;
+		--background: #535353;
+	 
+}
+
+ion-select.slect  {
+     color: #fff;
+    --placeholder-color: #fff;
+    font-family: Montserrat, sans-serif !important;
+    
+    font-size: 14px;
+}
+
+	ion-item{
+            font-size: 14px;
+			margin:0 0 10px;
+			--background:transparent;
+		 
+			[icon-left]
+			{
+			
+				font-size:30px;
+				color: #fd93fb;
+				margin-right: 10px;
+			}
+			ion-avatar{
+				margin:0 10px 0 0;
+				width: auto;
+				ion-icon{
+					font-size:30px;
+					color: #fff;
+				}
+			}
+			ion-label{
+			width: 100%;
+			max-width: 100%;
+			color: #fff;
+			letter-spacing: 1.5px;	
+				span{
+					color: #fff;
+					font-size: 12px;
+					letter-spacing: 1.5px;
+					margin:0 0 5px;
+					display: block;
+				}
+			}
+			ion-input , ion-textarea
+			{
+			font-size: 14px;
+			color:#fff;
+			}
+			ion-button{
+				--box-shadow:none;
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: 11px;
+			}
+			ion-toggle{
+				--box-shadow:none;
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: 11px;
+			}
+		}
+
+		.alert-radio-label.sc-ion-alert-md{
+
+
+		white-space: normal;
+		}
+
+ 

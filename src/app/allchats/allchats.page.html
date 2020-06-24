@@ -1,0 +1,59 @@
+<app-header [title]="title"></app-header>
+
+<ion-content bg-dark content-padding >
+<p  style="text-align: center;color:lightgrey" *ngIf="no_inbox">No Chat Yet</p>
+<span *ngIf="response_came">
+     <ion-item *ngFor="let key of chats" routerLink="/messages/{{key._id}}/{{key.user_type}}">
+          <ion-thumbnail slot="start">
+              <img pro-img src="assets/images/default-avatar.jpg" *ngIf="errors.indexOf(key.pic)>=0"/>
+              <img pro-img src="{{property}}{{key.pic}}" *ngIf="errors.indexOf(key.pic)==-1 && key.user_type=='owner'"  style="width:57px;"/>
+             <img pro-img src="{{purl}}{{key.pic}}" *ngIf="errors.indexOf(key.pic)==-1 && key.user_type=='player'"  style="width:57px;"/>
+          </ion-thumbnail>
+          <div>
+
+             <ion-label style="position: absolute;
+    margin-top: 19px;
+    font-size: 18px;
+" *ngIf="key.user_type =='player'">{{key.name}}</ion-label>
+
+             <ion-label style="position: absolute;
+    margin-top: 19px;
+    font-size: 18px;
+" *ngIf="key.user_type =='owner'">Facility</ion-label>
+
+<br>
+             <p style="   margin-left: 173px;
+    font-size: 11px;">{{key.createdAt| timeAgo}}</p>
+              <p style="    font-size: 15px;
+    
+    margin-top: -15px;
+">{{key.message}}</p>
+          </div>
+         
+  </ion-item>
+
+</span>
+
+
+    <div *ngIf="!response_came">
+      <div class="ion-padding custom-skeleton">
+          <ion-item style="--background: #535353;background: #535353;" *ngFor="let item of skeleton" >
+              <ion-avatar slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
+              <ion-label>
+                <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </h3>
+                <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </p>
+                <p>
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+              </ion-label>
+              </ion-item>
+      </div>    
+  </div>
+
+</ion-content>

@@ -167,6 +167,18 @@ const routes: Routes = [
   {
     path: 'popup-players',
     loadChildren: () => import('./popup-players/popup-players.module').then( m => m.PopupPlayersPageModule)
+  },
+  {
+    path: 'messages/:id/:type',
+    loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
+  },
+  {
+    path: 'allchats',
+    loadChildren: () => import('./allchats/allchats.module').then( m => m.AllchatsPageModule)
+  },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
   }
 ];
 

@@ -10,7 +10,7 @@
 			<img  *ngIf="errors.indexOf(matchlist?.owner.pic)==-1" src="{{url+matchlist?.owner.pic}}">
 
 			<div class="inn_info">
-				<h5  routerLink="/owner-profile/{{matchlist?.owner._id}}" *ngIf="errors.indexOf(matchlist)==-1">{{matchlist?.owner.fname[0].toUpperCase()+matchlist?.owner.fname.slice(1)}} {{matchlist?.owner.lname[0].toUpperCase()+matchlist?.owner.lname.slice(1)}}<span class="owner-lsr">Owner</span></h5>
+				<h5  routerLink="/owner-profile/{{matchlist?.owner._id}}" *ngIf="errors.indexOf(matchlist)==-1"><span class="owner-lsr">Facility</span></h5>
 			 
 	
 			</div>

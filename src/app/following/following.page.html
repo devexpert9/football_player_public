@@ -15,18 +15,18 @@
       
      <ion-item no-padding lines="none" *ngFor="let follow of followArray; let i = index" >
 	        <ion-avatar slot="start">
-	            <img *ngIf="errors.indexOf(follow?.pic)>=0" src="assets/images/default-avatar.jpg">
-	            <img  *ngIf="errors.indexOf(follow?.pic)==-1" src="{{url+follow?.pic}}">
+	            <img *ngIf="errors.indexOf(follow?.cover)>=0" src="assets/images/default-avatar.jpg">
+	            <img  *ngIf="errors.indexOf(follow?.cover)==-1" src="{{url+follow?.cover}}">
 	        </ion-avatar>
 	        <ion-label  no-lines>
-	          <h2 routerLink="/owner-profile/{{follow?._id}}"><span>{{follow?.fname[0].toUpperCase()+follow?.fname.slice(1)}} {{follow?.lname[0].toUpperCase()+follow?.lname.slice(1)}} </span> </h2><a href="javascript:void(0);" class="unfolow" (click)="follownow(follow._id,i)" *ngIf="!noresults"> Unfollow</a>
+	          <h2 routerLink="/owner-profile/{{follow?._id}}"><span>{{follow?.name[0].toUpperCase()+follow?.name.slice(1)}}</span> </h2><a href="javascript:void(0);" class="unfolow" (click)="follownow(follow._id,i)" *ngIf="!noresults"> Unfollow</a>
 	          <div position>
-	            <h5><span>{{follow.city}} {{follow.state}} {{follow.country}}</span></h5>
+	            <h5><span  *ngIf="errors.indexOf(follow?.city)==-1">{{follow.city}}</span></h5>
 	          </div>
 	        </ion-label>
 	</ion-item>
 	
-	<h5 *ngIf="nodata" class="noFollower">You are not following anyone</h5>
+	<p *ngIf="nodata" class="noFollower">You are not following anyone</p>
 	<p *ngIf="noresults" class="searcherror">No results found for {{keyword}}</p>
 
 		</div>		

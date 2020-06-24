@@ -17,7 +17,7 @@ declare var window: any;
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  title = "Home";
+  title = "Center Circle";
   slideOptsOne = {
     initialSlide: 1,
     speed: 400,
@@ -56,8 +56,8 @@ export class HomePage {
   noTodayMatch:any;
   noUpcomingMatch:any;
   skeleton: any = [];
-  response1_came: any = false;
-  response2_came: any = false;
+  response1_came: any;
+  response2_came: any;
   constructor(
  
     public TransferObject: FileTransferObject,
@@ -90,8 +90,8 @@ export class HomePage {
     this.matchlist = [];
     this.upcominglist = [];
     this._id = localStorage.getItem('_id');
-    this.response2_came = false;
-    this.response1_came = false;
+    this.response2_came ='';
+    this.response1_came = '';
     this.todayMatches();
     this.upcomingMatches();
     this.getfav();

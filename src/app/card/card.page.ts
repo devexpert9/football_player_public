@@ -144,7 +144,7 @@ console.log(this.coming_status)
                  
            
                  } else{
-                   this.noti.presentToast('Internal error occured','danger');
+                   this.noti.presentToast(this.respData.msg,'danger');
 
                  }
            

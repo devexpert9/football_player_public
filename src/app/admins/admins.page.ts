@@ -17,8 +17,8 @@ declare var window: any;
   styleUrls: ['./admins.page.scss'],
 })
 export class AdminsPage implements OnInit {
-  title_1:any='Owners List'
-  url:any=config.API_URL+'server/data/pic/';  
+  title_1:any='Facility List'
+  url:any=config.API_URL+'server/data/property/';  
   _id:any=localStorage.getItem('_id');
   followres:any;
   followArray:any;
@@ -123,7 +123,7 @@ search(ev){
           this.searchres=result;
           if(this.searchres.status == 1){     
 
-            this.followArray= this.searchres.data;
+            this.followArray = this.searchres.data;
             
               if(this.followArray.length==0){
               this.noresults= true;

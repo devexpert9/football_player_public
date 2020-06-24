@@ -23,6 +23,7 @@
               <ion-label>
                 {{p.title}}
               </ion-label>
+              <ion-badge color="danger" *ngIf="p.title == 'Messages'">{{messages}}</ion-badge>
             </ion-item>
           </ion-menu-toggle>
 

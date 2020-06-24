@@ -21,7 +21,7 @@ export class SignupPage implements OnInit {
   lat:any;
   address_error:boolean=false;
   lng:any;
-  address:any;
+ 
   constructor(
     public formBuilder: FormBuilder,
      public noti:NotiService,
@@ -61,9 +61,7 @@ export class SignupPage implements OnInit {
           if(this.login.valid){
             if(this.login.value.password==this.login.value.cpassword){
 
-              if(this.errors.indexOf(this.address)==-1){
-                this.address_error=false;
-                    this.noti.presentLoading();
+              this.noti.presentLoading();
               var data={
                 fname:this.login.value.fname,
                 lname:this.login.value.lname,
@@ -75,9 +73,10 @@ export class SignupPage implements OnInit {
                 dob:this.login.value.dob,
                 lat:this.lat,
                 lng:this.lng,
-                uid:this.token,
-                address:this.address
+                uid:this.token
               }
+
+      
                this.api.post('p_signup',data,'').subscribe(res => {
                 this.noti.stopLoading();
                 this.response=res;
@@ -94,12 +93,6 @@ export class SignupPage implements OnInit {
                 this.noti.presentToast('Internal Server Error, Try again','danger');
             }
               )
-
-
-              }else{
-
-               this.address_error=true;
-              }
            
             }else{
               this.notmatch = true;
@@ -110,12 +103,12 @@ export class SignupPage implements OnInit {
          
         }   
 
-        autoCompleteCallback1(selectedData:any) {
+//         autoCompleteCallback1(selectedData:any) {
 
- this.lat= selectedData.data.geometry.location.lat;
- this.lng= selectedData.data.geometry.location.lng;
- this.address=selectedData.data.description;
-}
+//  this.lat= selectedData.data.geometry.location.lat;
+//  this.lng= selectedData.data.geometry.location.lng;
+//  this.address=selectedData.data.description;
+// }
 
 async presentAlert() {
   const alert = await this.alertController.create({

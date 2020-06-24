@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;" *ngIf="errors.indexOf(player?.fname)==-1">{{player?.fname[0].toUpperCase()+player?.fname.slice(1)}} {{player?.lname[0].toUpperCase()+player?.lname.slice(1)}}</ion-title>
+
+    <ion-title style="text-align: center;" *ngIf="errors.indexOf(player?.fname)>=0 && errors.indexOf(player?.name)==-1">Facility ({{player?.name[0].toUpperCase()+player?.name.slice(1)}}) </ion-title>
+
+        <ion-title style="text-align: center;" *ngIf="errors.indexOf(player?.fname)>=0 && errors.indexOf(player?.name)>=0">Facility</ion-title>
+
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/notifications"> <ion-icon name="notifications"></ion-icon><span alert></span></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content comments-bg #content>
+<div header_height></div>
+  <div class="webContainer	">
+	<!--div class="chat-box-s"-->
+	<div class="commts">
+
+
+		<!-- <ion-item-sliding > -->
+			<ion-item *ngFor="let chat of chats ;let i=index" style="--z-index: 9999;">
+		<div [ngClass]="_id == chat.fromId ? 'comnt-single commnt-right' : 'comnt-single'">
+			<div class="comnt-head">
+
+
+				<ng-container *ngIf="_id != chat.fromId">
+			  <img pro-img src="assets/images/default-avatar.jpg" *ngIf="errors.indexOf(chat.pic)>=0"/>
+              <img pro-img src="{{p_purl}}{{chat.pic}}" *ngIf="errors.indexOf(chat.pic)== -1 && chat.user_type=='player' "  style="width:57px;"/>
+              <img pro-img src="{{property}}{{chat.pic}}" *ngIf="errors.indexOf(chat.pic)== -1 && chat.user_type=='owner' "  style="width:57px;"/>
+				</ng-container>
+
+
+				<ng-container *ngIf="_id == chat.fromId">
+			  <img pro-img src="assets/images/default-avatar.jpg" *ngIf="errors.indexOf(alldata.pic)>=0"/>
+              <img pro-img src="{{p_purl}}{{alldata.pic}}" *ngIf="errors.indexOf(alldata.pic)==-1"  style="width:57px;"/>
+				</ng-container>
+				<div class="comt-body">
+					<p>{{chat.message}}</p>
+				 
+					<span><b><ion-icon name="time"></ion-icon> {{chat.createdAt | timeAgo}}</b></span>
+				</div>
+			</div>
+		</div>
+	</ion-item>
+
+		<!-- <ion-item-options side="end" >
+		 
+			<ion-item-option>{{chat.createdAt | date:"short"}}</ion-item-option>
+			</ion-item-options>
+
+		</ion-item-sliding> -->
+		
+
+	</div>
+</div>
+
+
+</ion-content>
+
+<ion-footer vanueFooter>
+  <ion-toolbar class="foot-mgs"> 
+    <ion-item color="none" lines="none">
+	 <ion-input [(ngModel)]="chat_message" placeholder="Type Message here..." ></ion-input>
+	 <a (click)="send()" href="javascript:void(0)" class="filtr-ics"> <ion-icon name="paper-plane"></ion-icon> </a>
+	</ion-item>
+  </ion-toolbar>
+</ion-footer>

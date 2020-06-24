@@ -71,47 +71,34 @@
 				Please enter DOB
 		</div>
 
-		<ion-col size="12">
-			<div class="box-feilds">
-				<ion-input type="text" placeholder="Position" formControlName="position"></ion-input>
-				<img src="assets/images/player.png" class="icon-log"> 
-			</div>
+ 
+
+
+       <ion-col size="12">
+			<div class="box-feilds mb-5">
+			    
+			 
+			 		 <!--ion-label position="stacked">Position</ion-label-->
+					  <ion-select  placeholder="Position" formControlName="position" interface="popover">
+			              <ion-select-option value="Goalkeeper">Goalkeeper</ion-select-option>
+			              <ion-select-option value="Full-backs (left-back or right back)">Full-backs (left-back or right back)</ion-select-option>
+			               <ion-select-option value="Centre-Backs (Central Defender)">Centre-Backs (Central Defender)</ion-select-option>
+			              <ion-select-option value="Sweeper">Sweeper</ion-select-option>
+			               <ion-select-option value="Central Midfield">Central Midfield</ion-select-option>
+			              <ion-select-option value="Wide Midfield (Left Midfield and Right Midfield)">Wide Midfield (Left Midfield and Right Midfield)</ion-select-option>
+			               <ion-select-option value="Striker (Centre Forward)">Striker (Centre Forward)</ion-select-option>
+			              <ion-select-option value="Behind the Striker">Behind the Striker</ion-select-option>
+						 </ion-select>
+					
+					<img src="assets/images/user.png" class="icon-log"> 
+
+ 			</div>
 		</ion-col>
 
-		<div *ngIf="!login.controls.position.valid && is_submit" class="valid">
-				Please enter position
-		</div>
+     <div *ngIf="!login.controls.position.valid && is_submit" class="valid">
+            Please enter position
+        </div>
 
-
-
-	   <ion-col size="12">
-	   <div class="box-feilds" signupadd>
-				 <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete> 
-				<!--img src="assets/images/player.png" class="icon-log"--> 
-				<ion-icon class="icon-log"  name="business"></ion-icon>
-			</div>
-		
-		</ion-col>
-
-		<div *ngIf="address_error && is_submit" class="valid">
-				Please enter address
-		</div>
-
-
-  <br>
-  <br>
-  <br>
-
-
-
-
-		
-		<!--ion-col size="12">
-			<div class="box-feilds">
-				<ion-input type="text" placeholder="Goals"></ion-input>
-				<img src="assets/images/foot.png" class="icon-log"> 
-			</div>
-		</ion-col-->		
 		<ion-col size="12">
 			<div class="box-feilds mb-5">
 				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>

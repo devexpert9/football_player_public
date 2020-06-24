@@ -6,16 +6,35 @@
 <ion-row>
 	<ion-col size-md="12">
 		<div class="owner_info">
-			<img *ngIf="errors.indexOf(matchlist?.owner.pic)>=0" src="assets/images/default-avatar.jpg">
-			<img  *ngIf="errors.indexOf(matchlist?.owner.pic)==-1" src="{{url+matchlist?.owner.pic}}">
+			<img *ngIf="errors.indexOf(matchlist?.owner.pic)>=0" src="assets/images/default-avatar.jpg" routerLink="/owner-profile/{{matchlist?.owner._id}}">
+			<img  *ngIf="errors.indexOf(matchlist?.owner.pic)==-1" src="{{url+matchlist?.owner.pic}}" routerLink="/owner-profile/{{matchlist?.owner._id}}">
 
 			<div class="inn_info">
-				<h5  routerLink="/owner-profile/{{matchlist?.owner._id}}" *ngIf="errors.indexOf(matchlist)==-1">{{matchlist?.owner.fname[0].toUpperCase()+matchlist?.owner.fname.slice(1)}} {{matchlist?.owner.lname[0].toUpperCase()+matchlist?.owner.lname.slice(1)}}<span class="owner-lsr">Owner</span></h5>
-				<span *ngIf="matchlist?.match.request_match==0">
-				<a (click)="joinMatch()" *ngIf="getjoinresult?.indexOf(_id)==-1 && noOfPlayers<matchlist?.match.players">Join now</a>
-				<a (click)="leaveMatch()" *ngIf="getjoinresult?.indexOf(_id)>=0">Leave</a>
+				<h5   *ngIf="errors.indexOf(matchlist)==-1">
+			<!-- 		{{matchlist?.owner.fname[0].toUpperCase()+matchlist?.owner.fname.slice(1)}} {{matchlist?.owner.lname[0].toUpperCase()+matchlist?.owner.lname.slice(1)}} -->
+                  Facility<br>
+             <button (click)="msg_popup('Facility', matchlist?.owner._id, 'owner')" class="message">Message</button>
+          
+					</h5>
 
-				</span>
+			
+			
+             
+			<span *ngIf="matchlist?.match.request_match==0 && matchlist?.join_enabled ==1">
+				<a (click)="openOptions()" *ngIf="getjoinresult?.indexOf(_id)== -1 && noOfPlayers < matchlist?.match.players && (errors.indexOf(matchlist.match.team1_team_id) >=0 || errors.indexOf(matchlist.match.team2_team_id) >=0)">Join</a>
+
+				<a (click)="leaveMatch()" *ngIf="getjoinresult?.indexOf(_id) >= 0 && joinedWithTeam == 0">Leave</a>
+				<a (click)="leaveMatchWithTeam()" *ngIf="getjoinresult?.indexOf(_id) >= 0 && joinedWithTeam ==1">Leave</a>
+
+		    </span>
+
+
+			<span *ngIf="matchlist?.match.request_match==0 && matchlist?.join_enabled ==0">
+				<a (click)="writeNote()" *ngIf="!is_calendar && errors.indexOf(matchlist.match.team1_team_id) >=0 && errors.indexOf(matchlist.match.team2_team_id) >=0">Add To Calendar</a>
+				<a *ngIf="is_calendar">Added To Calendar</a>
+		   </span>
+
+
 	
 			</div>
 		</div>
@@ -62,7 +81,7 @@
 	<ion-col size="2">Player</ion-col>
 	<ion-col size="5">Name</ion-col>
 	<ion-col size="3">Position</ion-col>
-	<ion-col size="2">Goals</ion-col>
+	<ion-col size="2">Message</ion-col>
 </ion-row>
 		
 
@@ -84,11 +103,16 @@
 				<div class="ion-text-center">
 			
 						<ngx-stars  [size]="1" [maxStars]="5" [readonly]="true" [initialStars]="player?.points"></ngx-stars>
+
+					
+
 				
 					</div>
 					</ion-col>
 					<ion-col size="3">{{player?.position}}</ion-col>
-					<ion-col size="2">{{player?.goals}}</ion-col>
+					<ion-col size="2">
+								<button (click)="msg_popup(player?.fname[0].toUpperCase()+player?.fname.slice(1)+' '+player?.lname[0].toUpperCase()+player?.lname.slice(1),player._id, 'player')" *ngIf="_id!=player._id" class="message">Message</button>
+					</ion-col>
 		
 					
 			</ion-row>
@@ -112,7 +136,7 @@
 	<ion-col size="2">Player</ion-col>
 	<ion-col size="5">Name</ion-col>
 	<ion-col size="3">Position</ion-col>
-	<ion-col size="2">Goals</ion-col>
+	<ion-col size="2">Message</ion-col>
 </ion-row> 
 		
 
@@ -133,17 +157,17 @@
 					<div class="ion-text-center">
 			
 						<ngx-stars  [size]="1" [maxStars]="5" [readonly]="true" [initialStars]="player?.points"></ngx-stars>
+						
 				
 					</div>
 					</ion-col>
 					<ion-col size="3">{{player?.position}}</ion-col>
-					<ion-col size="2">{{player?.goals}}</ion-col>
-		
-					
+					<ion-col size="2">
+
+					<button (click)="msg_popup(player?.fname[0].toUpperCase()+player?.fname.slice(1)+' '+player?.lname[0].toUpperCase()+player?.lname.slice(1),player._id, 'player')" *ngIf="_id!=player._id" class="message">Message</button>
+
+				</ion-col>
 			</ion-row>
-			
-
-
 </span>
 
 
@@ -157,7 +181,7 @@
 	<ion-col size="2">Player</ion-col>
 	<ion-col size="5">Name</ion-col>
 	<ion-col size="3">Position</ion-col>
-	<ion-col size="2">Goals</ion-col>
+	<ion-col size="2">Message</ion-col>
 </ion-row>
 		
 
@@ -178,11 +202,15 @@
 					<div class="ion-text-center">
 			
 						<ngx-stars  [size]="1" [maxStars]="5" [readonly]="true" [initialStars]="player?.points"></ngx-stars>
+
+			
 				
 					</div>
 					</ion-col>
 					<ion-col size="3">{{player?.position}}</ion-col>
-					<ion-col size="2">{{player?.goals}}</ion-col>
+					<ion-col size="2">
+				   <button (click)="msg_popup(player?.fname[0].toUpperCase()+player?.fname.slice(1)+' '+player?.lname[0].toUpperCase()+player?.lname.slice(1),player._id, 'player' )" *ngIf="_id!=player._id" class="message">Message</button>
+					</ion-col>
 		
 						
 			</ion-row>

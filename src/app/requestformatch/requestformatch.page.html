@@ -5,12 +5,12 @@
    <div class="cnl_booking">
    
      <h3>Request For <span>Field</span></h3>
-     <div class="msg_box check_box" >
+   <!--   <div class="msg_box check_box" >
       <ion-item no-padding lines="none">
         <ion-checkbox color="primary" (click)="isActive = !isActive" formControlName="fullday"  ></ion-checkbox> <span>Full Day</span>
         </ion-item>
      </div>
-
+ -->
 
 <div class="msg_6">
      <div class="msg_box">
@@ -31,7 +31,7 @@
 
     <div class="msg_box">
      <ion-item no-padding lines="none">
-         <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Select Time" formControlName="stime"></ion-datetime>
+         <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Start Time" formControlName="stime"></ion-datetime>
        </ion-item>
     </div>         
    </div>
@@ -45,28 +45,65 @@
 
       <div class="msg_box">
       <ion-item no-padding lines="none">
-          <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Select Time" formControlName="stime" hourValues="{{total_hours}}" (ionChange)="checktime()"></ion-datetime>
+          <ion-datetime  display-format="HH-mm" picker-format="HH-mm" no-border field_clr  placeholder="Start Time" formControlName="stime" hourValues="{{total_hours}}" ></ion-datetime>
         </ion-item>
       </div>         
     </div>
-
   </span>
+
+    <div *ngIf="!updatedata.controls.stime.valid && is_submit" class="valid">
+        Please select start time
+    </div>
 
     
 
+    <div class="msg_6" [ngClass]="{'block_page': isActive}">
 
-
-     <div class="msg_6" [ngClass]="{'block_page': isActive}">
-
-        <div class="msg_box">
-         <ion-item no-padding lines="none">
-             <ion-datetime  display-format="HH-mm" picker-format="HH-mm"  no-border field_clr  placeholder="Select Time" formControlName="etime" hourValues="{{end_hours}}"></ion-datetime>
-           </ion-item>
-        </div>         
-       </div>
-       <div *ngIf="timerequired && is_submit" class="valid">
-        Please select start and end time
+      <div class="msg_box">
+        <ion-item no-padding>
+          
+             <ion-label position="stacked">Duration</ion-label>
+            <ion-select placeholder="Duration" formControlName="duration" (ionChange)="SelectCustom()">
+                <ion-select-option value="1">30 Mins</ion-select-option>
+                <ion-select-option value="2">1 HR</ion-select-option>
+                <ion-select-option value="3">1 HR 30 Mins</ion-select-option>
+                <ion-select-option value="4">2 HR</ion-select-option>
+                <ion-select-option value="5">Custom</ion-select-option>
+          </ion-select>
+    
+            </ion-item>
+      </div>         
     </div>
+
+      
+    <div *ngIf="!updatedata.controls.duration.valid && is_submit" class="valid">
+        Please select duration
+    </div>
+
+
+     <span *ngIf="is_custom">
+    <div class="msg_6" [ngClass]="{'block_page': isActive}">
+
+      <div class="msg_box" >
+      <ion-item no-padding lines="none">
+           <ion-datetime field_clr display-format="HH-mm" picker-format="HH-mm" formControlName="etime" placeholder="Duration" ></ion-datetime>
+  
+        </ion-item>
+      </div>         
+    </div>
+  </span>
+
+     <div *ngIf="!updatedata.controls.etime.valid && is_submit && is_custom" class="valid">
+            Please select duration
+    </div>
+
+
+
+    
+  
+     
+
+
 
 
     <ion-button  shape="round" (click)="presentModal()" *ngIf="!selected">Select Players</ion-button>

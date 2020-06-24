@@ -9,14 +9,14 @@
       <div>
         <img *ngIf="errors.indexOf(owner_array?.pic)>=0" src="assets/images/default-avatar.jpg">
         <img  *ngIf="errors.indexOf(owner_array?.pic)==-1" src="{{url+owner_array?.pic}}">
-      <h2 *ngIf="errors.indexOf(owner_array?.fname)==-1">{{owner_array?.fname[0].toUpperCase()+owner_array?.fname.slice(1)}} {{owner_array?.lname[0].toUpperCase()+owner_array?.lname.slice(1)}}</h2>
+      <h2 *ngIf="errors.indexOf(owner_array?.fname)==-1">Facility</h2>
      
       <span follower_col><strong>{{noOfFollowers}}</strong> {{noOfFollowers == 1 ? 'Follower' : 'Followers' }}</span>
 			<div class="follow_btn">
         <a href="javascript:void()" (click)="follow()" *ngIf="!following">Follow</a>
         <a href="javascript:void()" (click)="follow()" *ngIf="following">Following</a>        
         <a routerLink="/requestformatch/{{owner_array?._id}}" *ngIf="has_team">Request field</a>
-
+        <a (click)="msg_popup('Facility', owner_array?._id, 'owner')">Message</a>
 			</div>
     </div>
   </div>

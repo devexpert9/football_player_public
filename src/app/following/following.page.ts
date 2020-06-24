@@ -17,7 +17,7 @@ declare var window: any;
   styleUrls: ['./following.page.scss'],
 })
 export class FollowingPage implements OnInit {
-  url:any=config.API_URL+'server/data/pic/';  
+  url:any=config.API_URL+'server/data/property/';  
   _id:any=localStorage.getItem('_id');
   followres:any;
   followArray:any;
@@ -126,6 +126,9 @@ search(ev){
               this.noresults= false;
               } 
 
+          }else{
+             this.followArray =[]
+             this.noresults= true;
           }
     
       },

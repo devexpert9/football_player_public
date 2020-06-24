@@ -13,6 +13,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import { RequestFieldComponent } from "../request-field/request-field.component";
 import { RequestfieldmodalComponent } from "../requestfieldmodal/requestfieldmodal.component";
+import { AlertController } from '@ionic/angular';
+import { Socket } from 'ngx-socket-io';
 declare var window: any; 
 @Component({
   selector: 'app-owner-profile',
@@ -94,7 +96,9 @@ export class OwnerProfilePage implements OnInit {
     public apiservice:ApiService,
     public notifi:NotiService,
     public sanitizer:DomSanitizer,
-    public ActivatedRoute:ActivatedRoute
+    public ActivatedRoute:ActivatedRoute,
+    public alertController: AlertController,
+    private socket: Socket,
     ) {     
       this.skeleton=[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,6,7,65,4,2,3,4,5,6,7,8]
       }
@@ -310,5 +314,65 @@ err => {
 
 
 }; 
+
+
+  msg_popup(name, toId, type){
+      this. presentAlertPrompt(name, toId, type);
+  }
+
+
+
+  send_message(message, toId, type){
+    console.log(toId)
+    this.apiservice.post('add_chat', {fromId: this._id, toId: toId, message : message, fromType: 'player', toType: 'owner'},'').subscribe((res) => { 
+      var result;
+      result = res;
+      if(result.status == 1){
+           this.notifi.presentToast('Message sent','danger');
+        this.socket.connect();
+        this.socket.emit('send_message', {_id : result.data, fromId : this._id, message : message, toId : toId, createdAt : new Date()});
+    
+      }
+    },
+    err => {
+      console.log(err)
+    });
+
+    }
+
+async presentAlertPrompt(name, toId, type) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Quick Message To '+name,
+      mode:'ios',
+      inputs: [
+        {
+          name: 'msg',
+          type: 'text',
+          placeholder: 'Type message...'
+        }
+      
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Send',
+          handler: (value) => {
+          
+             this.send_message(value.msg, toId , type);
+
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
 }

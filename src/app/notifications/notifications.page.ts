@@ -66,16 +66,17 @@ export class NotificationsPage implements OnInit {
           getJoinMatch(){ 
     
         this.apiservice.post('get_player_notifications',{_id:this._id},'').subscribe((result) => { 
+        this.response_came=true;
         this.notifi.stopLoading();  
         this.notires=result;
         console.log(this.notires);
       
         if(this.notires.status == 1){ 
-          this.response_came=true;  
+           
           this.notiArray=this.notires.data;
          
         }else{
-          this.response_came=true;  
+          
           this.notiArray=[];
          
         }

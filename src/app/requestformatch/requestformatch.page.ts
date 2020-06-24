@@ -35,6 +35,7 @@ export class RequestformatchPage implements OnInit {
   is_today:any=true;
   total_hours:any;
   end_hours:any;
+  is_custom:any=false;
   constructor(private modalController: ModalController,
     public formBuilder: FormBuilder,	
     public apiservice:ApiService,
@@ -48,6 +49,10 @@ export class RequestformatchPage implements OnInit {
       this._id= localStorage.getItem('_id');
      
 }
+
+ ionViewDidEnter(){
+     this.is_custom=false;
+ }
 
 
 async presentModal() {
@@ -78,11 +83,11 @@ async presentModal() {
 
 makeform(){
   this.updatedata = this.formBuilder.group({
-       fullday:[false],
        date:['',Validators.compose([Validators.required])],
-       stime:[null],
-       etime:[null],
+       stime:['',Validators.compose([Validators.required])],
+       duration:['',Validators.compose([Validators.required])],
        comment:['',Validators.compose([Validators.required])],
+       etime:['',Validators.compose([Validators.required])],
 
   });
 }
@@ -97,49 +102,83 @@ makeform(){
 
     if(this.updatedata.valid && this.selected_player_id.length!=0){
       this.notifi.presentLoading();
-      var sdate = new Date(this.updatedata.value.stime);
-      var edate = new Date(this.updatedata.value.etime);
-      let shour:any = sdate.getHours();
-      let smin:any = sdate.getMinutes();
-      let ehour:any = edate.getHours();
-      let emin:any = edate.getMinutes();
 
-      if(shour.toString().length<2){
-        shour = '0'+shour;
-      }
 
-      if(smin.toString().length<2){
-         smin= '0'+smin;
-      }
 
-      if(ehour.toString().length<2){
-        ehour= '0'+ehour;
-      }
-
-      if(emin.toString().length<2){
-        emin= '0'+emin;
-      }
-
-      this.stime= shour+ ':'+smin;
-      this.etime= ehour+':'+emin;
+     
+    var sdate = new Date(this.updatedata.value.stime);
+    var edate = sdate;
+  
+    let shour:any = sdate.getHours();
+    let smin:any = sdate.getMinutes();
 
   
+      if(this.updatedata.value.duration=='5'){
+      var edate = new Date(this.updatedata.value.etime);
+      let ehour:any = edate.getHours();
+      let emin:any = edate.getMinutes();
+    
+      }else{
+        if(this.updatedata.value.duration==1){
+      edate.setMinutes(smin + 30 );
+    }
+
+
+    if(this.updatedata.value.duration==2){
+      edate.setMinutes(smin + 60 );
+    }
+
+    if(this.updatedata.value.duration==3){
+      edate.setMinutes(smin + 90 );
+    }
+
+    if(this.updatedata.value.duration==4){
+      edate.setMinutes(smin + 120 );
+    }
+      }
+
+  
+
+    let ehour:any = edate.getHours();
+    let emin:any = edate.getMinutes();
+   
+
+    if(shour.toString().length<2){
+      shour = '0'+shour;
+    }
+
+    if(smin.toString().length<2){
+       smin= '0'+smin;
+    }
+
+    if(ehour.toString().length<2){
+      ehour= '0'+ehour;
+    }
+
+    if(emin.toString().length<2){
+      emin= '0'+emin;
+    }
+
+    this.stime= shour+ ':'+smin;
+    this.etime= ehour+':'+emin;
+
+    console.log(' this.stime', this.stime);
+    console.log(' this.etime', this.etime);
+
+
       var data ={
                   owner_id:this.owner_id,
                   _id:this._id,
-                  fullday:this.updatedata.value.fullday,
                   date:this.updatedata.value.date.split('T')[0],
                   time:this.updatedata.value.time,
-                  comment:this.updatedata.value.comment ,
-                  // payment_id:this.payment_id,
+                  comment:this.updatedata.value.comment,
                   stime: this.stime,
                   etime: this.etime,  
                   selected_player_id:  this.selected_player_id.length!=0 ? this.selected_player_id : [],
-                  team_id: this.team_id
-                         
+                  team_id: this.team_id,
+                  duration : this.updatedata.value.duration      
                 }
 
-                
      this.apiservice.post('fieldRequest',data,'').subscribe((result) => {  
        this.notifi.stopLoading();              
        this.response=result;
@@ -171,67 +210,12 @@ makeform(){
 
 
 
-  checkForm(){
-    console.log(this.updatedata.value.date.split('T')[0]);
-    this.is_submit=true;
-    if(this.updatedata.valid){
-
-     var sdate = new Date(this.updatedata.value.stime);
-        var edate = new Date(this.updatedata.value.etime);
-        let shour:any = sdate.getHours();
-        let smin:any = sdate.getMinutes();
-        let ehour:any = edate.getHours();
-        let emin:any = edate.getMinutes();
-
-        if(shour.toString().length<2){
-          shour = '0'+shour;
-        }
-
-        if(smin.toString().length<2){
-           smin= '0'+smin;
-        }
-
-        if(ehour.toString().length<2){
-          ehour= '0'+ehour;
-        }
-
-        if(emin.toString().length<2){
-          emin= '0'+emin;
-        }
-
-        this.stime= shour+ ':'+smin;
-        this.etime= ehour+':'+emin;
-
-    
-      //
-    if(this.updatedata.value.fullday==true){
-      this.timerequired=false;
-      this.presentModal();  
-
-
-    }else{
-
-       if(this.updatedata.value.stime==null || this.updatedata.value.etime==null){
-        this.timerequired=true; 
-       }else{
-          this.timerequired=false;
-        this.presentModal();    
-        } 
-
-    }
-      
-    }
-  }
-
-  presentModal2(){
-
-
-  }
 
   checkdate(){
  
   this.updatedata.controls['stime'].setValue(null)
-  this.updatedata.controls['etime'].setValue(null)
+ 
+
    var d = new Date();
    var date:any = d.getDate();
    var month:any = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
@@ -277,22 +261,20 @@ makeform(){
      
   }
 
+    SelectCustom(){
+      
+      if(this.updatedata.value.duration=='5'){
+        this.is_custom = true;
+        this.updatedata.controls['etime'].setValue(null);
 
-  checktime(){
-    this.updatedata.controls['etime'].setValue(null)
+      }else{
+        this.is_custom = false;
+        var date = new Date();
+       this.updatedata.controls['etime'].setValue(date);
+      }
+      
+  }
 
-    var hours_n =  new Date(this.updatedata.value.stime);
-    let ehour:any = hours_n.getHours();
-    var i= ehour;
-    var cars = 24
-    var hours_array =[];
-   for (i = ehour; i <= cars; i++) {
-     console.log(i)
-     hours_array.push(ehour++)
-     
-   }
-   this.end_hours = hours_array
 
- }
 
 }

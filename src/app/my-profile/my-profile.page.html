@@ -3,8 +3,7 @@
 
 <ion-content bg-dark>
 	<div UserImg>
-    <button [routerLink]="['/create-team']" routerLinkActive="router-link-active"  class="createTeam" *ngIf="!has_team">Create Team</button>
-    <button [routerLink]="['/see-team']" routerLinkActive="router-link-active"  class="createTeam" *ngIf="has_team">See Team</button>
+
     <div Imgs>
 				<span (click)="selectImage()">
             <ng-container *ngIf="!img_selected">
@@ -54,6 +53,21 @@
       <div itemLists *ngSwitchCase="'personal'">
           <form [formGroup]="updatedata" (ngSubmit)="updatepersnl()">
       <ion-list UserDetails>
+
+
+    
+       <ion-item no-padding>
+
+    <button [routerLink]="['/create-team']" routerLinkActive="router-link-active"   makeOrder  makeTeam *ngIf="!has_team" >Create Team</button>
+    <button [routerLink]="['/see-team']" routerLinkActive="router-link-active"   makeOrder makeTeam *ngIf="has_team"  >See Team</button>
+
+
+          </ion-item>
+
+        
+
+
+
        <ion-item no-padding>
           <ion-icon icon-left slot="start" name="person"></ion-icon>
            <ion-label position="stacked">First Name</ion-label>
@@ -188,19 +202,30 @@
         <div *ngIf="!updatedata.controls.dob.valid && is_submit" class="valid">
             Please enter DOB
         </div>
+
+
+         <ion-item no-padding>
+             <ion-icon icon-left slot="start" name="person"></ion-icon>
+            <ion-label position="stacked">Position</ion-label>
+         
+            <ion-select  placeholder="Select One" formControlName="position" style="color:white">
+
+              <ion-select-option value="Goalkeeper">Goalkeeper</ion-select-option>
+              <ion-select-option value="Full-backs (left-back or right back)">Full-backs (left-back or right back)</ion-select-option>
+               <ion-select-option value="Centre-Backs (Central Defender)">Centre-Backs (Central Defender)</ion-select-option>
+              <ion-select-option value="Sweeper">Sweeper</ion-select-option>
+               <ion-select-option value="Central Midfield">Central Midfield</ion-select-option>
+              <ion-select-option value="Wide Midfield (Left Midfield and Right Midfield)">Wide Midfield (Left Midfield and Right Midfield)</ion-select-option>
+               <ion-select-option value="Striker (Centre Forward)">Striker (Centre Forward)</ion-select-option>
+              <ion-select-option value="Behind the Striker">Behind the Striker</ion-select-option>
   
-  
-      <ion-item no-padding>
-          <ion-icon icon-left slot="start" name="shirt"></ion-icon>
-          <ion-label position="stacked">Position</ion-label>
-          <ion-input  formControlName="position"></ion-input>
+            </ion-select>
         </ion-item>
-  
+
         <div *ngIf="!updatedata.controls.position.valid && is_submit" class="valid">
             Please enter position
         </div>
-  
-  
+    
         
       </ion-list>
       <button type="submit" makeOrder>Save Changes</button>
